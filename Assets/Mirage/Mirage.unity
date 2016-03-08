@@ -640,9 +640,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9608e97bf174aaab5b380108701335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color0: {r: 0.058823526, g: 0.058823526, b: 0.058823526, a: 0}
-  _color1: {r: 0.04411763, g: 0.04411763, b: 0.04411763, a: 0}
-  _shader: {fileID: 4800000, guid: 41f801b02167347b1b40f3860fff2903, type: 3}
+  _color0: {r: 0.058823526, g: 0.057868987, b: 0.05536332, a: 1}
+  _color1: {r: 0, g: 0, b: 0, a: 1}
+  _blurIterations: 1
+  _blurShader: {fileID: 0}
 --- !u!20 &1106827149
 Camera:
   m_ObjectHideFlags: 0

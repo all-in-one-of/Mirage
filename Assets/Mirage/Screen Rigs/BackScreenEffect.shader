@@ -1,4 +1,4 @@
-Shader "Hidden/Mirage/GaussianBlur"
+Shader "Hidden/Mirage/BackScreenEffect"
 {
     Properties
     {
@@ -45,7 +45,7 @@ Shader "Hidden/Mirage/GaussianBlur"
         half p2 = tex2D(_MainTex, i.uv + d.zy).r;
         half p3 = tex2D(_MainTex, i.uv + d.xy).r;
         half o = (p0 + p1 + p2 + p3) * 0.25;
-        return lerp(_Color1, _Color0, pow(1 - o, 10));
+        return lerp(_Color0, _Color1, o);
     }
 
     ENDCG

@@ -2,7 +2,7 @@ Shader "Mirage/Alpha To Grayscale"
 {
     Properties
     {
-        _MainTex("", 2D) = ""{}
+        _MainTex("Base Texture", 2D) = ""{}
     }
 
     CGINCLUDE
