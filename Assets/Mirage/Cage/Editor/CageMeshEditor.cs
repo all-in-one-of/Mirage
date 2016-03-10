@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEditor;
 using System.IO;
 
-namespace NoiseBall
+namespace Mirage
 {
-    [CustomEditor(typeof(NoiseBallMesh))]
-    public class NoiseBallMeshEditor : Editor
+    [CustomEditor(typeof(CageMesh))]
+    public class CageMeshEditor : Editor
     {
         SerializedProperty _subdivisionLevel;
 
@@ -26,11 +26,11 @@ namespace NoiseBall
 
             if (rebuild)
                 foreach (var t in targets)
-                    ((NoiseBallMesh)t).RebuildMesh();
+                    ((CageMesh)t).RebuildMesh();
         }
 
-        [MenuItem("Assets/Create/Emgen/NoiseBallMesh")]
-        public static void CreateNoiseBallMeshAsset()
+        [MenuItem("Assets/Create/Mirage/CageMesh")]
+        public static void CreateCageMeshAsset()
         {
             // Make a proper path from the current selection.
             var path = AssetDatabase.GetAssetPath(Selection.activeObject);
@@ -38,10 +38,10 @@ namespace NoiseBall
                 path = "Assets";
             else if (Path.GetExtension(path) != "")
                 path = path.Replace(Path.GetFileName(AssetDatabase.GetAssetPath(Selection.activeObject)), "");
-            var assetPathName = AssetDatabase.GenerateUniqueAssetPath(path + "/NoiseBallMesh.asset");
+            var assetPathName = AssetDatabase.GenerateUniqueAssetPath(path + "/CageMesh.asset");
 
             // Create an NoiseBballMesh asset.
-            var asset = ScriptableObject.CreateInstance<NoiseBallMesh>();
+            var asset = ScriptableObject.CreateInstance<CageMesh>();
             AssetDatabase.CreateAsset(asset, assetPathName);
             AssetDatabase.AddObjectToAsset(asset.sharedMesh, asset);
 

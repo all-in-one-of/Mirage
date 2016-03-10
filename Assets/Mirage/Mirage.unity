@@ -2541,12 +2541,12 @@ GameObject:
   - 4: {fileID: 1133612684}
   - 114: {fileID: 1133612683}
   m_Layer: 0
-  m_Name: Ball
+  m_Name: Cage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1133612683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2555,22 +2555,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1133612682}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcfa03e271946cc4ba419928f3e01c00, type: 3}
+  m_Script: {fileID: 11500000, guid: 23075cbdf1ca5497f8db6a56b3bdc093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mesh: {fileID: 11400000, guid: 238fee85bed3681478f57a09f66fead2, type: 2}
-  _radius: 0.8
-  _noiseAmplitude: 0.07
+  _mesh: {fileID: 11400000, guid: 9f75fc9d4feb84242aeac3dc5c113c6e, type: 2}
+  _radius: 0.93
+  _noiseAmplitude: 0.05
   _noiseFrequency: 1
-  _noiseMotion: 1
+  _noiseMotion: 0.2
   _lineColor: {r: 1, g: 1, b: 1, a: 1}
-  _surfaceColor: {r: 1, g: 1, b: 1, a: 1}
-  _metallic: 0.58
-  _smoothness: 0.24
-  _castShadows: 1
-  _receiveShadows: 1
-  _surfaceShader: {fileID: 4800000, guid: 5291196e5132acb4aaff4271ac3f42c0, type: 3}
-  _lineShader: {fileID: 4800000, guid: d3ef6db3c5ae4f24d87bf41cd8660335, type: 3}
+  _lineShader: {fileID: 4800000, guid: 4019a8891c145498ca00da4af3469d81, type: 3}
 --- !u!4 &1133612684
 Transform:
   m_ObjectHideFlags: 0
