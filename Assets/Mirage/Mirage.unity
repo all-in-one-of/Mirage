@@ -99,6 +99,7 @@ GameObject:
   - 81: {fileID: 199947335}
   - 114: {fileID: 199947334}
   - 114: {fileID: 199947340}
+  - 114: {fileID: 199947341}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -205,6 +206,20 @@ MonoBehaviour:
   _ambientOnly: 0
   _aoShader: {fileID: 4800000, guid: 7541b5f18b1224a81927d8b1184b122b, type: 3}
   _quadMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &199947341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 199947333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f62703bda9949609c7e262692d2e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blinkInterval: 0.15
+  _texture0: {fileID: 2800000, guid: 934ca4c182f8d430aa1e504daa279f80, type: 3}
+  _texture1: {fileID: 2800000, guid: 282575e47dd514eeda5039e42adb0e23, type: 3}
 --- !u!1 &257497048
 GameObject:
   m_ObjectHideFlags: 0
@@ -2246,7 +2261,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &934041898
 MonoBehaviour:
   m_ObjectHideFlags: 0
