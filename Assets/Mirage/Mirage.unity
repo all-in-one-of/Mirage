@@ -154,7 +154,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 5
+          m_FloatArgument: 8
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
@@ -302,7 +302,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1568902184}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!114 &42510362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,6 +567,8 @@ GameObject:
   - 81: {fileID: 199947335}
   - 114: {fileID: 199947334}
   - 114: {fileID: 199947340}
+  - 114: {fileID: 199947342}
+  - 114: {fileID: 199947343}
   - 114: {fileID: 199947341}
   m_Layer: 0
   m_Name: Main Camera
@@ -624,7 +626,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 10
+  near clip plane: 0.3
   far clip plane: 25
   field of view: 10.4
   orthographic: 0
@@ -648,12 +650,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 199947333}
-  m_LocalRotation: {x: 0.011635268, y: 0, z: 0, w: 0.99993235}
-  m_LocalPosition: {x: 0, y: 0.4, z: -15}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 999185933}
+  m_RootOrder: 0
 --- !u!114 &199947340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,6 +690,47 @@ MonoBehaviour:
   _blinkInterval: 0.15
   _texture0: {fileID: 2800000, guid: 934ca4c182f8d430aa1e504daa279f80, type: 3}
   _texture1: {fileID: 2800000, guid: 282575e47dd514eeda5039e42adb0e23, type: 3}
+--- !u!114 &199947342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 199947333}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ffff0e474954f3a926daf865cc2eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lineColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0, g: 0, b: 0, a: 1}
+  _lowThreshold: 0.322
+  _highThreshold: 0.754
+  _depthSensitivity: 1
+  _normalSensitivity: 1
+  _fallOffDepth: 40
+  _shader: {fileID: 4800000, guid: b8cb1cfbd02c146ccbe95b4baf27a54e, type: 3}
+--- !u!114 &199947343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 199947333}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de9b4ef57b77e448eab047d55678cc97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lineColor: {r: 1, g: 1, b: 1, a: 1}
+  _cellColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0, g: 0, b: 0, a: 1}
+  _rangeMin: 0
+  _rangeMax: 1
+  _cellExponent: 2
+  _iteration: 4
+  _opacity: 1
+  _mesh: {fileID: 11400000, guid: 6dde5c461cd9840b2880664de35361cb, type: 2}
+  _coneShader: {fileID: 4800000, guid: 20b06a1ffeeb448e7adb1f2e9cfca618, type: 3}
+  _contourShader: {fileID: 4800000, guid: 6ff59bb81ef864ffa8fa74fc0cb4f4df, type: 3}
 --- !u!1 &206351040
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,7 +760,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1568902184}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!114 &206351042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1060,6 +1103,175 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: Klak.Osc.OscInput+ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!1 &266400849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 266400850}
+  - 114: {fileID: 266400852}
+  - 114: {fileID: 266400851}
+  m_Layer: 0
+  m_Name: Back Screen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &266400850
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 266400849}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 594163940}
+  m_RootOrder: 0
+--- !u!114 &266400851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 266400849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0853317bb375cb246b545d5225cb52b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colorMode: 1
+  _gradient:
+    key0:
+      serializedVersion: 2
+      rgba: 4294967295
+    key1:
+      serializedVersion: 2
+      rgba: 4294967295
+    key2:
+      serializedVersion: 2
+      rgba: 0
+    key3:
+      serializedVersion: 2
+      rgba: 0
+    key4:
+      serializedVersion: 2
+      rgba: 0
+    key5:
+      serializedVersion: 2
+      rgba: 0
+    key6:
+      serializedVersion: 2
+      rgba: 0
+    key7:
+      serializedVersion: 2
+      rgba: 0
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  _colorArray:
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 0.24264705, g: 0.23772521, b: 0.22480536, a: 1}
+  _colorEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1106827148}
+        m_MethodName: set_color0
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Klak.Wiring.ColorMap+ColorEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &266400852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 266400849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd1ae8719f5f4ed1b7365c706aa8660, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _address: /1/toggle1
+  _inputCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _eventType: 2
+  _triggerType: 1
+  _outputValue0: 0
+  _outputValue1: 1
+  _interpolator:
+    _interpolationType: 1
+    _interpolationSpeed: 10
+  _triggerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _gateOnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _gateOffEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _valueEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 266400851}
+        m_MethodName: set_inputValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Klak.Osc.OscInput+ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &390130554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1120,7 +1332,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
 --- !u!1 &419459425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,7 +1393,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
 --- !u!1 &435624977
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,7 +1643,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
 --- !u!114 &486703261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1797,7 +2009,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1568902184}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!114 &585447395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1973,7 +2185,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 266400850}
   m_Father: {fileID: 1568902184}
   m_RootOrder: 1
 --- !u!114 &594163941
@@ -2103,7 +2316,7 @@ Transform:
   m_LocalScale: {x: 7.296, y: 2.736, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
 --- !u!1 &666034836
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,7 +2384,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
 --- !u!1 &675755883
 GameObject:
   m_ObjectHideFlags: 0
@@ -3700,7 +3913,57 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
+--- !u!1 &700631260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 700631261}
+  - 114: {fileID: 700631262}
+  m_Layer: 0
+  m_Name: Camera Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &700631261
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 700631260}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.3, y: 1.7, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 994885744}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+--- !u!114 &700631262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 700631260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 543ddbe12367a4899b011d43ef41f357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enablePositionNoise: 1
+  _enableRotationNoise: 1
+  _positionFrequency: 0.1
+  _rotationFrequency: 0.1
+  _positionAmplitude: 0.1
+  _rotationAmplitude: 90
+  _positionScale: {x: 1, y: 1, z: 1}
+  _rotationScale: {x: 0.4, y: 1, z: 0.3}
+  _positionFractalLevel: 2
+  _rotationFractalLevel: 2
 --- !u!1 &749802783
 GameObject:
   m_ObjectHideFlags: 0
@@ -3760,7 +4023,7 @@ Transform:
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 18
 --- !u!1 &759209777
 GameObject:
   m_ObjectHideFlags: 0
@@ -4018,7 +4281,7 @@ Transform:
   - {fileID: 221847153}
   - {fileID: 1658132152}
   m_Father: {fileID: 1568902184}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!114 &807013500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4130,6 +4393,203 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!1 &886366423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 886366424}
+  - 114: {fileID: 886366426}
+  - 114: {fileID: 886366425}
+  m_Layer: 0
+  m_Name: Post Fx
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &886366424
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 886366423}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 956984199}
+  m_Father: {fileID: 1568902184}
+  m_RootOrder: 8
+--- !u!114 &886366425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 886366423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8a65ef658d7724f906f7a5932f4d86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventType: 0
+  _interpolator:
+    _interpolationType: 2
+    _interpolationSpeed: 5
+  _triggerEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 956984201}
+        m_MethodName: set_inputValue
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 999185934}
+        m_MethodName: set_target
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1726442773}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 199947342}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 199947342}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 956984201}
+        m_MethodName: set_inputValue
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 999185934}
+        m_MethodName: set_target
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 994885744}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _stateValues:
+  - 0
+  _valueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Klak.Wiring.MultiStateToggle+ValueEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &886366426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 886366423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd1ae8719f5f4ed1b7365c706aa8660, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _address: /1/push8
+  _inputCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _eventType: 0
+  _triggerType: 1
+  _outputValue0: 0
+  _outputValue1: 1
+  _interpolator:
+    _interpolationType: 2
+    _interpolationSpeed: 5
+  _triggerEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 886366425}
+        m_MethodName: Toggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _gateOnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _gateOffEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _valueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Klak.Osc.OscInput+ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &934041897
 GameObject:
   m_ObjectHideFlags: 0
@@ -4209,7 +4669,273 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 14
+--- !u!1 &956984198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 956984199}
+  - 114: {fileID: 956984201}
+  - 114: {fileID: 956984200}
+  m_Layer: 0
+  m_Name: Voronoi
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &956984199
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 956984198}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 886366424}
+  m_RootOrder: 0
+--- !u!114 &956984200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 956984198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cca047568151a79498a29b2b7c19afbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _threshold: 0.001
+  _delayToOff: 0
+  _onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 199947343}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _offEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 199947343}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &956984201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 956984198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6980d93df82e24c9c18ac327c41a94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _modulationType: 0
+  _modulationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _interpolator:
+    _interpolationType: 2
+    _interpolationSpeed: 5
+  _outputType: 2
+  _threshold: 0.01
+  _intOutput0: 0
+  _intOutput1: 100
+  _floatOutput0: 0
+  _floatOutput1: 1
+  _vector3Output0: {x: 0, y: 0, z: 0}
+  _vector3Output1: {x: 1, y: 1, z: 1}
+  _boolEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Klak.Wiring.ValueMap+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _intEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Klak.Wiring.ValueMap+IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _floatEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 199947343}
+        m_MethodName: set_opacity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 956984200}
+        m_MethodName: set_inputValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Klak.Wiring.ValueMap+FloatEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _vector3Event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Klak.Wiring.ValueMap+Vector3Event, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!1 &994885743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 994885744}
+  - 114: {fileID: 994885745}
+  m_Layer: 0
+  m_Name: Arm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &994885744
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 994885743}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 700631261}
+  m_RootOrder: 0
+--- !u!114 &994885745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 994885743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 543ddbe12367a4899b011d43ef41f357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enablePositionNoise: 1
+  _enableRotationNoise: 0
+  _positionFrequency: 0.1
+  _rotationFrequency: 0.2
+  _positionAmplitude: 2
+  _rotationAmplitude: 10
+  _positionScale: {x: 0, y: 0, z: 1}
+  _rotationScale: {x: 1, y: 1, z: 0}
+  _positionFractalLevel: 2
+  _rotationFractalLevel: 3
+--- !u!1 &999185932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 999185933}
+  - 114: {fileID: 999185934}
+  m_Layer: 0
+  m_Name: Camera Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &999185933
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 999185932}
+  m_LocalRotation: {x: 0.011635268, y: 0, z: 0, w: 0.99993235}
+  m_LocalPosition: {x: 0, y: 0.4, z: -15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 199947339}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+--- !u!114 &999185934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 999185932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04f5e50cd25d4df6ad5fe43d1f88cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interpolator: 2
+  _target: {fileID: 1726442773}
+  _positionSpeed: 4
+  _rotationSpeed: 4
+  _jumpDistance: 1
+  _jumpAngle: 60
 --- !u!1 &1095192164
 GameObject:
   m_ObjectHideFlags: 0
@@ -4275,7 +5001,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 16
 --- !u!1 &1106827147
 GameObject:
   m_ObjectHideFlags: 0
@@ -4335,7 +5061,7 @@ Camera:
     m_Bits: 1073741824
   m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 1
+  m_TargetDisplay: 2
   m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 0
@@ -4401,7 +5127,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
 --- !u!114 &1133612685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4492,7 +5218,7 @@ Transform:
   m_Children:
   - {fileID: 759209778}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 13
 --- !u!1 &1288357175
 GameObject:
   m_ObjectHideFlags: 0
@@ -4536,7 +5262,7 @@ Camera:
     m_Bits: 1073741824
   m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 1
   m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 0
@@ -4583,7 +5309,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1568902184}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!114 &1353621421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4721,7 +5447,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
 --- !u!1 &1470164803
 GameObject:
   m_ObjectHideFlags: 0
@@ -4817,6 +5543,7 @@ Transform:
   - {fileID: 10156141}
   - {fileID: 2004199672}
   - {fileID: 802445112}
+  - {fileID: 886366424}
   - {fileID: 807013499}
   - {fileID: 206351041}
   - {fileID: 585447394}
@@ -4824,7 +5551,7 @@ Transform:
   - {fileID: 1994040253}
   - {fileID: 42510361}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 19
 --- !u!1 &1658132151
 GameObject:
   m_ObjectHideFlags: 0
@@ -4986,6 +5713,33 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: Klak.Osc.OscInput+ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!1 &1726442772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1726442773}
+  m_Layer: 0
+  m_Name: Camera Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1726442773
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1726442772}
+  m_LocalRotation: {x: 0.011635268, y: 0, z: 0, w: 0.99993235}
+  m_LocalPosition: {x: 0, y: 0.4, z: -15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
 --- !u!1 &1897004249
 GameObject:
   m_ObjectHideFlags: 0
@@ -5045,7 +5799,7 @@ Transform:
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 17
 --- !u!1 &1909423426
 GameObject:
   m_ObjectHideFlags: 0
@@ -5484,7 +6238,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1, z: 0.4}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
 --- !u!1 &1994040252
 GameObject:
   m_ObjectHideFlags: 0
@@ -5513,7 +6267,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1568902184}
-  m_RootOrder: 12
+  m_RootOrder: 13
 --- !u!114 &1994040254
 MonoBehaviour:
   m_ObjectHideFlags: 0

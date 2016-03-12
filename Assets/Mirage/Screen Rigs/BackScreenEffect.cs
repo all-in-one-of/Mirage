@@ -6,8 +6,18 @@ public class BackScreenEffect : MonoBehaviour
     [SerializeField]
     Color _color0 = Color.black;
 
+    public Color color0 {
+        get { return _color0; }
+        set { _color0 = value; }
+    }
+
     [SerializeField]
     Color _color1 = Color.white;
+
+    public Color color1 {
+        get { return _color1; }
+        set { _color1 = value; }
+    }
 
     [SerializeField] 
     int _blurIterations = 3;
