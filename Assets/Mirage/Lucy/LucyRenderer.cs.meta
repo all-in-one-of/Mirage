@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: cfdf957ce064f49ea82a93df15153661
-timeCreated: 1457705027
+timeCreated: 1457770932
 licenseType: Pro
 MonoImporter:
   serializedVersion: 2
@@ -8,9 +8,12 @@ MonoImporter:
   - _colorMap: {fileID: 2800000, guid: 11103059db86f495b9b39de849dc27f3, type: 3}
   - _normalMap: {fileID: 2800000, guid: c56845965b1814aeab3cc2eaf930aa1e, type: 3}
   - _occlusionMap: {fileID: 2800000, guid: be3fff40e2a444238b06b226daf9ec82, type: 3}
-  - _shader: {fileID: 4800000, guid: 9bbd8979de023432ca70add9a0d53d5d, type: 3}
-  - _mesh1: {fileID: 4300000, guid: 44761469d5a59400da77fb395e740a48, type: 2}
-  - _mesh2: {fileID: 4300000, guid: 101cd1099937a4ee688c5a662e4d5fb9, type: 2}
+  - _unifiedMesh: {fileID: 4300000, guid: 35f90018dfac64fd0aace59422b8a678, type: 3}
+  - _unifiedMeshShader: {fileID: 4800000, guid: c8a7ae2b1bdee4b99ae300084d753f9f,
+      type: 3}
+  - _splitMesh1: {fileID: 4300000, guid: e4428db4d71554345a3b03ba844453a1, type: 2}
+  - _splitMesh2: {fileID: 4300000, guid: 962c5555ce6514664992d525ec29b6c9, type: 2}
+  - _splitMeshShader: {fileID: 4800000, guid: 9bbd8979de023432ca70add9a0d53d5d, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

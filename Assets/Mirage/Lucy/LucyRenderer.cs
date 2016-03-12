@@ -7,8 +7,20 @@ namespace Mirage
     [ExecuteInEditMode]
     public class LucyRenderer : MonoBehaviour
     {
-        #region Exposed properties
+        #region Public properties
 
+        [SerializeField] bool _split;
+
+        public bool split {
+            get { return _split; }
+            set { _split = value; }
+        }
+
+        #endregion
+
+        #region Editable properties
+
+        [Space]
         [SerializeField, ColorUsage(false)] Color _color1 = Color.white;
         [SerializeField, ColorUsage(false)] Color _color2 = Color.black;
         [SerializeField] Texture _colorMap;
@@ -35,34 +47,32 @@ namespace Mirage
 
         #region Private properties
 
-        Material material {
+        bool _initialized;
+
+        Material _unifiedMaterial;
+        [SerializeField, HideInInspector] Mesh _unifiedMesh;
+        [SerializeField, HideInInspector] Shader _unifiedMeshShader;
+
+        Material _splitMaterial;
+        [SerializeField, HideInInspector] Mesh _splitMesh1;
+        [SerializeField, HideInInspector] Mesh _splitMesh2;
+        [SerializeField, HideInInspector] Shader _splitMeshShader;
+
+        Matrix4x4 transformMatrix {
             get {
-                if (_material == null) {
-                    var shader = Shader.Find("Hidden/Mirage/Lucy/Disintegration");
-                    _material = new Material(shader);
-                    _material.hideFlags = HideFlags.DontSave;
-                }
-                return _material;
+                return Matrix4x4.TRS(
+                    transform.position,
+                    transform.localRotation * Quaternion.Euler(-90, -180, 0),
+                    transform.localScale
+                );
             }
         }
 
-        Material _material;
-
-        [SerializeField, HideInInspector] Shader _shader;
-        [SerializeField, HideInInspector] Mesh _mesh1;
-        [SerializeField, HideInInspector] Mesh _mesh2;
-
         #endregion
 
-        #region MonoBehaviour Functions
+        #region Private methods
 
-        void OnDisable()
-        {
-            if (_material != null) DestroyImmediate(_material);
-            _material = null;
-        }
-
-        void Update()
+        void ApplyParametersToMaterial(Material material)
         {
             material.
                 Property("_Color1", _color1).
@@ -78,16 +88,54 @@ namespace Mirage
                 Property("_BackColor", _backColor).
                 Property("_BackGlossiness", _backSmoothness).
                 Property("_BackMetallic", _backMetallic);
+        }
 
-            var rotation =
-                transform.localRotation * Quaternion.Euler(-90, -180, 0);
+        void InitializeResources()
+        {
+            _unifiedMaterial = new Material(_unifiedMeshShader);
+            _unifiedMaterial.hideFlags = HideFlags.DontSave;
+            ApplyParametersToMaterial(_unifiedMaterial);
 
-            var matrix = Matrix4x4.TRS(
-                transform.position, rotation, transform.localScale
-            );
+            _splitMaterial = new Material(_splitMeshShader);
+            _splitMaterial.hideFlags = HideFlags.DontSave;
+            ApplyParametersToMaterial(_splitMaterial);
 
-            Graphics.DrawMesh(_mesh1, matrix, material, 0);
-            Graphics.DrawMesh(_mesh2, matrix, material, 0);
+            _initialized = true;
+        }
+
+        #endregion
+
+        #region MonoBehaviour functions
+
+        void OnDisable()
+        {
+            if (_initialized)
+            {
+                DestroyImmediate(_unifiedMaterial);
+                _unifiedMaterial = null;
+
+                DestroyImmediate(_splitMaterial);
+                _splitMaterial = null;
+
+                _initialized = false;
+            }
+        }
+
+        void Update()
+        {
+            if (!_initialized) InitializeResources();
+
+            var matrix = transformMatrix;
+
+            if (_split)
+            {
+                Graphics.DrawMesh(_splitMesh1, matrix, _splitMaterial, 0);
+                Graphics.DrawMesh(_splitMesh2, matrix, _splitMaterial, 0);
+            }
+            else
+            {
+                Graphics.DrawMesh(_unifiedMesh, matrix, _unifiedMaterial, 0);
+            }
         }
 
         #endregion

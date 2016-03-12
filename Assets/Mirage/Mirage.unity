@@ -2118,6 +2118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfdf957ce064f49ea82a93df15153661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _split: 0
   _color1: {r: 0.8970588, g: 0.8970588, b: 0.8970588, a: 1}
   _color2: {r: 0.9558824, g: 0.9452184, b: 0.8855969, a: 1}
   _colorMap: {fileID: 2800000, guid: 11103059db86f495b9b39de849dc27f3, type: 3}
@@ -2131,9 +2132,11 @@ MonoBehaviour:
   _backColor: {r: 0.21323532, g: 0.16933393, b: 0.16933393, a: 0}
   _backSmoothness: 0
   _backMetallic: 0
-  _shader: {fileID: 4800000, guid: 9bbd8979de023432ca70add9a0d53d5d, type: 3}
-  _mesh1: {fileID: 4300000, guid: 44761469d5a59400da77fb395e740a48, type: 2}
-  _mesh2: {fileID: 4300000, guid: 101cd1099937a4ee688c5a662e4d5fb9, type: 2}
+  _unifiedMesh: {fileID: 4300000, guid: 35f90018dfac64fd0aace59422b8a678, type: 3}
+  _unifiedMeshShader: {fileID: 4800000, guid: c8a7ae2b1bdee4b99ae300084d753f9f, type: 3}
+  _splitMesh1: {fileID: 4300000, guid: e4428db4d71554345a3b03ba844453a1, type: 2}
+  _splitMesh2: {fileID: 4300000, guid: 962c5555ce6514664992d525ec29b6c9, type: 2}
+  _splitMeshShader: {fileID: 4800000, guid: 9bbd8979de023432ca70add9a0d53d5d, type: 3}
 --- !u!4 &749802785
 Transform:
   m_ObjectHideFlags: 0
@@ -2761,6 +2764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfdf957ce064f49ea82a93df15153661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _split: 1
   _color1: {r: 0.8970588, g: 0.8970588, b: 0.8970588, a: 1}
   _color2: {r: 0.9558824, g: 0.9452184, b: 0.8855969, a: 1}
   _colorMap: {fileID: 2800000, guid: 11103059db86f495b9b39de849dc27f3, type: 3}
@@ -2774,9 +2778,11 @@ MonoBehaviour:
   _backColor: {r: 0.21323532, g: 0.16933393, b: 0.16933393, a: 0}
   _backSmoothness: 0
   _backMetallic: 0
-  _shader: {fileID: 4800000, guid: 9bbd8979de023432ca70add9a0d53d5d, type: 3}
-  _mesh1: {fileID: 4300000, guid: 44761469d5a59400da77fb395e740a48, type: 2}
-  _mesh2: {fileID: 4300000, guid: 101cd1099937a4ee688c5a662e4d5fb9, type: 2}
+  _unifiedMesh: {fileID: 4300000, guid: 35f90018dfac64fd0aace59422b8a678, type: 3}
+  _unifiedMeshShader: {fileID: 4800000, guid: c8a7ae2b1bdee4b99ae300084d753f9f, type: 3}
+  _splitMesh1: {fileID: 4300000, guid: e4428db4d71554345a3b03ba844453a1, type: 2}
+  _splitMesh2: {fileID: 4300000, guid: 962c5555ce6514664992d525ec29b6c9, type: 2}
+  _splitMeshShader: {fileID: 4800000, guid: 9bbd8979de023432ca70add9a0d53d5d, type: 3}
 --- !u!4 &1897004251
 Transform:
   m_ObjectHideFlags: 0
