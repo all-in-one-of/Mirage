@@ -94,8 +94,13 @@
     {
         UNITY_INITIALIZE_OUTPUT(Input, data);
 
+        float3x3 mmm = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
         // position of centroid
         float3 center = v.texcoord1.xyz;
+
+        float phi = sin(_Time.y + v.vertex.z) * 8 * sin(_Time.x * 3);
+        float3x3 mm ={ cos(phi), -sin(phi), 0, sin(phi), cos(phi), 0, 0, 0, 1 };
 
         // random seed
         float2 seed = center.xy + center.zx;
@@ -115,7 +120,7 @@
         float4 rotation = rotation_angle_axis(rangle, float3(1, 0, 0));
 
         // scale
-        float scale = 1.0 + pow(abs(snoise(center.xyx * 2 + _Time.y)), 20) * 100;
+        float scale = 1.0;// + pow(abs(snoise(center.xyx * 2 + _Time.y)), 20) * 100;
 
         // apply transform in triangle-local space
         float3 p_v = v.vertex.xyz - center;
@@ -124,10 +129,11 @@
         p_v *= scale;
         //p_v += displace;
 
-        v.vertex.xyz = p_v + center;
+        v.vertex.xyz = mul(mm, p_v + center);
 
         // rotate normal vector
         //v.normal = rotate_vector(v.normal, rotation) * flipNormal;
+        v.normal = mul(mm, v.normal) * flipNormal;
     }
 
     ENDCG
