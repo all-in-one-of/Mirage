@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 using Klak.MaterialExtension;
+using Klak.Math;
 
 namespace Mirage
 {
     [ExecuteInEditMode]
     public class LucyRenderer : MonoBehaviour
     {
-        #region Public properties
+        #region Public properties and methods
 
         [SerializeField] bool _split;
 
@@ -15,6 +16,41 @@ namespace Mirage
             get { return _split; }
             set { _split = value; }
         }
+
+        [SerializeField, Range(0, 1)] float _effect1;
+
+        public float effect1 {
+            get { return _effect1; }
+            set { _effect1 = value; }
+        }
+
+        [SerializeField, Range(0, 1)] float _effect2;
+
+        public float effect2 {
+            get { return _effect2; }
+            set { _effect2 = value; }
+        }
+
+        [SerializeField, Range(0, 1)] float _effect3;
+
+        public float effect3 {
+            get { return _effect3; }
+            set { _effect3 = value; }
+        }
+
+        [SerializeField, Range(0, 1)] float _effect4;
+
+        public float effect4 {
+            get { return _effect4; }
+            set { _effect4 = value; }
+        }
+
+        public void ChangeRandomSeed()
+        {
+            _randomSeed = Random.value;
+        }
+
+        float _randomSeed;
 
         #endregion
 
@@ -40,14 +76,10 @@ namespace Mirage
 
         [Space]
         [SerializeField, ColorUsage(false)] Color _backColor = Color.red;
-        [SerializeField, Range(0, 1)] float _backSmoothness;
-        [SerializeField, Range(0, 1)] float _backMetallic;
 
         #endregion
 
         #region Private properties
-
-        bool _initialized;
 
         Material _unifiedMaterial;
         [SerializeField, HideInInspector] Mesh _unifiedMesh;
@@ -57,6 +89,10 @@ namespace Mirage
         [SerializeField, HideInInspector] Mesh _splitMesh1;
         [SerializeField, HideInInspector] Mesh _splitMesh2;
         [SerializeField, HideInInspector] Shader _splitMeshShader;
+
+        MaterialPropertyBlock _mpblock;
+        NoiseGenerator _noise;
+        bool _initialized;
 
         Matrix4x4 transformMatrix {
             get {
@@ -85,9 +121,7 @@ namespace Mirage
                 Property("_OcclusionMap", _occlusionMap).
                 Property("_OcclusionStrength", _occlusionStrength).
                 Property("_OcclusionContrast", _occlusionContrast).
-                Property("_BackColor", _backColor).
-                Property("_BackGlossiness", _backSmoothness).
-                Property("_BackMetallic", _backMetallic);
+                Property("_BackColor", _backColor);
         }
 
         void InitializeResources()
@@ -100,6 +134,8 @@ namespace Mirage
             _splitMaterial.hideFlags = HideFlags.DontSave;
             ApplyParametersToMaterial(_splitMaterial);
 
+            _mpblock = new MaterialPropertyBlock();
+            _noise = new NoiseGenerator(0.2f);
             _initialized = true;
         }
 
@@ -125,16 +161,38 @@ namespace Mirage
         {
             if (!_initialized) InitializeResources();
 
+            _noise.Step();
+
             var matrix = transformMatrix;
+
 
             if (_split)
             {
-                Graphics.DrawMesh(_splitMesh1, matrix, _splitMaterial, 0);
-                Graphics.DrawMesh(_splitMesh2, matrix, _splitMaterial, 0);
+                _mpblock.Property(
+                    "_Effect",
+                    _effect1 * 8,
+                    _effect2 * 2,
+                    _effect3 * 0.01f,
+                    _randomSeed
+                );
+
+                Graphics.DrawMesh(
+                    _splitMesh1, matrix, _splitMaterial, 0, null, 0, _mpblock
+                );
+
+                Graphics.DrawMesh(
+                    _splitMesh2, matrix, _splitMaterial, 0, null, 0, _mpblock
+                );
             }
             else
             {
-                Graphics.DrawMesh(_unifiedMesh, matrix, _unifiedMaterial, 0);
+                _mpblock.Property(
+                    "_Effect", _effect1, _effect2, _effect3, _effect4
+                );
+
+                Graphics.DrawMesh(
+                    _unifiedMesh, matrix, _unifiedMaterial, 0, null, 0, _mpblock
+                );
             }
         }
 

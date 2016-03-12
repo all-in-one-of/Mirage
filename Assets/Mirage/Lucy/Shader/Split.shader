@@ -2,28 +2,24 @@
 {
     Properties
     {
-        _Color1("Base Color", Color) = (1, 1, 1, 1)
-        _Color2("Dark Color", Color) = (0.4, 0.2, 0.1, 1)
-        _ColorMap("Color Mix Map", 2D) = "black"{}
+        _Color1("", Color) = (1, 1, 1, 1)
+        _Color2("", Color) = (0.4, 0.2, 0.1, 1)
+        _ColorMap("", 2D) = "black"{}
 
-        _Glossiness("Smoothness", Range(0, 1)) = 0
-        [Gamma] _Metallic("Metallic", Range(0, 1)) = 0
+        _Glossiness("", Range(0, 1)) = 0
+        [Gamma] _Metallic("", Range(0, 1)) = 0
 
-        _BumpMap("Normal Map", 2D) = "bump"{}
-        _BumpScale("Scale", Float) = 1
+        _BumpMap("", 2D) = "bump"{}
+        _BumpScale("", Float) = 1
 
-        _OcclusionMap("Occlusion", 2D) = "white"{}
-        _OcclusionStrength("Strength", Range(0, 1)) = 1
-        _OcclusionContrast("Contrast", Range(0, 5)) = 1
+        _OcclusionMap("", 2D) = "white"{}
+        _OcclusionStrength("", Range(0, 1)) = 1
+        _OcclusionContrast("", Range(0, 5)) = 1
 
-        _BackColor("", Color) = (0.5, 0.5, 0.5, 1)
-        _BackGlossiness("", Range(0.0, 1.0)) = 0.1
-        [Gamma] _BackMetallic("", Range(0.0, 1.0)) = 0.0
+        _BackColor("", Color) = (0, 0, 0)
     }
 
     CGINCLUDE
-
-    #include "SimplexNoise3D.cginc"
 
     fixed4 _Color1;
     fixed4 _Color2;
@@ -40,8 +36,8 @@
     half _OcclusionContrast;
 
     half4 _BackColor;
-    half _BackGlossiness;
-    half _BackMetallic;
+
+    float4 _Effect;
 
     struct Input
     {
@@ -92,10 +88,7 @@
 
     float3 displace(float3 v, float3 n)
     {
-        float d = nrand(v.xz + v.zy) < 0.005;
-        v += n * d * max(0, sin(_Time.y * 2));
-
-        float phi = sin(_Time.y + v.z) * 8 * sin(_Time.x * 3);
+        float phi = (v.z + 1.9) * _Effect.x;
         float sn, cs;
         sincos(phi, sn, cs);
         float3x3 mtx = {
@@ -104,24 +97,10 @@
             0, 0, 1
         };
 
+        float d = nrand(v.xz + v.zy + _Effect.w) < _Effect.z;
+        v += n * d * _Effect.y;
+
         return mul(v, mtx);
-    }
-
-    void vert_common(inout appdata_full v, out Input data, float flipNormal)
-    {
-        UNITY_INITIALIZE_OUTPUT(Input, data);
-
-        float3 v1 = v.vertex.xyz;
-        float3 v2 = v.texcoord1.xyz;
-        float3 v3 = v.texcoord2.xyz;
-        float3 n = v.normal;
-
-        v1 = displace(v1, n);
-        v2 = displace(v2, n);
-        v3 = displace(v3, n);
-
-        v.vertex.xyz = v1;
-        v.normal = normalize(cross(v2 - v1, v3 - v1));
     }
 
     ENDCG
@@ -135,9 +114,19 @@
         #pragma surface surf Standard vertex:vert nolightmap addshadow
         #pragma target 3.0
 
-        void vert(inout appdata_full v, out Input data)
+        void vert(inout appdata_full v)
         {
-            vert_common(v, data, 1);
+            float3 v1 = v.vertex.xyz;
+            float3 v2 = v.texcoord1.xyz;
+            float3 v3 = v.texcoord2.xyz;
+            float3 n = v.normal;
+
+            v1 = displace(v1, n);
+            v2 = displace(v2, n);
+            v3 = displace(v3, n);
+
+            v.vertex.xyz = v1;
+            v.normal = normalize(cross(v2 - v1, v3 - v1));
         }
 
         void surf(Input IN, inout SurfaceOutputStandard o)

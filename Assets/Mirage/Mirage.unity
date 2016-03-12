@@ -2119,6 +2119,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _split: 0
+  _effect1: 0
+  _effect2: 0
+  _effect3: 0
+  _effect4: 0
   _color1: {r: 0.8970588, g: 0.8970588, b: 0.8970588, a: 1}
   _color2: {r: 0.9558824, g: 0.9452184, b: 0.8855969, a: 1}
   _colorMap: {fileID: 2800000, guid: 11103059db86f495b9b39de849dc27f3, type: 3}
@@ -2129,9 +2133,7 @@ MonoBehaviour:
   _occlusionMap: {fileID: 2800000, guid: be3fff40e2a444238b06b226daf9ec82, type: 3}
   _occlusionStrength: 0.7
   _occlusionContrast: 1.8
-  _backColor: {r: 0.21323532, g: 0.16933393, b: 0.16933393, a: 0}
-  _backSmoothness: 0
-  _backMetallic: 0
+  _backColor: {r: 0.5441177, g: 0.208045, b: 0.208045, a: 0}
   _unifiedMesh: {fileID: 4300000, guid: 35f90018dfac64fd0aace59422b8a678, type: 3}
   _unifiedMeshShader: {fileID: 4800000, guid: c8a7ae2b1bdee4b99ae300084d753f9f, type: 3}
   _splitMesh1: {fileID: 4300000, guid: e4428db4d71554345a3b03ba844453a1, type: 2}
@@ -2765,6 +2767,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _split: 1
+  _effect1: 0
+  _effect2: 0
+  _effect3: 0
+  _effect4: 0
   _color1: {r: 0.8970588, g: 0.8970588, b: 0.8970588, a: 1}
   _color2: {r: 0.9558824, g: 0.9452184, b: 0.8855969, a: 1}
   _colorMap: {fileID: 2800000, guid: 11103059db86f495b9b39de849dc27f3, type: 3}
@@ -2775,9 +2781,7 @@ MonoBehaviour:
   _occlusionMap: {fileID: 2800000, guid: be3fff40e2a444238b06b226daf9ec82, type: 3}
   _occlusionStrength: 0.7
   _occlusionContrast: 1.8
-  _backColor: {r: 0.21323532, g: 0.16933393, b: 0.16933393, a: 0}
-  _backSmoothness: 0
-  _backMetallic: 0
+  _backColor: {r: 0.5441177, g: 0.208045, b: 0.208045, a: 0}
   _unifiedMesh: {fileID: 4300000, guid: 35f90018dfac64fd0aace59422b8a678, type: 3}
   _unifiedMeshShader: {fileID: 4800000, guid: c8a7ae2b1bdee4b99ae300084d753f9f, type: 3}
   _splitMesh1: {fileID: 4300000, guid: e4428db4d71554345a3b03ba844453a1, type: 2}
