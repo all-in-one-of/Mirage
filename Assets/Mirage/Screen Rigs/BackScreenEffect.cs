@@ -22,8 +22,8 @@ public class BackScreenEffect : MonoBehaviour
     [SerializeField] 
     int _blurIterations = 3;
 
-    [SerializeField]
-    Shader _blurShader;
+    [SerializeField, HideInInspector]
+    Shader _shader;
 
     Material blurMaterial {
         get {
