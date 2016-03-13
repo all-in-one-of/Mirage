@@ -569,7 +569,6 @@ GameObject:
   - 114: {fileID: 199947340}
   - 114: {fileID: 199947342}
   - 114: {fileID: 199947343}
-  - 114: {fileID: 199947341}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -676,20 +675,6 @@ MonoBehaviour:
   _ambientOnly: 0
   _aoShader: {fileID: 4800000, guid: 7541b5f18b1224a81927d8b1184b122b, type: 3}
   _quadMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 3}
---- !u!114 &199947341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 199947333}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26f62703bda9949609c7e262692d2e79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _blinkInterval: 0.15
-  _texture0: {fileID: 2800000, guid: 934ca4c182f8d430aa1e504daa279f80, type: 3}
-  _texture1: {fileID: 2800000, guid: 282575e47dd514eeda5039e42adb0e23, type: 3}
 --- !u!114 &199947342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1470,7 +1455,18 @@ MonoBehaviour:
   _triggerEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 199947341}
+      - m_Target: {fileID: 1288357178}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1106827151}
         m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
@@ -1485,7 +1481,18 @@ MonoBehaviour:
       PublicKeyToken=null
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 199947341}
+      - m_Target: {fileID: 1288357178}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1106827151}
         m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
@@ -5281,6 +5288,7 @@ GameObject:
   - 4: {fileID: 1106827150}
   - 20: {fileID: 1106827149}
   - 114: {fileID: 1106827148}
+  - 114: {fileID: 1106827151}
   m_Layer: 30
   m_Name: Back Screen Rig
   m_TagString: Untagged
@@ -5350,6 +5358,20 @@ Transform:
   - {fileID: 1526229777}
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &1106827151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1106827147}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f62703bda9949609c7e262692d2e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blinkInterval: 0.3
+  _texture0: {fileID: 2800000, guid: 31e9d06b6b05c419bba53f148edbd1b3, type: 3}
+  _texture1: {fileID: 2800000, guid: 31e9d06b6b05c419bba53f148edbd1b3, type: 3}
 --- !u!1 &1133612682
 GameObject:
   m_ObjectHideFlags: 0
@@ -5536,6 +5558,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1288357177}
   - 20: {fileID: 1288357176}
+  - 114: {fileID: 1288357178}
   m_Layer: 30
   m_Name: Front Screen Rig
   m_TagString: Untagged
@@ -5590,6 +5613,20 @@ Transform:
   - {fileID: 1470164804}
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &1288357178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1288357175}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26f62703bda9949609c7e262692d2e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blinkInterval: 0.15
+  _texture0: {fileID: 2800000, guid: 934ca4c182f8d430aa1e504daa279f80, type: 3}
+  _texture1: {fileID: 2800000, guid: 282575e47dd514eeda5039e42adb0e23, type: 3}
 --- !u!1 &1353621418
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,8 +4,8 @@
 public class EndScreen : MonoBehaviour
 {
     [SerializeField] float _blinkInterval = 0.3f;
-    [SerializeField, HideInInspector] Texture _texture0;
-    [SerializeField, HideInInspector] Texture _texture1;
+    [SerializeField] Texture _texture0;
+    [SerializeField] Texture _texture1;
 
     void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
