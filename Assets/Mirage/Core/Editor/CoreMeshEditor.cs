@@ -4,8 +4,8 @@ using System.IO;
 
 namespace Mirage
 {
-    [CustomEditor(typeof(CageMesh))]
-    public class CageMeshEditor : Editor
+    [CustomEditor(typeof(CoreMesh))]
+    public class CoreMeshEditor : Editor
     {
         SerializedProperty _subdivisionLevel;
 
@@ -26,11 +26,11 @@ namespace Mirage
 
             if (rebuild)
                 foreach (var t in targets)
-                    ((CageMesh)t).RebuildMesh();
+                    ((CoreMesh)t).RebuildMesh();
         }
 
-        [MenuItem("Assets/Create/Mirage/CageMesh")]
-        public static void CreateCageMeshAsset()
+        [MenuItem("Assets/Create/Mirage/CoreMesh")]
+        public static void CreateCoreMeshAsset()
         {
             // Make a proper path from the current selection.
             var path = AssetDatabase.GetAssetPath(Selection.activeObject);
@@ -38,10 +38,10 @@ namespace Mirage
                 path = "Assets";
             else if (Path.GetExtension(path) != "")
                 path = path.Replace(Path.GetFileName(path), "");
-            var assetPathName = AssetDatabase.GenerateUniqueAssetPath(path + "/CageMesh.asset");
+            var assetPathName = AssetDatabase.GenerateUniqueAssetPath(path + "/CoreMesh.asset");
 
-            // Create an CageMesh asset.
-            var asset = ScriptableObject.CreateInstance<CageMesh>();
+            // Create an CoreMesh asset.
+            var asset = ScriptableObject.CreateInstance<CoreMesh>();
             AssetDatabase.CreateAsset(asset, assetPathName);
             AssetDatabase.AddObjectToAsset(asset.sharedMesh, asset);
 

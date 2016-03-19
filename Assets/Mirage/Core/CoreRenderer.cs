@@ -5,7 +5,7 @@ using Klak.MaterialExtension;
 namespace Mirage
 {
     [ExecuteInEditMode]
-    public class CageRenderer : MonoBehaviour
+    public class CoreRenderer : MonoBehaviour
     {
 
         #region Exposed parameters
@@ -56,7 +56,7 @@ namespace Mirage
             set { _maskFrequency = value; }
         }
 
-        [SerializeField] float _maskFrequency = 0.5f;
+        [Space, SerializeField] float _maskFrequency = 0.5f;
 
         /// Animation speed of noise mask
         public float maskMotion {
@@ -81,7 +81,7 @@ namespace Mirage
             set { _surfaceColor = value; }
         }
 
-        [Space, SerializeField, ColorUsage(false, true, 0, 8, 0.125f, 3)]
+        [SerializeField, ColorUsage(false, true, 0, 8, 0.125f, 3)]
         Color _surfaceColor = Color.white;
 
         /// Alpha cutoff level
@@ -96,7 +96,7 @@ namespace Mirage
 
         #region Private resources
 
-        [SerializeField, HideInInspector] CageMesh _mesh;
+        [SerializeField, HideInInspector] CoreMesh _mesh;
         [SerializeField, HideInInspector] Shader _lineShader;
         [SerializeField, HideInInspector] Shader _surfaceShader;
 
@@ -117,11 +117,11 @@ namespace Mirage
 
         void OnEnable()
         {
-            var lineShader = Shader.Find("Hidden/Mirage/Cage/Line");
+            var lineShader = Shader.Find("Hidden/Mirage/Core/Line");
             _lineMaterial = new Material(lineShader);
             _lineMaterial.hideFlags = HideFlags.DontSave;
 
-            var surfaceShader = Shader.Find("Hidden/Mirage/Cage/Surface");
+            var surfaceShader = Shader.Find("Hidden/Mirage/Core/Surface");
             _surfaceMaterial = new Material(surfaceShader);
             _surfaceMaterial.hideFlags = HideFlags.DontSave;
 

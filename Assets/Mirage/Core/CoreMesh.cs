@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Mirage
 {
-    public class CageMesh : ScriptableObject
+    public class CoreMesh : ScriptableObject
     {
         #region Public properties
 
@@ -104,7 +104,7 @@ namespace Mirage
         {
             if (_mesh == null) {
                 _mesh = new Mesh();
-                _mesh.name = "Cage";
+                _mesh.name = "Core";
             }
         }
 

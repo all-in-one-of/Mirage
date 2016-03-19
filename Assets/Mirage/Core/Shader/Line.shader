@@ -1,4 +1,4 @@
-﻿Shader "Hidden/Mirage/Cage/Line"
+﻿Shader "Hidden/Mirage/Core/Line"
 {
     Properties
     {

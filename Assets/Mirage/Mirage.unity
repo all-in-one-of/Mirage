@@ -5771,7 +5771,7 @@ GameObject:
   - 114: {fileID: 1133612683}
   - 114: {fileID: 1133612685}
   m_Layer: 0
-  m_Name: Cage
+  m_Name: Core
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5798,7 +5798,7 @@ MonoBehaviour:
   _lineColor: {r: 1, g: 1, b: 1, a: 1}
   _surfaceColor: {r: 1, g: 1, b: 1, a: 1}
   _cutoff: 0.5
-  _mesh: {fileID: 11400000, guid: 9f75fc9d4feb84242aeac3dc5c113c6e, type: 2}
+  _mesh: {fileID: 11400000, guid: ada479da429614a99a45f29895d6a674, type: 2}
   _lineShader: {fileID: 4800000, guid: 4019a8891c145498ca00da4af3469d81, type: 3}
   _surfaceShader: {fileID: 0}
 --- !u!4 &1133612684
