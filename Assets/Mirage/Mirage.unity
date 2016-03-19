@@ -599,6 +599,7 @@ GameObject:
   - 114: {fileID: 199947340}
   - 114: {fileID: 199947342}
   - 114: {fileID: 199947343}
+  - 114: {fileID: 199947341}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -705,6 +706,24 @@ MonoBehaviour:
   _ambientOnly: 0
   _aoShader: {fileID: 4800000, guid: 7541b5f18b1224a81927d8b1184b122b, type: 3}
   _quadMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 3}
+--- !u!114 &199947341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 199947333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6adc2119778e14351850378cae8ab9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cutoff: 0.554
+  _origin: {fileID: 432028248}
+  _frequency: 6
+  _speed: 4
+  _color: {r: 1, g: 0, b: 0.3931036, a: 1}
+  _specular: 2
+  _shader: {fileID: 4800000, guid: d661ac1644a0f4fbea6a3453f206834e, type: 3}
 --- !u!114 &199947342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1438,6 +1457,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
+--- !u!1 &432028247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 432028248}
+  - 114: {fileID: 432028249}
+  m_Layer: 0
+  m_Name: Stripe Origin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &432028248
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 432028247}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+--- !u!114 &432028249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 432028247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 543ddbe12367a4899b011d43ef41f357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enablePositionNoise: 0
+  _enableRotationNoise: 1
+  _positionFrequency: 0.1
+  _rotationFrequency: 0.18
+  _positionAmplitude: 1
+  _rotationAmplitude: 240
+  _positionScale: {x: 1, y: 1, z: 1}
+  _rotationScale: {x: 0, y: 0, z: 1}
+  _positionFractalLevel: 1
+  _rotationFractalLevel: 1
 --- !u!1 &435624977
 GameObject:
   m_ObjectHideFlags: 0
