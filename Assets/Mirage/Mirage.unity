@@ -655,8 +655,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 25
+  near clip plane: 13
+  far clip plane: 40
   field of view: 10.4
   orthographic: 0
   orthographic size: 5
@@ -5776,7 +5776,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1133612683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5788,13 +5788,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23075cbdf1ca5497f8db6a56b3bdc093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 0.93
-  _noiseAmplitude: 0.05
-  _noiseFrequency: 1
-  _noiseMotion: 1.2
+  _radius: 0.75
+  _spikeAmplitude: 8
+  _spikeExponent: 8
+  _spikeFrequency: 2
+  _spikeMotion: 2
+  _maskFrequency: 0.5
+  _maskMotion: 2
   _lineColor: {r: 1, g: 1, b: 1, a: 1}
+  _surfaceColor: {r: 1, g: 1, b: 1, a: 1}
+  _cutoff: 0.5
   _mesh: {fileID: 11400000, guid: 9f75fc9d4feb84242aeac3dc5c113c6e, type: 2}
   _lineShader: {fileID: 4800000, guid: 4019a8891c145498ca00da4af3469d81, type: 3}
+  _surfaceShader: {fileID: 0}
 --- !u!4 &1133612684
 Transform:
   m_ObjectHideFlags: 0

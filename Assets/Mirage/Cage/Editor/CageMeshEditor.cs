@@ -37,10 +37,10 @@ namespace Mirage
             if (string.IsNullOrEmpty(path))
                 path = "Assets";
             else if (Path.GetExtension(path) != "")
-                path = path.Replace(Path.GetFileName(AssetDatabase.GetAssetPath(Selection.activeObject)), "");
+                path = path.Replace(Path.GetFileName(path), "");
             var assetPathName = AssetDatabase.GenerateUniqueAssetPath(path + "/CageMesh.asset");
 
-            // Create an NoiseBballMesh asset.
+            // Create an CageMesh asset.
             var asset = ScriptableObject.CreateInstance<CageMesh>();
             AssetDatabase.CreateAsset(asset, assetPathName);
             AssetDatabase.AddObjectToAsset(asset.sharedMesh, asset);
