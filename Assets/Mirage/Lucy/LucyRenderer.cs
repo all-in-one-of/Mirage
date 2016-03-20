@@ -98,8 +98,8 @@ namespace Mirage
             get {
                 return Matrix4x4.TRS(
                     transform.position,
-                    transform.localRotation * Quaternion.Euler(-90, -180, 0),
-                    transform.localScale
+                    transform.rotation * Quaternion.Euler(-90, -180, 0),
+                    transform.lossyScale
                 );
             }
         }
