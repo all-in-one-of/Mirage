@@ -220,6 +220,17 @@ namespace Kvant
 
         #endregion
 
+        // -- Mirage --
+
+        public float scaleFactor { get; set; }
+
+        Vector2 _waveTime = Vector3.one * 5;
+
+        public void KickHorizontalWave() { _waveTime.x = 0; }
+        public void KickVerticalWave() { _waveTime.y = 0; }
+
+        // ------------
+
         #region Editor Properties
 
         [SerializeField]
@@ -369,6 +380,11 @@ namespace Kvant
                 m.EnableKeyword("SCALE_XYZ");
             else
                 m.DisableKeyword("SCALE_XYZ");
+
+            // -- Mirage --
+            m.SetFloat("_ScaleFactor", scaleFactor);
+            m.SetVector("_WaveTime", _waveTime);
+            // ------------
         }
 
         void ResetResources()
@@ -414,6 +430,11 @@ namespace Kvant
         void Update()
         {
             if (_needsReset) ResetResources();
+
+            // -- Mirage --
+            _waveTime += Vector2.one * Time.deltaTime;
+            if (scaleFactor < 0.001f && _waveTime.x > 5 && _waveTime.y > 5) return;
+            // ------------
 
             // Call the kernels.
             UpdateKernelShader();
