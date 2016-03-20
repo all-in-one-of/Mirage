@@ -1,0 +1,198 @@
+fileFormatVersion: 2
+guid: 2b7e4181e0799460ebdc410159a270d5
+timeCreated: 1458458517
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: ipr_camera
+    100002: ipr_camera1
+    100004: ring0
+    100006: ring1
+    100008: ring1_polyline0
+    100010: ring1_polyline1
+    100012: ring1_polyline10
+    100014: ring1_polyline2
+    100016: ring1_polyline3
+    100018: ring1_polyline4
+    100020: ring1_polyline5
+    100022: ring1_polyline6
+    100024: ring1_polyline7
+    100026: ring1_polyline8
+    100028: ring1_polyline9
+    100030: ring2
+    100032: ring2_polyline0
+    100034: ring2_polyline1
+    100036: ring2_polyline10
+    100038: ring2_polyline11
+    100040: ring2_polyline12
+    100042: ring2_polyline13
+    100044: ring2_polyline2
+    100046: ring2_polyline3
+    100048: ring2_polyline4
+    100050: ring2_polyline5
+    100052: ring2_polyline6
+    100054: ring2_polyline7
+    100056: ring2_polyline8
+    100058: ring2_polyline9
+    100060: ring3
+    100062: ring3_polyline0
+    100064: ring3_polyline1
+    100066: ring3_polyline10
+    100068: ring3_polyline11
+    100070: ring3_polyline12
+    100072: ring3_polyline2
+    100074: ring3_polyline3
+    100076: ring3_polyline4
+    100078: ring3_polyline5
+    100080: ring3_polyline6
+    100082: ring3_polyline7
+    100084: ring3_polyline8
+    100086: ring3_polyline9
+    100088: ring4
+    100090: ring4_polyline0
+    100092: ring4_polyline1
+    100094: ring4_polyline2
+    100096: ring4_polyline3
+    100098: ring4_polyline4
+    100100: ring4_polyline5
+    100102: ring4_polyline6
+    100104: ring4_polyline7
+    100106: ring4_polyline8
+    100108: ring4_polyline9
+    100110: //RootNode
+    400000: ipr_camera
+    400002: ipr_camera1
+    400004: ring0
+    400006: ring1
+    400008: ring1_polyline0
+    400010: ring1_polyline1
+    400012: ring1_polyline10
+    400014: ring1_polyline2
+    400016: ring1_polyline3
+    400018: ring1_polyline4
+    400020: ring1_polyline5
+    400022: ring1_polyline6
+    400024: ring1_polyline7
+    400026: ring1_polyline8
+    400028: ring1_polyline9
+    400030: ring2
+    400032: ring2_polyline0
+    400034: ring2_polyline1
+    400036: ring2_polyline10
+    400038: ring2_polyline11
+    400040: ring2_polyline12
+    400042: ring2_polyline13
+    400044: ring2_polyline2
+    400046: ring2_polyline3
+    400048: ring2_polyline4
+    400050: ring2_polyline5
+    400052: ring2_polyline6
+    400054: ring2_polyline7
+    400056: ring2_polyline8
+    400058: ring2_polyline9
+    400060: ring3
+    400062: ring3_polyline0
+    400064: ring3_polyline1
+    400066: ring3_polyline10
+    400068: ring3_polyline11
+    400070: ring3_polyline12
+    400072: ring3_polyline2
+    400074: ring3_polyline3
+    400076: ring3_polyline4
+    400078: ring3_polyline5
+    400080: ring3_polyline6
+    400082: ring3_polyline7
+    400084: ring3_polyline8
+    400086: ring3_polyline9
+    400088: ring4
+    400090: ring4_polyline0
+    400092: ring4_polyline1
+    400094: ring4_polyline2
+    400096: ring4_polyline3
+    400098: ring4_polyline4
+    400100: ring4_polyline5
+    400102: ring4_polyline6
+    400104: ring4_polyline7
+    400106: ring4_polyline8
+    400108: ring4_polyline9
+    400110: //RootNode
+    2300000: ring0
+    2300002: ring1
+    2300004: ring2
+    2300006: ring3
+    2300008: ring4
+    3300000: ring0
+    3300002: ring1
+    3300004: ring2
+    3300006: ring3
+    3300008: ring4
+    4300000: ring1
+    4300002: ring0
+    4300004: ring2
+    4300006: ring3
+    4300008: ring4
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
