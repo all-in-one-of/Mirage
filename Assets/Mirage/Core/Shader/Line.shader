@@ -13,6 +13,7 @@
         #pragma surface surf Standard vertex:vert nolightmap addshadow
         #pragma target 3.0
 
+
         #include "Common.cginc"
 
         struct Input { float dummy; };
@@ -21,7 +22,7 @@
 
         void vert(inout appdata_full v)
         {
-            v.vertex.xyz = SpikeDisplacement(v.vertex.xyz);
+            ApplyModifier(v);
         }
 
         void surf(Input IN, inout SurfaceOutputStandard o)

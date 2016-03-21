@@ -7,90 +7,124 @@ namespace Mirage
     [ExecuteInEditMode]
     public class CoreRenderer : MonoBehaviour
     {
-
         #region Exposed parameters
 
-        /// Radius of sphere
+        [SerializeField] float _radius = 1.0f;
+
         public float radius {
             get { return _radius; }
             set { _radius = value; }
         }
 
-        [SerializeField] float _radius = 1.0f;
+        [Space] // Spike animation
 
-        /// Spike amplitude
+        [SerializeField] float _spikeAmplitude = 8;
+
         public float spikeAmplitude {
             get { return _spikeAmplitude; }
             set { _spikeAmplitude = value; }
         }
 
-        [Space, SerializeField] float _spikeAmplitude = 8;
+        [SerializeField] float _spikeExponent = 8;
 
-        /// Exponent coefficient of spike amplitude
         public float spikeExponent {
             get { return _spikeExponent; }
             set { _spikeExponent = value; }
         }
 
-        [SerializeField] float _spikeExponent = 8;
+        [SerializeField] float _spikeFrequency = 2;
 
-        /// Frequency of spikes
         public float spikeFrequency {
             get { return _spikeFrequency; }
             set { _spikeFrequency = value; }
         }
 
-        [SerializeField] float _spikeFrequency = 2;
+        [SerializeField] float _spikeMotion = 2;
 
-        /// Animation speed of spikes
         public float spikeMotion {
             get { return _spikeMotion; }
             set { _spikeMotion = value; }
         }
 
-        [SerializeField] float _spikeMotion = 2;
+        [Space] // Mask animation
 
-        /// Frequency of noise mask
+        [SerializeField] float _maskFrequency = 0.5f;
+
         public float maskFrequency {
             get { return _maskFrequency; }
             set { _maskFrequency = value; }
         }
 
-        [Space, SerializeField] float _maskFrequency = 0.5f;
+        [SerializeField] float _maskMotion = 2;
 
-        /// Animation speed of noise mask
         public float maskMotion {
             get { return _maskMotion; }
             set { _maskMotion = value; }
         }
 
-        [SerializeField] float _maskMotion = 2;
+        [Space] // Material properties
 
-        /// Line color
+        [SerializeField, ColorUsage(true, true, 0, 8, 0.125f, 3)]
+        Color _lineColor = Color.white;
+
         public Color lineColor {
             get { return _lineColor; }
             set { _lineColor = value; }
         }
 
-        [Space, SerializeField, ColorUsage(false, true, 0, 8, 0.125f, 3)]
-        Color _lineColor = Color.white;
+        [SerializeField, ColorUsage(false)]
+        Color _surfaceColor = Color.white;
 
-        /// Surface color
         public Color surfaceColor {
             get { return _surfaceColor; }
             set { _surfaceColor = value; }
         }
 
-        [SerializeField, ColorUsage(false, true, 0, 8, 0.125f, 3)]
-        Color _surfaceColor = Color.white;
+        [SerializeField, ColorUsage(false)]
+        Color _backSurfaceColor = Color.gray;
 
-        /// Alpha cutoff level
+        public Color backSurfaceColor {
+            get { return _backSurfaceColor; }
+            set { _backSurfaceColor = value; }
+        }
+
+        [SerializeField, Range(0, 1)] float _smoothness = 0;
+
+        public float smoothness {
+            get { return _smoothness; }
+            set { _smoothness = value; }
+        }
+
+        [SerializeField, Range(0, 1)] float _metallic = 0;
+
+        public float metallic {
+            get { return _metallic; }
+            set { _metallic = value; }
+        }
+
+        [SerializeField, ColorUsage(false, true, 0, 8, 0.125f, 3)]
+        Color _emission = Color.black;
+
+        public Color emission {
+            get { return _emission; }
+            set { _emission = value; }
+        }
+
+        [Space] // Additional shader properties
+
+        [SerializeField, Range(0, 1)] float _cutoff = 0.5f;
+
         public float cutoff {
             get { return _cutoff; }
             set { _cutoff = value; }
         }
 
-        [SerializeField, Range(0, 1)] float _cutoff = 0.5f;
+        [SerializeField, Range(0, 1)] float _shrink = 0.5f;
+
+        public float shrink {
+            get { return _shrink; }
+            set { _shrink = value; }
+        }
 
         #endregion
 
@@ -153,6 +187,7 @@ namespace Mirage
             // Material setup
             _shaderArgs.
                 Property("_Cutoff", _cutoff).
+                Property("_Shrink", _shrink).
                 Property("_SpikeOffset", _spikeOffset).
                 Property("_SpikeAmplitude", _spikeAmplitude).
                 Property("_SpikeExponent", _spikeExponent).
@@ -160,23 +195,31 @@ namespace Mirage
                 Property("_MaskOffset", _maskOffset).
                 Property("_MaskFrequency", _maskFrequency);
 
-            _surfaceMaterial.color = _surfaceColor;
+            _surfaceMaterial.
+                Property("_Color", _surfaceColor).
+                Property("_BackColor", _backSurfaceColor).
+                Property("_Glossiness", _smoothness).
+                Property("_Metallic", _metallic).
+                Property("_EmissionColor", _emission);
+
             _lineMaterial.color = _lineColor;
 
             // Draw call
             var matrix = transform.localToWorldMatrix;
-            var scale1 = Matrix4x4.Scale(Vector3.one * (_radius - 0.01f));
+            var scale1 = Matrix4x4.Scale(Vector3.one * (_radius - 0.02f));
             var scale2 = Matrix4x4.Scale(Vector3.one * _radius);
 
-            Graphics.DrawMesh(
-                _mesh.sharedMesh, matrix * scale1, _surfaceMaterial,
-                gameObject.layer, null, 0, _shaderArgs
-            );
+            if (_cutoff < 0.999f)
+                Graphics.DrawMesh(
+                    _mesh.sharedMesh, matrix * scale1, _surfaceMaterial,
+                    gameObject.layer, null, 0, _shaderArgs
+                );
 
-            Graphics.DrawMesh(
-                _mesh.sharedMesh, matrix * scale2, _lineMaterial,
-                gameObject.layer, null, 1, _shaderArgs
-            );
+            if (_lineColor.a > 0.001f)
+                Graphics.DrawMesh(
+                    _mesh.sharedMesh, matrix * scale2, _lineMaterial,
+                    gameObject.layer, null, 1, _shaderArgs
+                );
         }
 
         #endregion
