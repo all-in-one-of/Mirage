@@ -40,9 +40,14 @@ namespace Mirage
         public float distortion { get; set; }
         public float roll { get; set; }
 
+        public float scale {
+            get { return _scale; }
+            set { _scale = value; }
+        }
+
         public void StartNextMove()
         {
-            if (_time >= _moveDuration)
+            if (enabled && _time >= _moveDuration)
             {
                 foreach (var s in _spinners) s.StartNextMove();
                 _time = 0;
@@ -98,7 +103,7 @@ namespace Mirage
                     s_s * _scale
                 );
 
-                Graphics.DrawMesh(_mesh, matrix, _material, 0);
+                Graphics.DrawMesh(_mesh, matrix, _material, gameObject.layer);
             }
         }
 

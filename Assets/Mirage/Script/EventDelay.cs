@@ -6,15 +6,33 @@ namespace Mirage
 {
     public class EventDelay : MonoBehaviour
     {
-        [SerializeField] float _delay = 0.1f;
+        public enum TimeMode { Second, Frame }
 
-        [SerializeField] UnityEvent _target;
+        [SerializeField]
+        TimeMode _timeMode = TimeMode.Second;
+
+        [SerializeField]
+        float _delay = 1;
+
+        [SerializeField]
+        UnityEvent _target;
 
         Queue<float> _timeQueue;
 
+        bool CheckTime(float time)
+        {
+            if (_timeMode == TimeMode.Second)
+                return time < Time.time;
+            else
+                return time < Time.frameCount;
+        }
+
         public void Trigger()
         {
-            _timeQueue.Enqueue(Time.time + _delay);
+            if (_timeMode == TimeMode.Second)
+                _timeQueue.Enqueue(Time.time + _delay);
+            else
+                _timeQueue.Enqueue(Time.frameCount + _delay);
         }
 
         void Start()
@@ -24,13 +42,10 @@ namespace Mirage
 
         void Update()
         {
-            if (_timeQueue.Count > 0)
+            if (_timeQueue.Count > 0 && CheckTime(_timeQueue.Peek()))
             {
-                float time = _timeQueue.Peek();
-                if (time < Time.time) {
-                    _target.Invoke();
-                    _timeQueue.Dequeue();
-                }
+                _target.Invoke();
+                _timeQueue.Dequeue();
             }
         }
     }
