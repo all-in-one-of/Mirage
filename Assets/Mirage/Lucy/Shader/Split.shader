@@ -15,8 +15,6 @@
         _OcclusionMap("", 2D) = "white"{}
         _OcclusionStrength("", Range(0, 1)) = 1
         _OcclusionContrast("", Range(0, 5)) = 1
-
-        _BackColor("", Color) = (0, 0, 0)
     }
 
     CGINCLUDE
@@ -35,72 +33,65 @@
     half _OcclusionStrength;
     half _OcclusionContrast;
 
-    half4 _BackColor;
-
-    float4 _Effect;
+    float _Bend;
+    float4 _Axes;
+    float _Twist;
+    float3 _Spike; // dist, filter, seed
+    float _Voxel;
 
     struct Input
     {
         float2 uv_ColorMap;
     };
 
-    // PRNG function
-    float nrand(float2 uv)
+    // PRNG
+    float UVRand(float2 uv)
     {
         return frac(sin(dot(uv, float2(12.9898, 78.233))) * 43758.5453);
     }
 
-    // Quaternion multiplication
-    // http://mathworld.wolfram.com/Quaternion.html
-    float4 qmul(float4 q1, float4 q2)
+    // Bend deformation
+    float3 Bend(float3 v)
     {
-        return float4(
-            q2.xyz * q1.w + q1.xyz * q2.w + cross(q1.xyz, q2.xyz),
-            q1.w * q2.w - dot(q1.xyz, q2.xyz)
-        );
+        const float z0 = 1.8;
+
+        float theta = (v.z + z0) / _Bend;
+        float l1 = _Bend - dot(v.xy, _Axes.xy);
+        float l2 = dot(v.xy, _Axes.zw);
+
+        float2 xy = _Axes.xy * (_Bend - cos(theta) * l1);
+        xy += _Axes.zw * l2;
+
+        float z = sin(theta) * l1 - z0;
+
+        return lerp(float3(xy, z), v, saturate(_Bend / 100 - 1));
     }
 
-    // Uniformaly distributed points on a unit sphere
-    // http://mathworld.wolfram.com/SpherePointPicking.html
-    float3 random_point_on_sphere(float2 uv)
+    // Twist deformation
+    float3 Twist(float3 v)
     {
-        float u = nrand(uv) * 2 - 1;
-        float theta = nrand(uv + 0.333) * UNITY_PI * 2;
-        float u2 = sqrt(1 - u * u);
-        return float3(u2 * cos(theta), u2 * sin(theta), u);
+        float phi = (v.z + 1.8) * _Twist;
+
+        float sin_phi, cos_phi;
+        sincos(phi, sin_phi, cos_phi);
+
+        float2 r1 = float2(cos_phi, -sin_phi);
+        float2 r2 = float2(sin_phi,  cos_phi);
+
+        return float3(dot(r1, v.xy), dot(r2, v.xy), v.z);
     }
 
-    // Vector rotation with a quaternion
-    // http://mathworld.wolfram.com/Quaternion.html
-    float3 rotate_vector(float3 v, float4 r)
+    // Spiky displacement
+    float3 Displace(float3 v0, float3 v, float3 n)
     {
-        float4 r_c = r * float4(-1, -1, -1, 1);
-        return qmul(r, qmul(float4(v, 0), r_c)).xyz;
+        float d = UVRand(v0.xz + v0.zy + _Spike.z) < _Spike.y;
+        return v + n * d * _Spike.x;
     }
 
-    // A given angle of rotation about a given aixs
-    float4 rotation_angle_axis(float angle, float3 axis)
+    float3 Downsample(float3 v)
     {
-        float sn, cs;
-        sincos(angle * 0.5, sn, cs);
-        return float4(axis * sn, cs);
-    }
-
-    float3 displace(float3 v, float3 n)
-    {
-        float phi = (v.z + 1.9) * _Effect.x;
-        float sn, cs;
-        sincos(phi, sn, cs);
-        float3x3 mtx = {
-            cs, -sn, 0,
-            sn, cs, 0,
-            0, 0, 1
-        };
-
-        float d = nrand(v.xz + v.zy + _Effect.w) < _Effect.z;
-        v += n * d * _Effect.y;
-
-        return mul(v, mtx);
+        float3 v2 = ceil(v * _Voxel) / _Voxel;
+        return lerp(v2, v, saturate(_Voxel / 100 - 1));
     }
 
     ENDCG
@@ -121,9 +112,9 @@
             float3 v3 = v.texcoord2.xyz;
             float3 n = v.normal;
 
-            v1 = displace(v1, n);
-            v2 = displace(v2, n);
-            v3 = displace(v3, n);
+            v1 = Bend(Twist(Displace(v1, Downsample(v1), n)));
+            v2 = Bend(Twist(Displace(v2, Downsample(v2), n)));
+            v3 = Bend(Twist(Displace(v3, Downsample(v3), n)));
 
             v.vertex.xyz = v1;
             v.normal = normalize(cross(v2 - v1, v3 - v1));

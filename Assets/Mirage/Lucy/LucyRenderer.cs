@@ -10,53 +10,20 @@ namespace Mirage
     {
         #region Public properties and methods
 
-        [SerializeField] bool _split;
-
-        public bool split {
-            get { return _split; }
-            set { _split = value; }
-        }
-
-        [SerializeField, Range(0, 1)] float _effect1;
-
-        public float effect1 {
-            get { return _effect1; }
-            set { _effect1 = value; }
-        }
-
-        [SerializeField, Range(0, 1)] float _effect2;
-
-        public float effect2 {
-            get { return _effect2; }
-            set { _effect2 = value; }
-        }
-
-        [SerializeField, Range(0, 1)] float _effect3;
-
-        public float effect3 {
-            get { return _effect3; }
-            set { _effect3 = value; }
-        }
-
-        [SerializeField, Range(0, 1)] float _effect4;
-
-        public float effect4 {
-            get { return _effect4; }
-            set { _effect4 = value; }
-        }
+        public float bend { get; set; }
+        public float twist { get; set; }
+        public float spike { get; set; }
+        public float voxel { get; set; }
 
         public void ChangeRandomSeed()
         {
             _randomSeed = Random.value;
         }
 
-        float _randomSeed;
-
         #endregion
 
         #region Editable properties
 
-        [Space]
         [SerializeField, ColorUsage(false)] Color _color1 = Color.white;
         [SerializeField, ColorUsage(false)] Color _color2 = Color.black;
         [SerializeField] Texture _colorMap;
@@ -91,14 +58,15 @@ namespace Mirage
         [SerializeField, HideInInspector] Shader _splitMeshShader;
 
         MaterialPropertyBlock _mpblock;
-        NoiseGenerator _noise;
         bool _initialized;
+        float _randomSeed;
 
         Matrix4x4 transformMatrix {
             get {
+                var baseRotation = Quaternion.Euler(-90, -180, 0);
                 return Matrix4x4.TRS(
                     transform.position,
-                    transform.rotation * Quaternion.Euler(-90, -180, 0),
+                    transform.rotation * baseRotation,
                     transform.lossyScale
                 );
             }
@@ -107,6 +75,20 @@ namespace Mirage
         #endregion
 
         #region Private methods
+
+        void InitializeResources()
+        {
+            _unifiedMaterial = new Material(_unifiedMeshShader);
+            _unifiedMaterial.hideFlags = HideFlags.DontSave;
+            ApplyParametersToMaterial(_unifiedMaterial);
+
+            _splitMaterial = new Material(_splitMeshShader);
+            _splitMaterial.hideFlags = HideFlags.DontSave;
+            ApplyParametersToMaterial(_splitMaterial);
+
+            _mpblock = new MaterialPropertyBlock();
+            _initialized = true;
+        }
 
         void ApplyParametersToMaterial(Material material)
         {
@@ -122,21 +104,6 @@ namespace Mirage
                 Property("_OcclusionStrength", _occlusionStrength).
                 Property("_OcclusionContrast", _occlusionContrast).
                 Property("_BackColor", _backColor);
-        }
-
-        void InitializeResources()
-        {
-            _unifiedMaterial = new Material(_unifiedMeshShader);
-            _unifiedMaterial.hideFlags = HideFlags.DontSave;
-            ApplyParametersToMaterial(_unifiedMaterial);
-
-            _splitMaterial = new Material(_splitMeshShader);
-            _splitMaterial.hideFlags = HideFlags.DontSave;
-            ApplyParametersToMaterial(_splitMaterial);
-
-            _mpblock = new MaterialPropertyBlock();
-            _noise = new NoiseGenerator(0.2f);
-            _initialized = true;
         }
 
         #endregion
@@ -161,37 +128,41 @@ namespace Mirage
         {
             if (!_initialized) InitializeResources();
 
-            _noise.Step();
-
             var matrix = transformMatrix;
 
-
-            if (_split)
+            //if (_split)
+            if (true)
             {
-                _mpblock.Property(
-                    "_Effect",
-                    _effect1 * 8,
-                    _effect2 * 2,
-                    _effect3 * 0.01f,
-                    _randomSeed
+                var bendAngle = _randomSeed * Mathf.PI * 200;
+                var bendAxes = new Vector4(
+                    Mathf.Cos(bendAngle), -Mathf.Sin(bendAngle),
+                    Mathf.Sin(bendAngle),  Mathf.Cos(bendAngle)
+                );
+                var bendDist = 1 / (bend + 1e-6f);
+                var twistDir = _randomSeed < 0.5f ? -1 : 1;
+
+                _mpblock.
+                    Property("_Bend", bendDist).
+                    Property("_Axes", bendAxes).
+                    Property("_Twist", twist * 3 * twistDir).
+                    Property("_Spike", spike * 2, 0.003f, _randomSeed).
+                    Property("_Voxel", 4 / (voxel + 1e-6f));
+
+                Graphics.DrawMesh(
+                    _splitMesh1, matrix,
+                    _splitMaterial, gameObject.layer, null, 0, _mpblock
                 );
 
                 Graphics.DrawMesh(
-                    _splitMesh1, matrix, _splitMaterial, 0, null, 0, _mpblock
-                );
-
-                Graphics.DrawMesh(
-                    _splitMesh2, matrix, _splitMaterial, 0, null, 0, _mpblock
+                    _splitMesh2, matrix,
+                    _splitMaterial, gameObject.layer, null, 0, _mpblock
                 );
             }
             else
             {
-                _mpblock.Property(
-                    "_Effect", _effect1, _effect2, _effect3, _effect4
-                );
-
                 Graphics.DrawMesh(
-                    _unifiedMesh, matrix, _unifiedMaterial, 0, null, 0, _mpblock
+                    _unifiedMesh, matrix,
+                    _unifiedMaterial, gameObject.layer, null, 0, _mpblock
                 );
             }
         }
