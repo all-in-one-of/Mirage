@@ -39,7 +39,8 @@
 
     fixed4 _BackColor;
 
-    float2 _Effect;
+    float _Cutout;
+    float _Highlight;
 
     struct Input
     {
@@ -68,7 +69,7 @@
             float2 uv = IN.uv_ColorMap;
 
             float pp = ProceduralPattern(uv);
-            clip(pp - _Effect.y);
+            clip(pp - _Cutout);
 
             fixed4 cm = tex2D(_ColorMap, uv);
             o.Albedo = lerp(_Color1, _Color2, cm);
@@ -83,7 +84,7 @@
             occ = pow(1 - occ, _OcclusionContrast);
             o.Occlusion = 1 - _OcclusionStrength * occ;
 
-            o.Emission = pp < _Effect.x;
+            o.Emission = pp < _Highlight;
         }
 
         ENDCG
@@ -100,7 +101,7 @@
             float2 uv = IN.uv_ColorMap;
 
             float pp = ProceduralPattern(uv);
-            clip(pp - _Effect.y);
+            clip(pp - _Cutout);
 
             o.Albedo = _BackColor.rgb;
             o.Normal *= -1;

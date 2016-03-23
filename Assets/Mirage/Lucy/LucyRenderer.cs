@@ -10,6 +10,9 @@ namespace Mirage
     {
         #region Public properties and methods
 
+        public float highlight { get; set; }
+        public float cutout { get; set; }
+
         public float bend { get; set; }
         public float twist { get; set; }
         public float spike { get; set; }
@@ -179,6 +182,10 @@ namespace Mirage
             }
             else
             {
+                _mpblock.
+                    Property("_Highlight", highlight).
+                    Property("_Cutout", cutout);
+
                 Graphics.DrawMesh(
                     _unifiedMesh, transformMatrix,
                     _unifiedMaterial, gameObject.layer, null, 0, _mpblock

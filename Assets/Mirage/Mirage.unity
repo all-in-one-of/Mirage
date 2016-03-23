@@ -469,8 +469,6 @@ Transform:
   - {fileID: 1085566916}
   - {fileID: 2036137411}
   - {fileID: 1253209050}
-  - {fileID: 1567626592}
-  - {fileID: 2007166569}
   - {fileID: 306245212}
   - {fileID: 607904050}
   - {fileID: 1911844222}
@@ -1136,6 +1134,111 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: Klak.Wiring.ColorMap+ColorEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &178253208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 178253209}
+  - 114: {fileID: 178253210}
+  m_Layer: 0
+  m_Name: FxA (Highlight)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &178253209
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 178253208}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 958594327}
+  m_RootOrder: 4
+--- !u!114 &178253210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 178253208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c2b5eca39344282ba410dd04fd722f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _channel: 16
+  _knobNumber: 52
+  _inputCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _eventType: 0
+  _outputValue0: 0
+  _outputValue1: 1
+  _interpolator:
+    _interpolationType: 2
+    _interpolationSpeed: 5
+  _valueEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1897004250}
+        m_MethodName: set_highlight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1850194483}
+        m_MethodName: set_highlight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Klak.Midi.KnobInput+ValueEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _triggerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _toggleOnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _toggleOffEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &179792656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,7 +1782,7 @@ Transform:
   - {fileID: 172950087}
   - {fileID: 745547594}
   m_Father: {fileID: 42516833}
-  m_RootOrder: 8
+  m_RootOrder: 6
 --- !u!114 &306245213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2241,7 +2344,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 42516833}
-  m_RootOrder: 16
+  m_RootOrder: 14
 --- !u!114 &340954137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3099,6 +3202,111 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+--- !u!1 &479266467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 479266468}
+  - 114: {fileID: 479266469}
+  m_Layer: 0
+  m_Name: FxB (Cutout)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &479266468
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 479266467}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 958594327}
+  m_RootOrder: 5
+--- !u!114 &479266469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 479266467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c2b5eca39344282ba410dd04fd722f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _channel: 16
+  _knobNumber: 53
+  _inputCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _eventType: 0
+  _outputValue0: 0
+  _outputValue1: 1
+  _interpolator:
+    _interpolationType: 2
+    _interpolationSpeed: 5
+  _valueEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1897004250}
+        m_MethodName: set_cutout
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1850194483}
+        m_MethodName: set_cutout
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Klak.Midi.KnobInput+ValueEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  _triggerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _toggleOnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _toggleOffEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &486101321
 GameObject:
   m_ObjectHideFlags: 0
@@ -3127,7 +3335,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 42516833}
-  m_RootOrder: 19
+  m_RootOrder: 17
 --- !u!114 &486101323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3653,7 +3861,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 42516833}
-  m_RootOrder: 9
+  m_RootOrder: 7
 --- !u!114 &607904051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5591,7 +5799,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 42516833}
-  m_RootOrder: 17
+  m_RootOrder: 15
 --- !u!114 &699454105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8675,7 +8883,7 @@ Transform:
   - {fileID: 801030012}
   - {fileID: 626853184}
   m_Father: {fileID: 42516833}
-  m_RootOrder: 14
+  m_RootOrder: 12
 --- !u!1 &927535276
 GameObject:
   m_ObjectHideFlags: 0
@@ -8840,7 +9048,7 @@ Transform:
   - {fileID: 1178649838}
   - {fileID: 1070338069}
   m_Father: {fileID: 42516833}
-  m_RootOrder: 13
+  m_RootOrder: 11
 --- !u!1 &944265234
 GameObject:
   m_ObjectHideFlags: 0
@@ -9139,8 +9347,12 @@ Transform:
   - {fileID: 1996012443}
   - {fileID: 37993784}
   - {fileID: 1477271807}
+  - {fileID: 178253209}
+  - {fileID: 479266468}
+  - {fileID: 1567626592}
+  - {fileID: 2007166569}
   m_Father: {fileID: 42516833}
-  m_RootOrder: 15
+  m_RootOrder: 13
 --- !u!1 &994012388
 GameObject:
   m_ObjectHideFlags: 0
@@ -9966,7 +10178,7 @@ Transform:
   - {fileID: 91979187}
   - {fileID: 1321898158}
   m_Father: {fileID: 42516833}
-  m_RootOrder: 12
+  m_RootOrder: 10
 --- !u!1 &1070338068
 GameObject:
   m_ObjectHideFlags: 0
@@ -13021,7 +13233,7 @@ Transform:
   - {fileID: 954362257}
   - {fileID: 165463209}
   m_Father: {fileID: 42516833}
-  m_RootOrder: 20
+  m_RootOrder: 18
 --- !u!1 &1321898157
 GameObject:
   m_ObjectHideFlags: 0
@@ -17302,7 +17514,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 42516833}
+  m_Father: {fileID: 958594327}
   m_RootOrder: 6
 --- !u!114 &1567626593
 MonoBehaviour:
@@ -17383,7 +17595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _channel: 16
-  _knobNumber: 22
+  _knobNumber: 54
   _inputCurve:
     serializedVersion: 2
     m_Curve:
@@ -18479,7 +18691,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 42516833}
-  m_RootOrder: 18
+  m_RootOrder: 16
 --- !u!114 &1728540758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22245,7 +22457,7 @@ Transform:
   m_Children:
   - {fileID: 467843904}
   m_Father: {fileID: 42516833}
-  m_RootOrder: 10
+  m_RootOrder: 8
 --- !u!114 &1911844223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23197,7 +23409,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 42516833}
+  m_Father: {fileID: 958594327}
   m_RootOrder: 7
 --- !u!114 &2007166570
 MonoBehaviour:
@@ -23256,7 +23468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _channel: 16
-  _knobNumber: 23
+  _knobNumber: 55
   _inputCurve:
     serializedVersion: 2
     m_Curve:
@@ -23442,9 +23654,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051131338091a4b3d861d193e64fb704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxParticles: 8000
+  _maxParticles: 12000
   _emitterCenter: {x: 0, y: 0, z: 0.5}
-  _emitterSize: {x: 6.86, y: 0.1, z: 0.2}
+  _emitterSize: {x: 8, y: 0.1, z: 0.2}
   _throttle: 0
   _life: 3
   _lifeRandomness: 0.6
@@ -24149,4 +24361,4 @@ Transform:
   - {fileID: 950183097}
   - {fileID: 2013706627}
   m_Father: {fileID: 42516833}
-  m_RootOrder: 11
+  m_RootOrder: 9
