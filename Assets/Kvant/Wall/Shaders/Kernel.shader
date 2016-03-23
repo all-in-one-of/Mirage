@@ -33,11 +33,6 @@ Shader "Hidden/Kvant/Wall/Kernel"
     float4 _ScaleNoise;     // x freq, y freq, amp, time
     float3 _RotationAxis;
 
-    // -- Mirage --
-    float _ScaleFactor;
-    float2 _WaveTime;
-    // ------------
-
     // PRNG function.
     float nrand(float2 uv, float salt)
     {
@@ -138,11 +133,6 @@ Shader "Hidden/Kvant/Wall/Kernel"
         float3 axes = snoise_grad(nc) * 0.25;
     #endif
         axes = max(1.0 - _ScaleNoise.z * (axes + 1) * 0.5, 0);
-
-        // -- Mirage --
-        float2 wave = pow(sin(saturate(-i.uv * 0.16 + _WaveTime * 0.33) * UNITY_PI), 4);
-        vari *= saturate(_ScaleFactor + wave.x + wave.y);
-        // ------------
 
         return float4(_BaseScale * axes * vari, nrand(uv, 4));
     }

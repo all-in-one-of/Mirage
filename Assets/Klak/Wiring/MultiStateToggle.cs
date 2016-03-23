@@ -80,8 +80,11 @@ namespace Klak.Wiring
 
         public void Toggle()
         {
-            _state = (_state + 1) % stateCount;
-            SendTrigger();
+            if (enabled)
+            {
+                _state = (_state + 1) % stateCount;
+                SendTrigger();
+            }
         }
 
         public void ResetState()

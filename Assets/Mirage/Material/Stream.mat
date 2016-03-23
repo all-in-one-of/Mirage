@@ -161,16 +161,16 @@ Material:
         second: 0
       data:
         first:
-          name: _ColorMode
-        second: 0
-      data:
-        first:
           name: _NormalScale
         second: 1
       data:
         first:
           name: _OcclusionStr
         second: 1
+      data:
+        first:
+          name: _ColorMode
+        second: 0
       data:
         first:
           name: _RandomUV
@@ -186,9 +186,9 @@ Material:
         second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
-          name: _Emission
-        second: {r: 1, g: 0.9944219, b: 0.9191176, a: 1}
-      data:
-        first:
           name: _Color2
         second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+      data:
+        first:
+          name: _Emission
+        second: {r: 1, g: 1, b: 1, a: 1}
