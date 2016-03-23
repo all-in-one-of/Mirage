@@ -24,6 +24,7 @@ namespace Mirage
 
         #region Editable properties
 
+        [Space]
         [SerializeField, ColorUsage(false)] Color _color1 = Color.white;
         [SerializeField, ColorUsage(false)] Color _color2 = Color.black;
         [SerializeField] Texture _colorMap;
@@ -59,6 +60,8 @@ namespace Mirage
 
         MaterialPropertyBlock _mpblock;
         bool _initialized;
+
+        float _splitTimer;
         float _randomSeed;
 
         Matrix4x4 transformMatrix {
@@ -76,6 +79,11 @@ namespace Mirage
 
         #region Private methods
 
+        static bool IsAlmostZero(float x)
+        {
+            return Mathf.Abs(x) < 0.001f;
+        }
+
         void InitializeResources()
         {
             _unifiedMaterial = new Material(_unifiedMeshShader);
@@ -87,6 +95,7 @@ namespace Mirage
             ApplyParametersToMaterial(_splitMaterial);
 
             _mpblock = new MaterialPropertyBlock();
+
             _initialized = true;
         }
 
@@ -128,10 +137,19 @@ namespace Mirage
         {
             if (!_initialized) InitializeResources();
 
-            var matrix = transformMatrix;
+            if (IsAlmostZero(bend) &&
+                IsAlmostZero(twist) &&
+                IsAlmostZero(spike) &&
+                IsAlmostZero(voxel))
+            {
+                _splitTimer -= Time.deltaTime;
+            }
+            else
+            {
+                _splitTimer = 1;
+            }
 
-            //if (_split)
-            if (true)
+            if (_splitTimer > 0)
             {
                 var bendAngle = _randomSeed * Mathf.PI * 200;
                 var bendAxes = new Vector4(
@@ -139,14 +157,15 @@ namespace Mirage
                     Mathf.Sin(bendAngle),  Mathf.Cos(bendAngle)
                 );
                 var bendDist = 1 / (bend + 1e-6f);
-                var twistDir = _randomSeed < 0.5f ? -1 : 1;
 
                 _mpblock.
                     Property("_Bend", bendDist).
                     Property("_Axes", bendAxes).
-                    Property("_Twist", twist * 3 * twistDir).
+                    Property("_Twist", twist * 3).
                     Property("_Spike", spike * 2, 0.003f, _randomSeed).
                     Property("_Voxel", 4 / (voxel + 1e-6f));
+
+                var matrix = transformMatrix;
 
                 Graphics.DrawMesh(
                     _splitMesh1, matrix,
@@ -161,7 +180,7 @@ namespace Mirage
             else
             {
                 Graphics.DrawMesh(
-                    _unifiedMesh, matrix,
+                    _unifiedMesh, transformMatrix,
                     _unifiedMaterial, gameObject.layer, null, 0, _mpblock
                 );
             }
