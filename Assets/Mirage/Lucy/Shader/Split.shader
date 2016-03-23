@@ -88,7 +88,7 @@
         return v + n * d * _Spike.x;
     }
 
-    float3 Downsample(float3 v)
+    float3 Voxelize(float3 v)
     {
         float3 v2 = ceil(v * _Voxel) / _Voxel;
         return lerp(v2, v, saturate(_Voxel / 100 - 1));
@@ -112,9 +112,9 @@
             float3 v3 = v.texcoord2.xyz;
             float3 n = v.normal;
 
-            v1 = Bend(Twist(Displace(v1, Downsample(v1), n)));
-            v2 = Bend(Twist(Displace(v2, Downsample(v2), n)));
-            v3 = Bend(Twist(Displace(v3, Downsample(v3), n)));
+            v1 = Bend(Twist(Displace(v1, Voxelize(v1), n)));
+            v2 = Bend(Twist(Displace(v2, Voxelize(v2), n)));
+            v3 = Bend(Twist(Displace(v3, Voxelize(v3), n)));
 
             v.vertex.xyz = v1;
             v.normal = normalize(cross(v2 - v1, v3 - v1));
