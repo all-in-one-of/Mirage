@@ -1894,7 +1894,7 @@ MonoBehaviour:
   _outputValue0: 0
   _outputValue1: 1
   _interpolator:
-    _interpolationType: 2
+    _interpolationType: 0
     _interpolationSpeed: 20
   _valueEvent:
     m_PersistentCalls:
@@ -6641,7 +6641,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: 0.4
+      scalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -11857,7 +11857,7 @@ MonoBehaviour:
     m_RotationOrder: 0
   _eventType: 0
   _outputValue0: 0
-  _outputValue1: 300
+  _outputValue1: 150
   _interpolator:
     _interpolationType: 0
     _interpolationSpeed: 10
@@ -12754,7 +12754,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: 0.4
+      scalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
