@@ -2649,7 +2649,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 0
-  m_Color: {r: 0.97794116, g: 0.9926978, b: 1, a: 1}
+  m_Color: {r: 0.9117647, g: 0.9306288, b: 1, a: 1}
   m_Intensity: 1.4
   m_Range: 14
   m_SpotAngle: 40
@@ -3299,7 +3299,7 @@ MonoBehaviour:
   _intOutput0: 0
   _intOutput1: 100
   _floatOutput0: 0
-  _floatOutput1: 2
+  _floatOutput1: 2.5
   _vector3Output0: {x: 0, y: 0, z: 0}
   _vector3Output1: {x: 1, y: 1, z: 1}
   _boolEvent:
@@ -7949,7 +7949,7 @@ MonoBehaviour:
   _intOutput0: 0
   _intOutput1: 100
   _floatOutput0: 0
-  _floatOutput1: 2
+  _floatOutput1: 2.5
   _vector3Output0: {x: 0, y: 0, z: 0}
   _vector3Output1: {x: 1, y: 1, z: 1}
   _boolEvent:
@@ -16010,7 +16010,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 0
-  m_Color: {r: 0.97794116, g: 0.9926978, b: 1, a: 1}
+  m_Color: {r: 0.9117647, g: 0.9306288, b: 1, a: 1}
   m_Intensity: 1.4
   m_Range: 14
   m_SpotAngle: 40
@@ -16729,7 +16729,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9979716, b: 0.9264706, a: 1}
   m_Intensity: 1.3
   m_Range: 5.5
   m_SpotAngle: 30
@@ -19808,7 +19808,7 @@ MonoBehaviour:
   _intOutput0: 0
   _intOutput1: 100
   _floatOutput0: 0
-  _floatOutput1: 2
+  _floatOutput1: 2.2
   _vector3Output0: {x: 0, y: 0, z: 0}
   _vector3Output1: {x: 1, y: 1, z: 1}
   _boolEvent:
@@ -24598,7 +24598,7 @@ MonoBehaviour:
   _intOutput0: 0
   _intOutput1: 100
   _floatOutput0: 0
-  _floatOutput1: 1
+  _floatOutput1: 1.2
   _vector3Output0: {x: 0, y: 0, z: 0}
   _vector3Output1: {x: 1, y: 1, z: 1}
   _boolEvent:

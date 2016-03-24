@@ -16,6 +16,7 @@ namespace Mirage
         [SerializeField]
         float _speed = 8;
 
+        Color[] _originalColors;
         Color[] _colors;
 
         Color RandomColor()
@@ -26,7 +27,7 @@ namespace Mirage
         public void Reset()
         {
             for (var i = 0; i < _colors.Length; i++)
-                _colors[i] = Color.white;
+                _colors[i] = _originalColors[i];
         }
 
         public void Shuffle()
@@ -41,7 +42,13 @@ namespace Mirage
 
         void Start()
         {
+            _originalColors = new Color[_targets.Length];
+
+            for (var i = 0; i < _targets.Length; i++)
+                _originalColors[i] = _targets[i].color;
+
             _colors = new Color[_targets.Length];
+
             Reset();
         }
 
