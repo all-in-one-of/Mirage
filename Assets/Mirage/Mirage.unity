@@ -3346,7 +3346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frequency: 10
   _fractalLevel: 3
-  _noiseRate: 0.1
+  _noiseRate: 0
   _target:
     m_PersistentCalls:
       m_Calls:
@@ -7996,7 +7996,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frequency: 10
   _fractalLevel: 3
-  _noiseRate: 0.1
+  _noiseRate: 0
   _target:
     m_PersistentCalls:
       m_Calls:
@@ -19717,7 +19717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frequency: 10
   _fractalLevel: 3
-  _noiseRate: 0.1
+  _noiseRate: 0
   _target:
     m_PersistentCalls:
       m_Calls:
@@ -24518,7 +24518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frequency: 10
   _fractalLevel: 3
-  _noiseRate: 0.1
+  _noiseRate: 0
   _target:
     m_PersistentCalls:
       m_Calls:
