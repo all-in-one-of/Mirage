@@ -6,9 +6,12 @@ namespace Mirage
     {
         [SerializeField] Camera[] _sceneCameras;
         [SerializeField] Camera[] _clearCameras;
+        [SerializeField] MeshRenderer _background;
 
         [Space]
         [SerializeField] GUISkin _guiSkin;
+
+        Material _backgroundMaterial;
 
         void Start()
         {
@@ -114,6 +117,14 @@ namespace Mirage
             GUILayout.Label("Position (Y): " + pos.y);
             pos.y = GUILayout.HorizontalSlider(pos.y, 1, 3);
             cam.transform.position = pos;
+
+            GUILayout.FlexibleSpace();
+
+            var material = _background.material;
+            var color = material.color;
+            GUILayout.Label("Albedo brightness: " + (color.r * 255));
+            var br = GUILayout.HorizontalSlider(color.r, 0, 1);
+            material.color = Color.white * br;
 
             GUILayout.FlexibleSpace();
 

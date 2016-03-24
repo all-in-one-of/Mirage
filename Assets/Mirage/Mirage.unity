@@ -11669,6 +11669,7 @@ MonoBehaviour:
   _clearCameras:
   - {fileID: 628084278}
   - {fileID: 530371131}
+  _background: {fileID: 786675590}
   _guiSkin: {fileID: 11400000, guid: e4a0ed7e9a0374d8ea34c0c506afc411, type: 2}
 --- !u!4 &1169215027
 Transform:
@@ -16796,7 +16797,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingPath: 3
+  m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 1
   m_TargetEye: 3
