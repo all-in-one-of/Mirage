@@ -360,7 +360,7 @@ MonoBehaviour:
   _attackTime: 0
   _decayTime: 0.04
   _sustainLevel: 0.5
-  _releaseTime: 0.6
+  _releaseTime: 1
   _exponent: 1
   _amplitude: 1
   _bias: 0
@@ -1621,9 +1621,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd9623f651504dedb56bf70950956bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lineColor: {r: 1, g: 0.007352948, b: 0.23326531, a: 1}
+  _lineColor: {r: 2, g: 0, b: 0.3, a: 1}
   _luminanceBlending: 0.2
-  _fallOffDepth: 100
+  _fallOffDepth: 23
   _backgroundColor: {r: 0, g: 0, b: 0, a: 0}
   _axis: {x: 0.05, y: 1, z: 0.3}
   _interval: 0.18
@@ -1707,7 +1707,7 @@ MonoBehaviour:
   _attackTime: 0
   _decayTime: 0.04
   _sustainLevel: 0.5
-  _releaseTime: 0.6
+  _releaseTime: 1
   _exponent: 1
   _amplitude: 1
   _bias: 0
@@ -11553,7 +11553,7 @@ MonoBehaviour:
   _shrink: 0
   _mesh: {fileID: 11400000, guid: ada479da429614a99a45f29895d6a674, type: 2}
   _lineShader: {fileID: 4800000, guid: 4019a8891c145498ca00da4af3469d81, type: 3}
-  _surfaceShader: {fileID: 0}
+  _surfaceShader: {fileID: 4800000, guid: 686657e417e9a4f31bfce487a24b4fa2, type: 3}
 --- !u!4 &1133612684
 Transform:
   m_ObjectHideFlags: 0
