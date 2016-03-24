@@ -4,26 +4,42 @@ namespace Mirage
 {
     public class Configurator : MonoBehaviour
     {
-        [SerializeField] TweakFx _tweakFx;
-        [SerializeField] Camera _secondaryCamera;
+        [SerializeField] Camera[] _sceneCameras;
+        [SerializeField] Camera[] _clearCameras;
+
+        [Space]
         [SerializeField] GUISkin _guiSkin;
 
         void Start()
         {
-            #if MIRAGE_TEST
-            AddCamera();
+            // Add an empty camera if the 1st display is
+            // going to be used for GUI.
+            #if MIRAGE_TEST && MIRAGE_TRIPLE
+            AddNullCamera();
             #endif
 
             if (!Application.isEditor)
             {
+                // Hide mouse cursor.
                 Cursor.visible = false;
 
-                #if MIRAGE_TEST
-                TryActivateDisplay(0); // Config
+                #if MIRAGE_TRIPLE
+                // Remap displays for the triple display mode.
+                for (var i = 0; i < 2; i++)
+                {
+                    _sceneCameras[i].targetDisplay = i + 1;
+                    _clearCameras[i].targetDisplay = i + 1;
+                }
                 #endif
 
-                TryActivateDisplay(1); // Primary screen
-                TryActivateDisplay(2); // Secondary screen
+                // Try activating multiple displays.
+                #if !MIRAGE_TRIPLE || MIRAGE_TEST
+                TryActivateDisplay(0);
+                #endif
+                TryActivateDisplay(1);
+                #if MIRAGE_TRIPLE
+                TryActivateDisplay(2);
+                #endif
             }
         }
 
@@ -58,7 +74,7 @@ namespace Mirage
 
         GUIStyle _labelStyle;
 
-        void AddCamera()
+        void AddNullCamera()
         {
             var cam = gameObject.AddComponent<Camera>();
             cam.backgroundColor = Color.gray;
@@ -77,26 +93,27 @@ namespace Mirage
 
             GUILayout.FlexibleSpace();
 
-            GUILayout.Label("Low level: " + _tweakFx.low);
-            _tweakFx.low = GUILayout.HorizontalSlider(_tweakFx.low, 0, 1);
+            var tweaker = _sceneCameras[1].GetComponent<TweakFx>();
+            GUILayout.Label("Low level: " + tweaker.low);
+            tweaker.low = GUILayout.HorizontalSlider(tweaker.low, 0, 1);
 
             GUILayout.FlexibleSpace();
 
-            GUILayout.Label("High level: " + _tweakFx.high);
-            _tweakFx.high = GUILayout.HorizontalSlider(_tweakFx.high, 0, 1);
+            GUILayout.Label("High level: " + tweaker.high);
+            tweaker.high = GUILayout.HorizontalSlider(tweaker.high, 0, 1);
 
             GUILayout.FlexibleSpace();
 
-            var cam = _secondaryCamera;
+            var cam = _sceneCameras[1];
             GUILayout.Label("FOV: " + cam.fieldOfView);
             cam.fieldOfView = GUILayout.HorizontalSlider(cam.fieldOfView, 30, 60);
 
             GUILayout.FlexibleSpace();
 
-            var pos = _secondaryCamera.transform.position;
+            var pos = cam.transform.position;
             GUILayout.Label("Position (Y): " + pos.y);
             pos.y = GUILayout.HorizontalSlider(pos.y, 1, 3);
-            _secondaryCamera.transform.position = pos;
+            cam.transform.position = pos;
 
             GUILayout.FlexibleSpace();
 

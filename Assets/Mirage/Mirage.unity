@@ -1553,7 +1553,7 @@ Camera:
     m_Bits: 3221225471
   m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 1
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 0
@@ -3879,7 +3879,7 @@ Camera:
     m_Bits: 0
   m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 2
+  m_TargetDisplay: 1
   m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 0
@@ -4343,7 +4343,7 @@ Camera:
     m_Bits: 0
   m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 1
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 0
@@ -11663,8 +11663,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640ed8c87ab21456ba4a183e49d2b104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tweakFx: {fileID: 1450734909}
-  _secondaryCamera: {fileID: 1450734906}
+  _sceneCameras:
+  - {fileID: 199947338}
+  - {fileID: 1450734906}
+  _clearCameras:
+  - {fileID: 628084278}
+  - {fileID: 530371131}
   _guiSkin: {fileID: 11400000, guid: e4a0ed7e9a0374d8ea34c0c506afc411, type: 2}
 --- !u!4 &1169215027
 Transform:
@@ -16794,7 +16798,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 2
+  m_TargetDisplay: 1
   m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 0
@@ -16838,7 +16842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2312da769fbe458b9076e92d15ee7ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _low: 0.2
+  _low: 0
   _high: 1
   _shader: {fileID: 4800000, guid: 6e2bd93bea57b4d0bb3111879cb55d22, type: 3}
 --- !u!1 &1460928049
