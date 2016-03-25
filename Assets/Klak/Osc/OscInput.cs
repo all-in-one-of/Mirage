@@ -149,8 +149,8 @@ namespace Klak.Osc
         {
             // register the osc data callback
             if (!String.IsNullOrEmpty(_address))
-                OscMaster.messageHandler.
-                    AddDataCallback(_address, OscDataCallback);
+                foreach (var handler in OscMaster.messageHandlers)
+                    handler.AddDataCallback(_address, OscDataCallback);
 
             _registeredAddress = _address;
         }
@@ -159,8 +159,8 @@ namespace Klak.Osc
         {
             // unregister the osc data callback
             if (!String.IsNullOrEmpty(_registeredAddress))
-                OscMaster.messageHandler.
-                    RemoveDataCallback(_registeredAddress, OscDataCallback);
+                foreach (var handler in OscMaster.messageHandlers)
+                    handler.RemoveDataCallback(_registeredAddress, OscDataCallback);
 
             _registeredAddress = null;
         }
