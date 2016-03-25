@@ -17,11 +17,8 @@
 
     half4 frag(v2f_img i) : SV_Target
     {
-        float2 fo_origin = float2(0.5, 0);
-        float fo = saturate(1 - distance(i.uv, fo_origin));
-
         float4 c = tex2D(_MainTex, i.uv);
-        c.rgb = (c.rgb + _Bias) * _Amp * fo;
+        c.rgb = (c.rgb + _Bias) * _Amp;
         return c;
     }
 
