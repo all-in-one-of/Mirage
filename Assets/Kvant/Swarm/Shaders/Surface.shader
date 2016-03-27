@@ -59,14 +59,14 @@ Shader "Hidden/Kvant/Swarm/Surface"
         float3 p3 = tex2Dlod(_PositionTex, uv + duv * 2).xyz;
 
         // binormal vector
-        float3 bn = normalize(cross(p3 - p2, p2 - p1)) * flip;
+        float3 bn = normalize(cross(p3 - p2, p2 - p1));
 
         // line width
         float lw = lerp(_LineWidth.x, _LineWidth.y, nrand(ln, 10));
         lw *= saturate((_Throttle - ln) / _PositionTex_TexelSize.y);
 
         v.vertex.xyz = p2 + bn * lw * v.vertex.x;
-        v.normal = normalize(cross(bn, p2 - p1));
+        v.normal = normalize(cross(bn, p2 - p1)) * flip;
 
 #if COLOR_RANDOM
         data.color = nrand(ln, 11);
@@ -80,6 +80,8 @@ Shader "Hidden/Kvant/Swarm/Surface"
     SubShader
     {
         Tags { "RenderType"="Opaque" }
+
+        Cull off
 
         CGPROGRAM
 
@@ -99,6 +101,9 @@ Shader "Hidden/Kvant/Swarm/Surface"
         }
 
         ENDCG
+
+        Cull front
+        Offset 0, -1
 
         CGPROGRAM
 

@@ -42,12 +42,14 @@ namespace Klak.Osc
         void OnEnable()
         {
             _dataMap = new Dictionary<string, float>();
-            OscMaster.messageHandler.AddMessageMonitor(OnProcessMessage);
+            foreach (var handler in OscMaster.messageHandlers)
+                handler.AddMessageMonitor(OnProcessMessage);
         }
 
         void OnDisable()
         {
-            OscMaster.messageHandler.RemoveMessageMonitor(OnProcessMessage);
+            foreach (var handler in OscMaster.messageHandlers)
+                handler.RemoveMessageMonitor(OnProcessMessage);
         }
 
         void OnGUI()
