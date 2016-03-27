@@ -96,17 +96,6 @@ namespace Mirage
 
             GUILayout.FlexibleSpace();
 
-            var tweaker = _sceneCameras[1].GetComponent<TweakFx>();
-            GUILayout.Label("Low level: " + tweaker.low);
-            tweaker.low = GUILayout.HorizontalSlider(tweaker.low, 0, 1);
-
-            GUILayout.FlexibleSpace();
-
-            GUILayout.Label("High level: " + tweaker.high);
-            tweaker.high = GUILayout.HorizontalSlider(tweaker.high, 0, 1);
-
-            GUILayout.FlexibleSpace();
-
             var cam = _sceneCameras[1];
             GUILayout.Label("FOV: " + cam.fieldOfView);
             cam.fieldOfView = GUILayout.HorizontalSlider(cam.fieldOfView, 30, 60);
@@ -125,8 +114,6 @@ namespace Mirage
             GUILayout.Label("Albedo brightness: " + (color.r * 255));
             var br = GUILayout.HorizontalSlider(color.r, 0, 1);
             material.color = Color.white * br;
-
-            GUILayout.FlexibleSpace();
 
             GUILayout.EndArea();
         }
