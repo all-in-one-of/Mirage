@@ -1,9 +1,9 @@
 Mirage
 ======
 
-*Mirage* is a live visuals software, which was originally made for [DUB-Russell]
-[DR]’s live performance. It uses [the Pepper’s ghost technique][Wikipedia] to
-make an illusion that the objects actually exist on the stage.
+*Mirage* is a holographic live visuals software, which was originally made for
+[DUB-Russell][DR]’s live performance. It uses [the Pepper’s ghost technique]
+[Wikipedia] to make an illusion that the objects actually exist on the stage.
 
 ![Gif][Gif1] ![Gif][Gif2]
 
@@ -15,6 +15,8 @@ System Requirements
 
 - Unity 5.3.4 or later
 - Windows system with multiple display-out
+- [Novation Launch Control XL][Novation] (replaceable with other MIDI
+  controllers)
 
 *Mirage* uses the multi-display feature, which was newly introduced in Unity
 5.3. Although this feature was implemented in a platform-agnostic fashion, it
@@ -38,6 +40,7 @@ original files are freely available each page.
 [Gif2]: http://45.media.tumblr.com/a627871cc513d124bd700000229bfdf3/tumblr_o4jutbvM351qio469o1_320.gif
 [DMM]: http://www.dmm.com/theater
 [VRDG]: http://brdg.tokyo
+[Novation]: https://global.novationmusic.com/launch/launch-control-xl
 [Issue]: https://issuetracker.unity3d.com/issues/multi-display-feature-doesnt-work-on-os-x
 [Stanford]: http://graphics.stanford.edu/data/3Dscanrep/
 [AnavriN]: https://www.cgtrader.com/free-3d-models/character-people/fantasy/lucy-a-christian-angel-statue
