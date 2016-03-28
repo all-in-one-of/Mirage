@@ -32,13 +32,13 @@ Acknowledgement
 
 The “Lucy” statue model was originally scanned by [Stanford University Computer
 Graphics Laboratory][Stanford], and retopologized by [anavriN][AnavriN]. The
-original files are freely available each page.
+original files are freely available from each page.
 
 [DR]: http://dubrussell.com
 [Wikipedia]: https://en.wikipedia.org/wiki/Pepper%27s_ghost
 [Gif1]: http://49.media.tumblr.com/13c6797008e2dc0e08c14ea7650a6d8b/tumblr_o44krsnvkn1qio469o1_320.gif
 [Gif2]: http://45.media.tumblr.com/a627871cc513d124bd700000229bfdf3/tumblr_o4jutbvM351qio469o1_320.gif
-[DMM]: http://www.dmm.com/theater
+[DMM]: http://www.dmm.com/theater/en
 [VRDG]: http://brdg.tokyo
 [Novation]: https://global.novationmusic.com/launch/launch-control-xl
 [Issue]: https://issuetracker.unity3d.com/issues/multi-display-feature-doesnt-work-on-os-x
