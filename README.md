@@ -50,7 +50,7 @@ only on the following three addresses:
 
 - /kick (float value) - fires the kick trigger on rising edges (0 to 1)
 - /snare (float value) - fires the snare trigger on rising edges (0 to 1)
-- /clock (int value) - fires the clock trigger
+- /clock (int value) - fires the tick trigger
 
 Acknowledgement
 ---------------
