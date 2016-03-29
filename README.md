@@ -34,7 +34,10 @@ MIDI Controller Mappings
 
 ![CC][Map2]
 
-Note:
+The controller mapping file is available [here][MapFile]. This file can be
+loaded to a device using [the editor software][MapEditor].
+
+Additional notes:
 
 - *Spikes* and *Shafts* are fired by the kick trigger. These signal paths are
   enabled only when the knob values are higher than 50%.
@@ -79,5 +82,7 @@ original files are freely available from each page.
 [Issue]: https://issuetracker.unity3d.com/issues/multi-display-feature-doesnt-work-on-os-x
 [Map1]: http://40.media.tumblr.com/13668faf9f766cbf7815074645d9fd68/tumblr_o4r19v1qlk1qio469o1_r1_640.png
 [Map2]: https://40.media.tumblr.com/d74bc6d3bc6d7d49fa4e89218617d948/tumblr_o4r19v1qlk1qio469o2_640.png
+[MapFile]: https://github.com/keijiro/Mirage/blob/master/Extras/Launch_Control_XL_Mapping_Data.syx
+[MapEditor]: https://us.novationmusic.com/launch/launch-control-xl/support-downloads
 [Stanford]: http://graphics.stanford.edu/data/3Dscanrep/
 [AnavriN]: https://www.cgtrader.com/free-3d-models/character-people/fantasy/lucy-a-christian-angel-statue
