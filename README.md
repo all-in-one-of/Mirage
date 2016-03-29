@@ -52,6 +52,16 @@ only on the following three addresses:
 - /snare (float value) - fires the snare trigger on rising edges (0 to 1)
 - /clock (int value) - fires the tick trigger
 
+Define Symbols
+--------------
+
+There are two build-time options to switch the behavior of the software. These
+options are set with Scripting Define Symbols in the player settings.
+
+- MIRAGE_TEST - shows the test menu on the primary display.
+- MIRAGE_TRIPLE - uses the second and third display instead of the first and
+  second display. In this mode the first display is only used for the test menu.
+
 Acknowledgement
 ---------------
 
