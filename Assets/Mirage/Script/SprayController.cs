@@ -8,24 +8,25 @@ namespace Mirage
         [SerializeField]
         Transform _target;
 
-        [SerializeField]
-        bool _enableRotation;
+        [SerializeField, Range(0, 2)]
+        float _applyVelocity;
 
         Kvant.Spray _spray;
-        float _initialSpeed;
 
         void Start()
         {
             _spray = GetComponent<Kvant.Spray>();
-            _initialSpeed = _spray.initialVelocity.magnitude;
         }
 
         void Update()
         {
+            var delta = _target.position - _spray.emitterCenter;
+
             _spray.emitterCenter = _target.position;
 
-            if (_enableRotation)
-                _spray.initialVelocity = _target.forward * _initialSpeed;
+            if (_applyVelocity > 0)
+                _spray.initialVelocity =
+                    delta * (_applyVelocity / Time.deltaTime);
         }
     }
 }

@@ -1,12 +1,14 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Klak.Motion;
+using Kvant;
 
 namespace Mirage
 {
     public class TouchController : MonoBehaviour
     {
         [SerializeField] SmoothFollow[] _followers;
+        [SerializeField] Spray _aura;
 
         [Space]
 
@@ -61,10 +63,15 @@ namespace Mirage
                 transform.localPosition = new Vector3(px, py, 0);
 
                 foreach (var h in _handlers) h.ChangeTarget(transform);
+
+                if (!Input.GetMouseButtonDown(0))
+                    _aura.throttle = 0.5f * MidiJack.MidiMaster.GetKnob(21);
             }
             else
             {
                 foreach (var h in _handlers) h.UseOriginalTarget();
+
+                _aura.throttle = 0;
             }
         }
     }
