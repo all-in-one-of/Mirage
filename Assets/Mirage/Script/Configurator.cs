@@ -45,7 +45,21 @@ namespace Mirage
         void TryActivateDisplay(int index)
         {
             if (index < Display.displays.Length)
+            {
                 Display.displays[index].Activate();
+                CreateClearOnlyCamera(index);
+            }
+        }
+
+        void CreateClearOnlyCamera(int index)
+        {
+            var go = new GameObject("Clear Camera " + index);
+            var cam = go.AddComponent<Camera>();
+            cam.depth = -1000;
+            cam.cullingMask = 0;
+            cam.clearFlags = CameraClearFlags.SolidColor;
+            cam.backgroundColor = Color.black;
+            cam.targetDisplay = index;
         }
     }
 }
