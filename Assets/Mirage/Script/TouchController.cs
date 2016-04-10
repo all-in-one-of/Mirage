@@ -63,14 +63,11 @@ namespace Mirage
                 transform.localPosition = new Vector3(px, py, 0);
 
                 foreach (var h in _handlers) h.ChangeTarget(transform);
-
-                if (!Input.GetMouseButtonDown(0))
-                    _aura.throttle = 0.5f * MidiJack.MidiMaster.GetKnob(21);
+                if (!Input.GetMouseButtonDown(0)) _aura.throttle = 0.5f;
             }
             else
             {
                 foreach (var h in _handlers) h.UseOriginalTarget();
-
                 _aura.throttle = 0;
             }
         }
