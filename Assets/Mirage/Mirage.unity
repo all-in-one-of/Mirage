@@ -1756,7 +1756,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 864326975}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!114 &206816070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9047,8 +9047,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1174849876}
   - {fileID: 206816069}
+  - {fileID: 1912246999}
+  - {fileID: 1174849876}
   m_Father: {fileID: 1022020908}
   m_RootOrder: 5
 --- !u!1 &872230482
@@ -11221,19 +11222,16 @@ MonoBehaviour:
   _spikeExponent: 3
   _spikeFrequency: 1
   _spikeMotion: 1.2
-  _maskFrequency: 0.5
-  _maskMotion: 2
-  _lineColor: {r: 1, g: 1, b: 1, a: 0}
-  _surfaceColor: {r: 1, g: 1, b: 1, a: 1}
-  _backSurfaceColor: {r: 0.46323532, g: 0.40873703, b: 0.40873703, a: 1}
+  _dissolveLevel: 0
+  _dissolveFrequency: 0.5
+  _dissolveMotion: 2
+  _color: {r: 1, g: 1, b: 1, a: 1}
+  _backColor: {r: 0.25735295, g: 0.23275304, b: 0.23275304, a: 1}
   _smoothness: 0
   _metallic: 0
-  _emission: {r: 1, g: 1, b: 1, a: 1}
-  _cutoff: 1
-  _shrink: 1
+  _emission: {r: 0, g: 0, b: 0, a: 1}
   _mesh: {fileID: 11400000, guid: ada479da429614a99a45f29895d6a674, type: 2}
-  _lineShader: {fileID: 4800000, guid: 4019a8891c145498ca00da4af3469d81, type: 3}
-  _surfaceShader: {fileID: 4800000, guid: 686657e417e9a4f31bfce487a24b4fa2, type: 3}
+  _shader: {fileID: 4800000, guid: 686657e417e9a4f31bfce487a24b4fa2, type: 3}
 --- !u!4 &1133612684
 Transform:
   m_ObjectHideFlags: 0
@@ -11371,9 +11369,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1174849876}
   - 114: {fileID: 1174849877}
-  - 114: {fileID: 1174849878}
   m_Layer: 0
-  m_Name: alpha
+  m_Name: dissolve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11390,7 +11387,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 864326975}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!114 &1174849877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11402,90 +11399,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd1ae8719f5f4ed1b7365c706aa8660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _address: /core/alpha
+  _address: /core/dissolve
   _inputCurve:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: -50
-      tangentMode: 21
-    - time: 0.02
       value: 0
-      inSlope: -50
-      outSlope: -0
-      tangentMode: 21
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 21
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  _eventType: 2
-  _triggerType: 1
-  _outputValue0: 0
-  _outputValue1: 1
-  _interpolator:
-    _interpolationType: 0
-    _interpolationSpeed: 5
-  _triggerEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  _gateOnEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  _gateOffEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  _valueEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1133612683}
-        m_MethodName: set_cutoff
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Klak.Osc.OscInput+ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
---- !u!114 &1174849878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1174849875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebd1ae8719f5f4ed1b7365c706aa8660, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _address: /core/alpha
-  _inputCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: -1
-      outSlope: -1
+      inSlope: 1
+      outSlope: 1
       tangentMode: 10
     - time: 1
-      value: 0
-      inSlope: -1
-      outSlope: -1
+      value: 1
+      inSlope: 1
+      outSlope: 1
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -11516,7 +11442,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1133612683}
-        m_MethodName: set_shrink
+        m_MethodName: set_dissolveLevel
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24175,6 +24101,175 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: Klak.Wiring.MultiStateToggle+ValueEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &1912246998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1912246999}
+  - 114: {fileID: 1912247001}
+  - 114: {fileID: 1912247000}
+  m_Layer: 0
+  m_Name: emission
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1912246999
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1912246998}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 864326975}
+  m_RootOrder: 1
+--- !u!114 &1912247000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1912246998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0853317bb375cb246b545d5225cb52b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colorMode: 0
+  _gradient:
+    key0:
+      serializedVersion: 2
+      rgba: 4278190080
+    key1:
+      serializedVersion: 2
+      rgba: 4294967295
+    key2:
+      serializedVersion: 2
+      rgba: 0
+    key3:
+      serializedVersion: 2
+      rgba: 0
+    key4:
+      serializedVersion: 2
+      rgba: 0
+    key5:
+      serializedVersion: 2
+      rgba: 0
+    key6:
+      serializedVersion: 2
+      rgba: 0
+    key7:
+      serializedVersion: 2
+      rgba: 0
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  _colorArray:
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  _colorEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1133612683}
+        m_MethodName: set_emission
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Klak.Wiring.ColorMap+ColorEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1912247001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1912246998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd1ae8719f5f4ed1b7365c706aa8660, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _address: /core/emission
+  _inputCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _eventType: 2
+  _triggerType: 1
+  _outputValue0: 0
+  _outputValue1: 1
+  _interpolator:
+    _interpolationType: 0
+    _interpolationSpeed: 5
+  _triggerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _gateOnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _gateOffEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _valueEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1912247000}
+        m_MethodName: set_inputValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Klak.Osc.OscInput+ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &1920550373
 GameObject:
   m_ObjectHideFlags: 0

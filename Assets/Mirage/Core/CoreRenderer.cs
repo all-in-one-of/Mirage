@@ -46,46 +46,45 @@ namespace Mirage
             set { _spikeMotion = value; }
         }
 
-        [Space] // Mask animation
+        [Space] // Dissolve animation
 
-        [SerializeField] float _maskFrequency = 0.5f;
+        [SerializeField, Range(0, 1)] float _dissolveLevel = 0.5f;
 
-        public float maskFrequency {
-            get { return _maskFrequency; }
-            set { _maskFrequency = value; }
+        public float dissolveLevel {
+            get { return _dissolveLevel; }
+            set { _dissolveLevel = value; }
         }
 
-        [SerializeField] float _maskMotion = 2;
+        [SerializeField] float _dissolveFrequency = 0.5f;
 
-        public float maskMotion {
-            get { return _maskMotion; }
-            set { _maskMotion = value; }
+        public float dissolveFrequency {
+            get { return _dissolveFrequency; }
+            set { _dissolveFrequency = value; }
+        }
+
+        [SerializeField] float _dissolveMotion = 2;
+
+        public float dissolveMotion {
+            get { return _dissolveMotion; }
+            set { _dissolveMotion = value; }
         }
 
         [Space] // Material properties
 
-        [SerializeField, ColorUsage(true, true, 0, 8, 0.125f, 3)]
-        Color _lineColor = Color.white;
+        [SerializeField, ColorUsage(false)]
+        Color _color = Color.white;
 
-        public Color lineColor {
-            get { return _lineColor; }
-            set { _lineColor = value; }
+        public Color color {
+            get { return _color; }
+            set { _color = value; }
         }
 
         [SerializeField, ColorUsage(false)]
-        Color _surfaceColor = Color.white;
+        Color _backColor = Color.gray;
 
-        public Color surfaceColor {
-            get { return _surfaceColor; }
-            set { _surfaceColor = value; }
-        }
-
-        [SerializeField, ColorUsage(false)]
-        Color _backSurfaceColor = Color.gray;
-
-        public Color backSurfaceColor {
-            get { return _backSurfaceColor; }
-            set { _backSurfaceColor = value; }
+        public Color backColor {
+            get { return _backColor; }
+            set { _backColor = value; }
         }
 
         [SerializeField, Range(0, 1)] float _smoothness = 0;
@@ -110,40 +109,23 @@ namespace Mirage
             set { _emission = value; }
         }
 
-        [Space] // Additional shader properties
-
-        [SerializeField, Range(0, 1)] float _cutoff = 0.5f;
-
-        public float cutoff {
-            get { return _cutoff; }
-            set { _cutoff = value; }
-        }
-
-        [SerializeField, Range(0, 1)] float _shrink = 0.5f;
-
-        public float shrink {
-            get { return _shrink; }
-            set { _shrink = value; }
-        }
-
         #endregion
 
         #region Private resources
 
         [SerializeField, HideInInspector] CoreMesh _mesh;
-        [SerializeField, HideInInspector] Shader _lineShader;
-        [SerializeField, HideInInspector] Shader _surfaceShader;
+        [SerializeField, HideInInspector] Shader _shader;
 
         #endregion
 
         #region Private variables
 
-        Material _lineMaterial;
-        Material _surfaceMaterial;
-        MaterialPropertyBlock _shaderArgs;
+        Material _frontMaterial;
+        Material _backMaterial;
+        MaterialPropertyBlock _materialProps;
 
         Vector3 _spikeOffset;
-        Vector3 _maskOffset;
+        Vector3 _dissolveOffset;
 
         #endregion
 
@@ -151,75 +133,72 @@ namespace Mirage
 
         void OnEnable()
         {
-            var lineShader = Shader.Find("Hidden/Mirage/Core/Line");
-            _lineMaterial = new Material(lineShader);
-            _lineMaterial.hideFlags = HideFlags.DontSave;
+            var shader = Shader.Find("Hidden/Mirage/Core");
 
-            var surfaceShader = Shader.Find("Hidden/Mirage/Core/Surface");
-            _surfaceMaterial = new Material(surfaceShader);
-            _surfaceMaterial.hideFlags = HideFlags.DontSave;
+            _frontMaterial = new Material(shader);
+            _frontMaterial.hideFlags = HideFlags.DontSave;
+            _frontMaterial.Property("_Flip", 1.0f);
 
-            _shaderArgs = new MaterialPropertyBlock();
+            _backMaterial = new Material(shader);
+            _backMaterial.hideFlags = HideFlags.DontSave;
+            _backMaterial.Property("_Flip", -1.0f);
+
+            _materialProps = new MaterialPropertyBlock();
         }
 
         void OnDisable()
         {
-            if (_lineMaterial != null)
-                DestroyImmediate(_lineMaterial);
+            if (_frontMaterial != null) DestroyImmediate(_frontMaterial);
+            if (_backMaterial != null) DestroyImmediate(_backMaterial);
 
-            if (_surfaceMaterial != null)
-                DestroyImmediate(_surfaceMaterial);
-
-            _lineMaterial = null;
-            _surfaceMaterial = null;
-            _shaderArgs = null;
+            _frontMaterial = null;
+            _backMaterial = null;
+            _materialProps = null;
         }
 
         void Update()
         {
             // State update
             var spikeDir = new Vector3(1, 0.5f, 0.2f).normalized;
-            var maskDir = new Vector3(-0.3f, -1, -0.1f).normalized;
+            var dissolveDir = new Vector3(-0.3f, -1, -0.1f).normalized;
 
             _spikeOffset += spikeDir * (_spikeMotion * Time.deltaTime);
-            _maskOffset += maskDir * (_maskMotion * Time.deltaTime);
+            _dissolveOffset += dissolveDir * (_dissolveMotion * Time.deltaTime);
 
             // Material setup
-            _shaderArgs.
-                Property("_Cutoff", _cutoff).
-                Property("_Shrink", _shrink).
+            _materialProps.
                 Property("_SpikeOffset", _spikeOffset).
                 Property("_SpikeAmplitude", _spikeAmplitude).
                 Property("_SpikeExponent", _spikeExponent).
                 Property("_SpikeFrequency", _spikeFrequency).
-                Property("_MaskOffset", _maskOffset).
-                Property("_MaskFrequency", _maskFrequency);
-
-            _surfaceMaterial.
-                Property("_Color", _surfaceColor).
-                Property("_BackColor", _backSurfaceColor).
+                Property("_DissolveOffset", _dissolveOffset).
+                Property("_DissolveLevel", _dissolveLevel).
+                Property("_DissolveFrequency", _dissolveFrequency).
                 Property("_Glossiness", _smoothness).
-                Property("_Metallic", _metallic).
-                Property("_EmissionColor", _emission);
-
-            _lineMaterial.color = _lineColor;
+                Property("_Metallic", _metallic);
 
             // Draw call
             var matrix = transform.localToWorldMatrix;
-            var scale1 = Matrix4x4.Scale(Vector3.one * (_radius - 0.02f));
-            var scale2 = Matrix4x4.Scale(Vector3.one * _radius);
+            matrix *= Matrix4x4.Scale(Vector3.one * _radius);
 
-            if (_cutoff < 0.999f)
-                Graphics.DrawMesh(
-                    _mesh.sharedMesh, matrix * scale1, _surfaceMaterial,
-                    gameObject.layer, null, 0, _shaderArgs
-                );
+            _backMaterial.
+                Property("_CullMode", (int)CullMode.Front).
+                Property("_Color", _backColor);
 
-            if (_lineColor.a > 0.001f)
-                Graphics.DrawMesh(
-                    _mesh.sharedMesh, matrix * scale2, _lineMaterial,
-                    gameObject.layer, null, 1, _shaderArgs
-                );
+            Graphics.DrawMesh(
+                _mesh.sharedMesh, matrix, _backMaterial, gameObject.layer,
+                null, 0, _materialProps
+            );
+
+            _frontMaterial.
+                Property("_CullMode", (int)CullMode.Back).
+                Property("_Color", _color).
+                Property("_EmissionColor", _emission);
+
+            Graphics.DrawMesh(
+                _mesh.sharedMesh, matrix, _frontMaterial, gameObject.layer,
+                null, 0, _materialProps
+            );
         }
 
         #endregion

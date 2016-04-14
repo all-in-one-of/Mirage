@@ -67,27 +67,11 @@ namespace Mirage
                 va3.Add(v2);
             }
 
-            // Index array for lines
-            var lines = new List<int>(2 * vcount);
-
-            for (var i = 0; i < vcount; i += 3)
-            {
-                lines.Add(i);
-                lines.Add(i + 1);
-                lines.Add(i + 1);
-                lines.Add(i + 2);
-                lines.Add(i + 2);
-                lines.Add(i);
-            }
-
             // Build a mesh asset.
             _mesh.SetVertices(va1);
             _mesh.SetUVs(0, va2);
             _mesh.SetUVs(1, va3);
-
-            _mesh.subMeshCount = 2;
             _mesh.SetIndices(vc.MakeIndexArrayForFlatMesh(), MeshTopology.Triangles, 0);
-            _mesh.SetIndices(lines.ToArray(), MeshTopology.Lines, 1);
 
             // We have no idea about the bounds, so use a magic number.
             _mesh.bounds = new Bounds(Vector3.zero, Vector3.one * 5);

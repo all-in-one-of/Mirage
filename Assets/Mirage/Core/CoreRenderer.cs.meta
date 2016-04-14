@@ -1,13 +1,12 @@
 fileFormatVersion: 2
 guid: 23075cbdf1ca5497f8db6a56b3bdc093
-timeCreated: 1458380741
+timeCreated: 1460636730
 licenseType: Pro
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - _mesh: {fileID: 11400000, guid: ada479da429614a99a45f29895d6a674, type: 2}
-  - _lineShader: {fileID: 4800000, guid: 4019a8891c145498ca00da4af3469d81, type: 3}
-  - _surfaceShader: {fileID: 4800000, guid: 686657e417e9a4f31bfce487a24b4fa2, type: 3}
+  - _shader: {fileID: 4800000, guid: 686657e417e9a4f31bfce487a24b4fa2, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
