@@ -8,7 +8,13 @@ namespace Mirage
 
         void Start()
         {
-            if (!Application.isEditor)
+            if (Application.isEditor)
+            {
+                _cameras[0].targetDisplay = 0;
+                _cameras[1].targetDisplay = 1;
+                _cameras[2].targetDisplay = 2;
+            }
+            else
             {
                 // Hide mouse cursor.
                 Cursor.visible = false;
@@ -17,14 +23,13 @@ namespace Mirage
 
                 // Remap displays for the single display mode.
                 _cameras[0].enabled = false;
-                _cameras[1].targetDisplay = 0;
                 _cameras[2].enabled = false;
+                _cameras[1].targetDisplay = 0;
 
                 #elif MIRAGE_DUAL
 
                 // Remap displays for the dual display mode.
                 _cameras[0].enabled = false;
-                _cameras[1].targetDisplay = 0;
                 _cameras[2].targetDisplay = 1;
 
                 // Try activating multiple displays.
@@ -32,6 +37,11 @@ namespace Mirage
                 TryActivateDisplay(1);
 
                 #else
+
+                // Remap displays for the triple display mode.
+                _cameras[0].targetDisplay = 0;
+                _cameras[1].targetDisplay = 1;
+                _cameras[2].targetDisplay = 2;
 
                 // Try activating multiple displays.
                 TryActivateDisplay(0);
