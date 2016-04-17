@@ -10,18 +10,28 @@ namespace Mirage
     {
         #region Public properties and methods
 
-        public float highlight { get; set; }
-        public float cutout { get; set; }
-
         public float bend { get; set; }
-        public float twist { get; set; }
-        public float spike { get; set; }
-        public float voxel { get; set; }
 
-        public void ChangeRandomSeed()
+        public void ChangeBendDirection()
         {
-            _randomSeed = Random.value;
+            _bendAngle = Random.value * Mathf.PI * 2;
         }
+
+        public float twist { get; set; }
+
+        public void InvertTwistDirection()
+        {
+            _twistDirection *= -1;
+        }
+
+        public float spike { get; set; }
+
+        public void ChangeSpikeSeed()
+        {
+            _spikeSeed = Random.value;
+        }
+
+        public float voxel { get; set; }
 
         #endregion
 
@@ -45,16 +55,13 @@ namespace Mirage
         [SerializeField, Range(0, 1)] float _occlusionStrength = 1;
         [SerializeField, Range(0, 5)] float _occlusionContrast = 1;
 
-        [Space]
-        [SerializeField, ColorUsage(false)] Color _backColor = Color.red;
-
         #endregion
 
         #region Private properties
 
-        Material _unifiedMaterial;
-        [SerializeField, HideInInspector] Mesh _unifiedMesh;
-        [SerializeField, HideInInspector] Shader _unifiedMeshShader;
+        Material _defaultMaterial;
+        [SerializeField, HideInInspector] Mesh _defaultMesh;
+        [SerializeField, HideInInspector] Shader _defaultShader;
 
         Material _splitMaterial;
         [SerializeField, HideInInspector] Mesh _splitMesh1;
@@ -65,7 +72,9 @@ namespace Mirage
         bool _initialized;
 
         float _splitTimer;
-        float _randomSeed;
+        float _bendAngle;
+        float _twistDirection = 1;
+        float _spikeSeed;
 
         Matrix4x4 transformMatrix {
             get {
@@ -89,9 +98,9 @@ namespace Mirage
 
         void InitializeResources()
         {
-            _unifiedMaterial = new Material(_unifiedMeshShader);
-            _unifiedMaterial.hideFlags = HideFlags.DontSave;
-            ApplyParametersToMaterial(_unifiedMaterial);
+            _defaultMaterial = new Material(_defaultShader);
+            _defaultMaterial.hideFlags = HideFlags.DontSave;
+            ApplyParametersToMaterial(_defaultMaterial);
 
             _splitMaterial = new Material(_splitMeshShader);
             _splitMaterial.hideFlags = HideFlags.DontSave;
@@ -114,8 +123,7 @@ namespace Mirage
                 Property("_BumpScale", _normalScale).
                 Property("_OcclusionMap", _occlusionMap).
                 Property("_OcclusionStrength", _occlusionStrength).
-                Property("_OcclusionContrast", _occlusionContrast).
-                Property("_BackColor", _backColor);
+                Property("_OcclusionContrast", _occlusionContrast);
         }
 
         #endregion
@@ -126,8 +134,8 @@ namespace Mirage
         {
             if (_initialized)
             {
-                DestroyImmediate(_unifiedMaterial);
-                _unifiedMaterial = null;
+                DestroyImmediate(_defaultMaterial);
+                _defaultMaterial = null;
 
                 DestroyImmediate(_splitMaterial);
                 _splitMaterial = null;
@@ -154,18 +162,17 @@ namespace Mirage
 
             if (_splitTimer > 0)
             {
-                var bendAngle = _randomSeed * Mathf.PI * 200;
                 var bendAxes = new Vector4(
-                    Mathf.Cos(bendAngle), -Mathf.Sin(bendAngle),
-                    Mathf.Sin(bendAngle),  Mathf.Cos(bendAngle)
+                    Mathf.Cos(_bendAngle), -Mathf.Sin(_bendAngle),
+                    Mathf.Sin(_bendAngle),  Mathf.Cos(_bendAngle)
                 );
                 var bendDist = 1 / (bend + 1e-6f);
 
                 _mpblock.
                     Property("_Bend", bendDist).
                     Property("_Axes", bendAxes).
-                    Property("_Twist", twist * 3).
-                    Property("_Spike", spike * 2, 0.003f, _randomSeed).
+                    Property("_Twist", twist * _twistDirection * 3).
+                    Property("_Spike", spike * 2, 0.003f, _spikeSeed).
                     Property("_Voxel", 4 / (voxel + 1e-6f));
 
                 var matrix = transformMatrix;
@@ -182,13 +189,9 @@ namespace Mirage
             }
             else
             {
-                _mpblock.
-                    Property("_Highlight", highlight).
-                    Property("_Cutout", cutout);
-
                 Graphics.DrawMesh(
-                    _unifiedMesh, transformMatrix,
-                    _unifiedMaterial, gameObject.layer, null, 0, _mpblock
+                    _defaultMesh, transformMatrix,
+                    _defaultMaterial, gameObject.layer, null, 0, _mpblock
                 );
             }
         }
