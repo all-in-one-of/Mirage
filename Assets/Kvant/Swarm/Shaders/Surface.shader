@@ -29,6 +29,7 @@ Shader "Hidden/Kvant/Swarm/Surface"
 
     float2 _LineWidth; // min, max
     float _Throttle;
+    float _Flip;
 
     float2 _BufferOffset;
 
@@ -43,7 +44,7 @@ Shader "Hidden/Kvant/Swarm/Surface"
         return frac(sin(dot(uv, float2(12.9898, 78.233))) * 43758.5453);
     }
 
-    void vert(inout appdata_full v, out Input data, float flip)
+    void vert(inout appdata_full v, out Input data)
     {
         UNITY_INITIALIZE_OUTPUT(Input, data);
 
@@ -59,14 +60,14 @@ Shader "Hidden/Kvant/Swarm/Surface"
         float3 p3 = tex2Dlod(_PositionTex, uv + duv * 2).xyz;
 
         // binormal vector
-        float3 bn = normalize(cross(p3 - p2, p2 - p1));
+        float3 bn = normalize(cross(p3 - p2, p2 - p1)) * _Flip;
 
         // line width
         float lw = lerp(_LineWidth.x, _LineWidth.y, nrand(ln, 10));
         lw *= saturate((_Throttle - ln) / _PositionTex_TexelSize.y);
 
         v.vertex.xyz = p2 + bn * lw * v.vertex.x;
-        v.normal = normalize(cross(bn, p2 - p1)) * flip;
+        v.normal = normalize(cross(bn, p2 - p1));
 
 #if COLOR_RANDOM
         data.color = nrand(ln, 11);
@@ -81,39 +82,10 @@ Shader "Hidden/Kvant/Swarm/Surface"
     {
         Tags { "RenderType"="Opaque" }
 
-        Cull off
-
         CGPROGRAM
 
-        #pragma surface surf Standard vertex:vert_front nolightmap addshadow
+        #pragma surface surf Standard vertex:vert nolightmap addshadow
         #pragma target 3.0
-
-        void vert_front(inout appdata_full v, out Input data)
-        {
-            vert(v, data, 1);
-        }
-
-        void surf(Input IN, inout SurfaceOutputStandard o)
-        {
-            o.Albedo = lerp(_Color1, _Color2, IN.color);
-            o.Metallic = _Metallic;
-            o.Smoothness = _Smoothness;
-        }
-
-        ENDCG
-
-        Cull front
-        Offset 0, -1
-
-        CGPROGRAM
-
-        #pragma surface surf Standard vertex:vert_back nolightmap addshadow
-        #pragma target 3.0
-
-        void vert_back(inout appdata_full v, out Input data)
-        {
-            vert(v, data, -1);
-        }
 
         void surf(Input IN, inout SurfaceOutputStandard o)
         {
