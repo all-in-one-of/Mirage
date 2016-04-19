@@ -39,6 +39,21 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 0
+      - time: 32
+        value: 0.3
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 39.916668
+        value: 0
+        inSlope: 0
+        outSlope: 3.600055
+        tangentMode: 17
+      - time: 40
+        value: 0.3
+        inSlope: 3.600055
+        outSlope: 0
+        tangentMode: 5
       - time: 140
         value: 0.3
         inSlope: 0
@@ -89,6 +104,21 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 0
+      - time: 32
+        value: 0.45000002
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 39.916668
+        value: 0
+        inSlope: 0
+        outSlope: 5.4000826
+        tangentMode: 17
+      - time: 40
+        value: 0.45000002
+        inSlope: 5.4000826
+        outSlope: 0
+        tangentMode: 5
       - time: 139.98334
         value: 0.45000002
         inSlope: 0
@@ -139,6 +169,21 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 0
+      - time: 32
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 39.916668
+        value: 0.45000002
+        inSlope: 0
+        outSlope: 6.6001005
+        tangentMode: 17
+      - time: 40
+        value: 1
+        inSlope: 6.6001005
+        outSlope: 0
+        tangentMode: 5
       - time: 140
         value: 1
         inSlope: 0
@@ -162,11 +207,11 @@ AnimationClip:
       - time: 12
         value: 0
         inSlope: 0
-        outSlope: 0.25
+        outSlope: 1
         tangentMode: 21
-      - time: 16
+      - time: 13
         value: 1
-        inSlope: 0.25
+        inSlope: 1
         outSlope: -0
         tangentMode: 21
       - time: 88
@@ -189,14 +234,14 @@ AnimationClip:
   - curve:
       serializedVersion: 2
       m_Curve:
-      - time: 90
+      - time: 24
         value: 0
         inSlope: 0
-        outSlope: 0.25
-        tangentMode: 21
-      - time: 94
+        outSlope: 1
+        tangentMode: 17
+      - time: 25
         value: 1
-        inSlope: 0.25
+        inSlope: 1
         outSlope: -0
         tangentMode: 21
       - time: 136
@@ -262,11 +307,31 @@ AnimationClip:
       - time: 12
         value: 0.1
         inSlope: 0.025
-        outSlope: -6.0085326e-11
+        outSlope: -9.8033956e-11
+        tangentMode: 21
+      - time: 88
+        value: 0.099999994
+        inSlope: -9.8033956e-11
+        outSlope: -0.099999994
+        tangentMode: 21
+      - time: 89
+        value: 0
+        inSlope: -0.099999994
+        outSlope: -0
+        tangentMode: 21
+      - time: 104
+        value: 0
+        inSlope: 0
+        outSlope: 0.049999997
+        tangentMode: 21
+      - time: 106
+        value: 0.099999994
+        inSlope: 0.049999997
+        outSlope: -0
         tangentMode: 21
       - time: 136
         value: 0.099999994
-        inSlope: -6.0085326e-11
+        inSlope: 0
         outSlope: -0.016666666
         tangentMode: 21
       - time: 142
@@ -297,21 +362,11 @@ AnimationClip:
       - time: 72
         value: 1
         inSlope: 0
-        outSlope: -0.175
+        outSlope: -1
         tangentMode: 21
-      - time: 76
-        value: 0.3
-        inSlope: -0.175
-        outSlope: -0
-        tangentMode: 21
-      - time: 86
-        value: 0.3
-        inSlope: 0
-        outSlope: -0.15
-        tangentMode: 21
-      - time: 88
+      - time: 73
         value: 0
-        inSlope: -0.15
+        inSlope: -1
         outSlope: -0
         tangentMode: 21
       - time: 104
@@ -352,27 +407,77 @@ AnimationClip:
       - time: 72
         value: 0
         inSlope: 0
-        outSlope: 0.125
+        outSlope: 0.25
         tangentMode: 21
       - time: 76
-        value: 0.5
-        inSlope: 0.125
+        value: 1
+        inSlope: 0.25
+        outSlope: -0
+        tangentMode: 21
+      - time: 88.03333
+        value: 1
+        inSlope: 0
+        outSlope: -0.50847447
+        tangentMode: 21
+      - time: 90
+        value: 0
+        inSlope: -0.50847447
+        outSlope: -0
+        tangentMode: 21
+      - time: 128
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 21
+      - time: 129
+        value: 1
+        inSlope: 1
         outSlope: -0
         tangentMode: 21
       - time: 136
-        value: 0.5
+        value: 1
         inSlope: 0
-        outSlope: -0.25
+        outSlope: -0.5
         tangentMode: 21
       - time: 138
         value: 0
-        inSlope: -0.25
+        inSlope: -0.5
         outSlope: 0
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: _rocksThrottle
+    path: 
+    classID: 114
+    script: {fileID: 11500000, guid: a805d9867aefb4ba7971adaa8c7bd4e6, type: 3}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
+      - time: 40
+        value: 1
+        inSlope: 0.025
+        outSlope: -0
+        tangentMode: 21
+      - time: 135
+        value: 1
+        inSlope: 0
+        outSlope: -0.11111111
+        tangentMode: 21
+      - time: 144
+        value: 0
+        inSlope: -0.11111111
+        outSlope: -0.008064516
+        tangentMode: 21
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: _lightEnvelope
     path: 
     classID: 114
     script: {fileID: 11500000, guid: a805d9867aefb4ba7971adaa8c7bd4e6, type: 3}
@@ -444,6 +549,12 @@ AnimationClip:
       classID: 114
       customType: 0
       isPPtrCurve: 0
+    - path: 0
+      attribute: 2177344289
+      script: {fileID: 11500000, guid: a805d9867aefb4ba7971adaa8c7bd4e6, type: 3}
+      classID: 114
+      customType: 0
+      isPPtrCurve: 0
     pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
@@ -489,6 +600,21 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 0
+      - time: 32
+        value: 0.3
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 39.916668
+        value: 0
+        inSlope: 0
+        outSlope: 3.600055
+        tangentMode: 17
+      - time: 40
+        value: 0.3
+        inSlope: 3.600055
+        outSlope: 0
+        tangentMode: 5
       - time: 140
         value: 0.3
         inSlope: 0
@@ -539,6 +665,21 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 0
+      - time: 32
+        value: 0.45000002
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 39.916668
+        value: 0
+        inSlope: 0
+        outSlope: 5.4000826
+        tangentMode: 17
+      - time: 40
+        value: 0.45000002
+        inSlope: 5.4000826
+        outSlope: 0
+        tangentMode: 5
       - time: 139.98334
         value: 0.45000002
         inSlope: 0
@@ -589,6 +730,21 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 0
+      - time: 32
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 39.916668
+        value: 0.45000002
+        inSlope: 0
+        outSlope: 6.6001005
+        tangentMode: 17
+      - time: 40
+        value: 1
+        inSlope: 6.6001005
+        outSlope: 0
+        tangentMode: 5
       - time: 140
         value: 1
         inSlope: 0
@@ -612,11 +768,11 @@ AnimationClip:
       - time: 12
         value: 0
         inSlope: 0
-        outSlope: 0.25
+        outSlope: 1
         tangentMode: 21
-      - time: 16
+      - time: 13
         value: 1
-        inSlope: 0.25
+        inSlope: 1
         outSlope: -0
         tangentMode: 21
       - time: 88
@@ -639,14 +795,14 @@ AnimationClip:
   - curve:
       serializedVersion: 2
       m_Curve:
-      - time: 90
+      - time: 24
         value: 0
         inSlope: 0
-        outSlope: 0.25
-        tangentMode: 21
-      - time: 94
+        outSlope: 1
+        tangentMode: 17
+      - time: 25
         value: 1
-        inSlope: 0.25
+        inSlope: 1
         outSlope: -0
         tangentMode: 21
       - time: 136
@@ -712,11 +868,31 @@ AnimationClip:
       - time: 12
         value: 0.1
         inSlope: 0.025
-        outSlope: -6.0085326e-11
+        outSlope: -9.8033956e-11
+        tangentMode: 21
+      - time: 88
+        value: 0.099999994
+        inSlope: -9.8033956e-11
+        outSlope: -0.099999994
+        tangentMode: 21
+      - time: 89
+        value: 0
+        inSlope: -0.099999994
+        outSlope: -0
+        tangentMode: 21
+      - time: 104
+        value: 0
+        inSlope: 0
+        outSlope: 0.049999997
+        tangentMode: 21
+      - time: 106
+        value: 0.099999994
+        inSlope: 0.049999997
+        outSlope: -0
         tangentMode: 21
       - time: 136
         value: 0.099999994
-        inSlope: -6.0085326e-11
+        inSlope: 0
         outSlope: -0.016666666
         tangentMode: 21
       - time: 142
@@ -747,21 +923,11 @@ AnimationClip:
       - time: 72
         value: 1
         inSlope: 0
-        outSlope: -0.175
+        outSlope: -1
         tangentMode: 21
-      - time: 76
-        value: 0.3
-        inSlope: -0.175
-        outSlope: -0
-        tangentMode: 21
-      - time: 86
-        value: 0.3
-        inSlope: 0
-        outSlope: -0.15
-        tangentMode: 21
-      - time: 88
+      - time: 73
         value: 0
-        inSlope: -0.15
+        inSlope: -1
         outSlope: -0
         tangentMode: 21
       - time: 104
@@ -802,21 +968,41 @@ AnimationClip:
       - time: 72
         value: 0
         inSlope: 0
-        outSlope: 0.125
+        outSlope: 0.25
         tangentMode: 21
       - time: 76
-        value: 0.5
-        inSlope: 0.125
+        value: 1
+        inSlope: 0.25
+        outSlope: -0
+        tangentMode: 21
+      - time: 88.03333
+        value: 1
+        inSlope: 0
+        outSlope: -0.50847447
+        tangentMode: 21
+      - time: 90
+        value: 0
+        inSlope: -0.50847447
+        outSlope: -0
+        tangentMode: 21
+      - time: 128
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 21
+      - time: 129
+        value: 1
+        inSlope: 1
         outSlope: -0
         tangentMode: 21
       - time: 136
-        value: 0.5
+        value: 1
         inSlope: 0
-        outSlope: -0.25
+        outSlope: -0.5
         tangentMode: 21
       - time: 138
         value: 0
-        inSlope: -0.25
+        inSlope: -0.5
         outSlope: 0
         tangentMode: 21
       m_PreInfinity: 2
@@ -826,11 +1012,55 @@ AnimationClip:
     path: 
     classID: 114
     script: {fileID: 11500000, guid: a805d9867aefb4ba7971adaa8c7bd4e6, type: 3}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 31
+      - time: 40
+        value: 1
+        inSlope: 0.025
+        outSlope: -0
+        tangentMode: 21
+      - time: 135
+        value: 1
+        inSlope: 0
+        outSlope: -0.11111111
+        tangentMode: 21
+      - time: 144
+        value: 0
+        inSlope: -0.11111111
+        outSlope: -0.008064516
+        tangentMode: 21
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: _lightEnvelope
+    path: 
+    classID: 114
+    script: {fileID: 11500000, guid: a805d9867aefb4ba7971adaa8c7bd4e6, type: 3}
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
+  - time: 11.983334
+    functionName: ResetSwarm
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 23.983334
+    functionName: ResetSwarm
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 1
+    messageOptions: 0
   - time: 40
     functionName: Shuffle
     data: 
@@ -944,6 +1174,125 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 56
+    functionName: Reset
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 64
+    functionName: Shuffle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 65
+    functionName: Shuffle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 66
+    functionName: Shuffle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 67
+    functionName: Shuffle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 68
+    functionName: Shuffle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 69
+    functionName: Shuffle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 70
+    functionName: Shuffle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 71
+    functionName: Shuffle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 72
+    functionName: Reset
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 97
+    functionName: Shuffle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 98
+    functionName: Shuffle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 99
+    functionName: Shuffle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 100
+    functionName: Shuffle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 101
+    functionName: Shuffle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 102
+    functionName: Shuffle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 102.98333
+    functionName: Shuffle
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 104
     functionName: Reset
     data: 
     objectReferenceParameter: {fileID: 0}

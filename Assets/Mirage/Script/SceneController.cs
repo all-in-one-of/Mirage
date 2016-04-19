@@ -8,6 +8,7 @@ namespace Mirage
         [SerializeField, Range(0, 1)] float _frontLightIntensity;
         [SerializeField, Range(0, 1)] float _spotLightIntensity;
         [SerializeField, Range(0, 1)] float _spotLightAngle;
+        [SerializeField, Range(0, 1)] float _lightEnvelope;
 
         [Space]
 
@@ -40,17 +41,25 @@ namespace Mirage
         [SerializeField] Kvant.Spray _shards;
         [SerializeField] Kvant.Spray _rocks;
 
-        public void KickLightEnv()
+        const float _beatInterval = 60.0f / 140 * 2;
+
+        public void ResetSwarm(int index)
         {
+            if (index == 0) _swarm1.Restart();
+            if (index == 1) _swarm2.Restart();
+            if (index == 2) _swarm3.Restart();
         }
 
         void Update()
         {
-            _pointLight.intensity = _pointLightIntensity * 2.2f;
-            _frontLight.intensity = _frontLightIntensity * 1.2f;
+            var env = 1.0f - Time.time / _beatInterval % 1.0f;
+            env *= _lightEnvelope;
+
+            _pointLight.intensity = _pointLightIntensity * 2.2f + env;
+            _frontLight.intensity = _frontLightIntensity * 1.2f + env;
 
             foreach (var l in _spotLights)
-                l.intensity = _spotLightIntensity * 2.5f;
+                l.intensity = _spotLightIntensity * 2.5f + env;
 
             var angle = Mathf.Lerp(-5.0f, 60.0f, _spotLightAngle);
             _spotLightPivots[0].rotation = Quaternion.Euler(angle, -9, 0);
