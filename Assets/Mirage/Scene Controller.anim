@@ -100,27 +100,27 @@ AnimationClip:
         outSlope: 0
         tangentMode: 0
       - time: 12
-        value: 0.45000002
+        value: 0.4
         inSlope: 0
         outSlope: 0
         tangentMode: 0
       - time: 32
-        value: 0.45000002
+        value: 0.4
         inSlope: 0
         outSlope: 0
         tangentMode: 0
       - time: 39.916668
         value: 0
         inSlope: 0
-        outSlope: 5.4000826
+        outSlope: 4.800073
         tangentMode: 17
       - time: 40
-        value: 0.45000002
-        inSlope: 5.4000826
+        value: 0.4
+        inSlope: 4.800073
         outSlope: 0
         tangentMode: 5
-      - time: 139.98334
-        value: 0.45000002
+      - time: 140
+        value: 0.4
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -467,11 +467,11 @@ AnimationClip:
       - time: 135
         value: 1
         inSlope: 0
-        outSlope: -0.11111111
+        outSlope: -1
         tangentMode: 21
-      - time: 144
+      - time: 136
         value: 0
-        inSlope: -0.11111111
+        inSlope: -1
         outSlope: -0.008064516
         tangentMode: 21
       m_PreInfinity: 2
@@ -661,27 +661,27 @@ AnimationClip:
         outSlope: 0
         tangentMode: 0
       - time: 12
-        value: 0.45000002
+        value: 0.4
         inSlope: 0
         outSlope: 0
         tangentMode: 0
       - time: 32
-        value: 0.45000002
+        value: 0.4
         inSlope: 0
         outSlope: 0
         tangentMode: 0
       - time: 39.916668
         value: 0
         inSlope: 0
-        outSlope: 5.4000826
+        outSlope: 4.800073
         tangentMode: 17
       - time: 40
-        value: 0.45000002
-        inSlope: 5.4000826
+        value: 0.4
+        inSlope: 4.800073
         outSlope: 0
         tangentMode: 5
-      - time: 139.98334
-        value: 0.45000002
+      - time: 140
+        value: 0.4
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1028,11 +1028,11 @@ AnimationClip:
       - time: 135
         value: 1
         inSlope: 0
-        outSlope: -0.11111111
+        outSlope: -1
         tangentMode: 21
-      - time: 144
+      - time: 136
         value: 0
-        inSlope: -0.11111111
+        inSlope: -1
         outSlope: -0.008064516
         tangentMode: 21
       m_PreInfinity: 2
@@ -1238,6 +1238,20 @@ AnimationClip:
     messageOptions: 0
   - time: 72
     functionName: Reset
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 87.96667
+    functionName: ResetSwarm
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 2
+    messageOptions: 0
+  - time: 96
+    functionName: RandomColor
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

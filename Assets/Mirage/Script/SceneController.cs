@@ -25,6 +25,7 @@ namespace Mirage
         [Space]
 
         [SerializeField] Light _pointLight;
+        [SerializeField] Transform _pointLightSphere;
         [SerializeField] Light _frontLight;
         [SerializeField] Light[] _spotLights;
         [SerializeField] Transform[] _spotLightPivots;
@@ -53,13 +54,18 @@ namespace Mirage
         void Update()
         {
             var env = 1.0f - Time.time / _beatInterval % 1.0f;
-            env *= _lightEnvelope;
+            env *= _lightEnvelope * 0.4f;
 
-            _pointLight.intensity = _pointLightIntensity * 2.2f + env;
-            _frontLight.intensity = _frontLightIntensity * 1.2f + env;
+            var sphere = _pointLightIntensity + env;
+            sphere *= 1.0f + 0.1f * Mathf.Sin(Time.time * 19);
+
+            _pointLight.intensity = (_pointLightIntensity + env) * 1.8f;
+            _pointLightSphere.localScale = Vector3.one * sphere * 0.1f;
+
+            _frontLight.intensity = (_frontLightIntensity + env) * 0.9f;
 
             foreach (var l in _spotLights)
-                l.intensity = _spotLightIntensity * 2.5f + env;
+                l.intensity = (_spotLightIntensity + env) * 2.0f;
 
             var angle = Mathf.Lerp(-5.0f, 60.0f, _spotLightAngle);
             _spotLightPivots[0].rotation = Quaternion.Euler(angle, -9, 0);
