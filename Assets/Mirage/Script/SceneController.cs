@@ -1,9 +1,14 @@
 using UnityEngine;
+using System.Collections;
 
 namespace Mirage
 {
     public class SceneController : MonoBehaviour
     {
+        [SerializeField] float _leadTime = 1;
+
+        [Space]
+
         [SerializeField, Range(0, 1)] float _pointLightIntensity;
         [SerializeField, Range(0, 1)] float _frontLightIntensity;
         [SerializeField, Range(0, 1)] float _spotLightIntensity;
@@ -51,9 +56,15 @@ namespace Mirage
             if (index == 2) _swarm3.Restart();
         }
 
+        IEnumerator Start()
+        {
+            yield return new WaitForSeconds(_leadTime);
+            GetComponent<Animator>().Play("Main");
+        }
+
         void Update()
         {
-            var env = 1.0f - Time.time / _beatInterval % 1.0f;
+            var env = 1.0f - (Time.time - _leadTime) / _beatInterval % 1.0f;
             env *= _lightEnvelope * 0.4f;
 
             var sphere = _pointLightIntensity + env;
