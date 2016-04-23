@@ -12,7 +12,6 @@ namespace Mirage
             {
                 _cameras[0].targetDisplay = 0;
                 _cameras[1].targetDisplay = 1;
-                _cameras[2].targetDisplay = 2;
             }
             else
             {
@@ -21,30 +20,24 @@ namespace Mirage
 
                 #if MIRAGE_SINGLE
 
-                // Remap displays for the single display mode.
-                _cameras[0].enabled = false;
-                _cameras[2].enabled = false;
-                _cameras[1].targetDisplay = 0;
+                // Single mode: disable the secondary camera.
+                _cameras[1].enabled = false;
+                TryActivateDisplay(0);
 
                 #elif MIRAGE_DUAL
 
-                // Remap displays for the dual display mode.
-                _cameras[0].enabled = false;
-                _cameras[2].targetDisplay = 1;
-
-                // Try activating multiple displays.
+                // Dual mode: remap cameras.
+                _cameras[0].targetDisplay = 0;
+                _cameras[1].targetDisplay = 1;
                 TryActivateDisplay(0);
                 TryActivateDisplay(1);
 
                 #else
 
-                // Remap displays for the triple display mode.
-                _cameras[0].targetDisplay = 0;
-                _cameras[1].targetDisplay = 1;
-                _cameras[2].targetDisplay = 2;
-
-                // Try activating multiple displays.
-                TryActivateDisplay(0);
+                // Triple mode: remap cameras.
+                // The 1st display is not in use.
+                _cameras[0].targetDisplay = 1;
+                _cameras[1].targetDisplay = 2;
                 TryActivateDisplay(1);
                 TryActivateDisplay(2);
 
