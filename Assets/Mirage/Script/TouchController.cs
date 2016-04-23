@@ -1,59 +1,120 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Klak.Motion;
-using Kvant;
 
 namespace Mirage
 {
     public class TouchController : MonoBehaviour
     {
-        #region External references
+        #region External object references
 
-        [SerializeField] SmoothFollow[] _followers;
+        [SerializeField] Transform[] _targets;
         [SerializeField] Transform _frontScreen;
         [SerializeField] Camera _primaryCamera;
 
         #endregion
 
-        #region Public methods
+        #region Coordinate transformer
 
-        public void CaptureFollowers()
+        class Transformer
         {
-            foreach (var h in _handlers) h.ChangeTarget(transform);
+            Rect _viewRect;
+            Vector2 _dimensions;
+
+            public Transformer(Camera camera, Transform screen)
+            {
+                _viewRect = camera.rect;
+
+                var scale = screen.localScale;
+                _dimensions = new Vector2(scale.x, scale.y);
+            }
+
+            public Vector3 ScreenToWorld(Vector2 sp)
+            {
+                var x = sp.x / Screen.width;
+                var y = sp.y / Screen.height;
+
+                y = (y - _viewRect.yMin) / _viewRect.height;
+
+                x = (x - 0.5f) * _dimensions.x;
+                y *= _dimensions.y;
+
+                return new Vector3(x, y, 0);
+            }
         }
 
-        public void ReleaseFollowers()
-        {
-            foreach (var h in _handlers) h.UseOriginalTarget();
-        }
+        Transformer _transformer;
 
         #endregion
 
-        #region Handler objects
+        #region Touch point handler
 
-        class FollowerHandler
+        class TouchPoint
         {
-            SmoothFollow _follower;
-            Transform _originalTarget;
+            public int FingerID { get; set; }
 
-            public FollowerHandler(SmoothFollow follower)
-            {
-                _follower = follower;
-                _originalTarget = follower.target;
+            public bool Captured {
+                get { return FingerID >= 0; }
             }
 
-            public void UseOriginalTarget()
+            Transform _target;
+            Vector2 _lastPosition;
+
+            public TouchPoint(Transform target)
             {
-                _follower.target = _originalTarget;
+                _target = target;
+                FingerID = -1;
             }
 
-            public void ChangeTarget(Transform target)
+            public void Capture(int fingerID)
             {
-                _follower.target = target;
+                FingerID = fingerID;
+            }
+
+            public void Release()
+            {
+                FingerID = -1;
+            }
+
+            public float CalculateDistance(Vector2 position)
+            {
+                return (position - _lastPosition).magnitude;
+            }
+
+            public void Update(Vector2 position, Transformer trans)
+            {
+                _target.localPosition = trans.ScreenToWorld(position);
+                _lastPosition = position;
             }
         }
 
-        List<FollowerHandler> _handlers;
+        TouchPoint FindCapturedTouchPoint(int fingerID)
+        {
+            foreach (var tp in _touchPoints)
+                if (tp.Captured && tp.FingerID == fingerID) return tp;
+            return null;
+        }
+
+        TouchPoint GetClosestFreeTouchPoint(Vector2 position)
+        {
+            var minDist = 1e6f;
+            TouchPoint closest = null;
+
+            foreach (var tp in _touchPoints)
+            {
+                if (tp.Captured) continue;
+
+                var dist = tp.CalculateDistance(position);
+                if (dist < minDist) {
+                    minDist = dist;
+                    closest = tp;
+                }
+            }
+
+            return closest;
+        }
+
+        List<TouchPoint> _touchPoints;
 
         #endregion
 
@@ -61,27 +122,51 @@ namespace Mirage
 
         void Start()
         {
-            _handlers = new List<FollowerHandler>(_followers.Length);
+            _transformer = new Transformer(_primaryCamera, _frontScreen);
 
-            foreach (var follower in _followers)
-                _handlers.Add(new FollowerHandler(follower));
+            _touchPoints = new List<TouchPoint>(_targets.Length);
+            foreach (var t in _targets) _touchPoints.Add(new TouchPoint(t));
         }
 
         void Update()
         {
-            if (Input.GetMouseButton(0))
+            if (Input.touchCount > 0)
             {
-                var mp = Input.mousePosition;
+                // Multi touch mode
+                foreach (var t in Input.touches)
+                {
+                    var pos = t.position;
 
-                var view = _primaryCamera.rect;
-                var px =  mp.x / Screen.width;
-                var py = (mp.y / Screen.height - view.yMin) / view.height;
-
-                var scale = _frontScreen.localScale;
-                px = (px - 0.5f) * scale.x;
-                py *= scale.y;
-
-                transform.localPosition = new Vector3(px, py, 0);
+                    if (t.phase == TouchPhase.Began)
+                    {
+                        // Touch began: try to capture the closest point.
+                        var tp = GetClosestFreeTouchPoint(pos);
+                        if (tp != null) {
+                            tp.Capture(t.fingerId);
+                            tp.Update(pos, _transformer);
+                        }
+                    }
+                    else if (t.phase == TouchPhase.Moved)
+                    {
+                        // Touch moved: update it if it's captured one.
+                        var tp = FindCapturedTouchPoint(t.fingerId);
+                        if (tp != null) tp.Update(pos, _transformer);
+                    }
+                    else if (t.phase == TouchPhase.Ended ||
+                             t.phase == TouchPhase.Canceled)
+                    {
+                        // Touch ended: relase it if it's captured one.
+                        var tp = FindCapturedTouchPoint(t.fingerId);
+                        if (tp != null) tp.Release();
+                    }
+                }
+            }
+            else if (Input.GetMouseButton(0))
+            {
+                // Touch emulation mode:
+                // update the targets with the mouse position.
+                foreach (var tp in _touchPoints)
+                    tp.Update(Input.mousePosition, _transformer);
             }
         }
 
