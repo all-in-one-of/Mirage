@@ -384,52 +384,7 @@ Transform:
   - {fileID: 233278332}
   - {fileID: 1978635793}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
---- !u!1 &128044626
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 128044627}
-  - 114: {fileID: 128044628}
-  m_Layer: 0
-  m_Name: Target
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &128044627
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 128044626}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1947258340}
-  m_RootOrder: 0
---- !u!114 &128044628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 128044626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e04f5e50cd25d4df6ad5fe43d1f88cca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interpolator: 0
-  _target: {fileID: 1340305916}
-  _positionSpeed: 10
-  _rotationSpeed: 10
-  _jumpDistance: 1
-  _jumpAngle: 60
+  m_RootOrder: 16
 --- !u!1 &130373242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,7 +1061,7 @@ Transform:
   m_Children:
   - {fileID: 419459427}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1 &299724573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,7 +1389,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &401989802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1964,7 +1919,7 @@ Transform:
   - {fileID: 493430500}
   - {fileID: 1514116710}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!114 &486703261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2106,7 +2061,7 @@ Transform:
   - {fileID: 712388687}
   - {fileID: 688502233}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!1 &582425502
 GameObject:
   m_ObjectHideFlags: 0
@@ -5922,7 +5877,7 @@ Transform:
   - {fileID: 1361579453}
   - {fileID: 1147981468}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
 --- !u!1 &759209777
 GameObject:
   m_ObjectHideFlags: 0
@@ -6641,7 +6596,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
 --- !u!1 &944265234
 GameObject:
   m_ObjectHideFlags: 0
@@ -6712,7 +6667,7 @@ Transform:
   - {fileID: 1589114636}
   - {fileID: 2011905923}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
 --- !u!1 &951037154
 GameObject:
   m_ObjectHideFlags: 0
@@ -6993,7 +6948,7 @@ Transform:
   - {fileID: 1291571796}
   - {fileID: 11510987}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1 &1017391210
 GameObject:
   m_ObjectHideFlags: 0
@@ -7173,7 +7128,7 @@ Transform:
   m_Children:
   - {fileID: 1360221551}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &1022020907
 GameObject:
   m_ObjectHideFlags: 0
@@ -7357,7 +7312,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!114 &1133612685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7979,7 +7934,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
 --- !u!1 &1251398759
 GameObject:
   m_ObjectHideFlags: 0
@@ -8026,7 +7981,7 @@ Transform:
   m_Children:
   - {fileID: 675755886}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
 --- !u!1 &1253368144
 GameObject:
   m_ObjectHideFlags: 0
@@ -8159,7 +8114,7 @@ Transform:
   - {fileID: 759209778}
   - {fileID: 1432483483}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!1 &1283902528
 GameObject:
   m_ObjectHideFlags: 0
@@ -11786,6 +11741,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1340305916}
   - 114: {fileID: 1340305915}
+  - 114: {fileID: 1340305918}
+  - 114: {fileID: 1340305917}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -11810,7 +11767,6 @@ MonoBehaviour:
   - {fileID: 1230391083}
   - {fileID: 1361579452}
   - {fileID: 233278331}
-  _aura: {fileID: 1947258339}
   _frontScreen: {fileID: 651812286}
   _primaryCamera: {fileID: 199947338}
 --- !u!4 &1340305916
@@ -11826,6 +11782,124 @@ Transform:
   - {fileID: 951037155}
   m_Father: {fileID: 1213983269}
   m_RootOrder: 0
+--- !u!114 &1340305917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1340305914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48176ff3d33154fd6956c5fe401b5301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventType: 0
+  _keyCode: 32
+  _offValue: 0
+  _onValue: 1
+  _interpolator:
+    _interpolationType: 2
+    _interpolationSpeed: 5
+  _triggerEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1340305915}
+        m_MethodName: ReleaseFollowers
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _keyDownEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _keyUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _toggleOnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _toggleOffEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _valueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Klak.Wiring.KeyInput+ValueEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1340305918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1340305914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48176ff3d33154fd6956c5fe401b5301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventType: 0
+  _keyCode: 49
+  _offValue: 0
+  _onValue: 1
+  _interpolator:
+    _interpolationType: 2
+    _interpolationSpeed: 5
+  _triggerEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1340305915}
+        m_MethodName: CaptureFollowers
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _keyDownEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _keyUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _toggleOnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _toggleOffEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  _valueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Klak.Wiring.KeyInput+ValueEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1360221549
 GameObject:
   m_ObjectHideFlags: 0
@@ -12546,7 +12620,7 @@ Transform:
   - {fileID: 1795102645}
   - {fileID: 1322806319}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
 --- !u!1 &1498846591
 GameObject:
   m_ObjectHideFlags: 0
@@ -14464,7 +14538,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 20
 --- !u!1 &1589114634
 GameObject:
   m_ObjectHideFlags: 0
@@ -14666,7 +14740,7 @@ Transform:
   - {fileID: 1230391084}
   - {fileID: 1911231447}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
 --- !u!1 &1628772803
 GameObject:
   m_ObjectHideFlags: 0
@@ -18145,7 +18219,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
 --- !u!1 &1897004249
 GameObject:
   m_ObjectHideFlags: 0
@@ -18512,92 +18586,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: Klak.Osc.OscInput+ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
---- !u!1 &1947258338
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1947258340}
-  - 114: {fileID: 1947258339}
-  - 114: {fileID: 1947258341}
-  m_Layer: 0
-  m_Name: Aura
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1947258339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1947258338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 051131338091a4b3d861d193e64fb704, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxParticles: 1
-  _emitterCenter: {x: 0, y: 0, z: 0}
-  _emitterSize: {x: 0.1, y: 0.1, z: 0.1}
-  _throttle: 0
-  _life: 3
-  _lifeRandomness: 0.9
-  _initialVelocity: {x: 3, y: 0, z: 0}
-  _directionSpread: 0
-  _speedRandomness: 1
-  _acceleration: {x: 0, y: 0, z: 0}
-  _drag: 1.3
-  _spin: 20
-  _speedToSpin: 800
-  _spinRandomness: 0.5
-  _noiseAmplitude: 1.4
-  _noiseFrequency: 2
-  _noiseMotion: 0.8
-  _shapes:
-  - {fileID: 4300006, guid: d156dcf56f86f404393203fbed35c031, type: 3}
-  - {fileID: 4300004, guid: d156dcf56f86f404393203fbed35c031, type: 3}
-  - {fileID: 4300002, guid: d156dcf56f86f404393203fbed35c031, type: 3}
-  - {fileID: 4300000, guid: d156dcf56f86f404393203fbed35c031, type: 3}
-  _scale: 0.4
-  _scaleRandomness: 0.9
-  _material: {fileID: 2100000, guid: 793905b960683436ba3377aa353f6cf7, type: 2}
-  _castShadows: 0
-  _receiveShadows: 0
-  _randomSeed: 3413
-  _debug: 0
-  _defaultMaterial: {fileID: 2100000, guid: e1aad33bf16194534a7c99e7c01a8249, type: 2}
-  _kernelShader: {fileID: 4800000, guid: 5e5e161a3708e40119404232637809fc, type: 3}
-  _debugShader: {fileID: 4800000, guid: ad2397ccf551046ecb4df814f027d430, type: 3}
---- !u!4 &1947258340
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1947258338}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 128044627}
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
---- !u!114 &1947258341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1947258338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d680d9f7a203f4541bbd6f1c1aa0d2b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _target: {fileID: 1340305916}
-  _applyVelocity: 0.5
 --- !u!1 &1951607426
 GameObject:
   m_ObjectHideFlags: 0
@@ -18979,7 +18967,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 21
 --- !u!1 &2055868862
 GameObject:
   m_ObjectHideFlags: 0

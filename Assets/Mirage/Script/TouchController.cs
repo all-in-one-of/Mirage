@@ -7,13 +7,29 @@ namespace Mirage
 {
     public class TouchController : MonoBehaviour
     {
+        #region External references
+
         [SerializeField] SmoothFollow[] _followers;
-        [SerializeField] Spray _aura;
-
-        [Space]
-
         [SerializeField] Transform _frontScreen;
         [SerializeField] Camera _primaryCamera;
+
+        #endregion
+
+        #region Public methods
+
+        public void CaptureFollowers()
+        {
+            foreach (var h in _handlers) h.ChangeTarget(transform);
+        }
+
+        public void ReleaseFollowers()
+        {
+            foreach (var h in _handlers) h.UseOriginalTarget();
+        }
+
+        #endregion
+
+        #region Handler objects
 
         class FollowerHandler
         {
@@ -39,9 +55,14 @@ namespace Mirage
 
         List<FollowerHandler> _handlers;
 
+        #endregion
+
+        #region MonoBehaviour functions
+
         void Start()
         {
             _handlers = new List<FollowerHandler>(_followers.Length);
+
             foreach (var follower in _followers)
                 _handlers.Add(new FollowerHandler(follower));
         }
@@ -61,15 +82,9 @@ namespace Mirage
                 py *= scale.y;
 
                 transform.localPosition = new Vector3(px, py, 0);
-
-                foreach (var h in _handlers) h.ChangeTarget(transform);
-                if (!Input.GetMouseButtonDown(0)) _aura.throttle = 0.5f;
-            }
-            else
-            {
-                foreach (var h in _handlers) h.UseOriginalTarget();
-                _aura.throttle = 0;
             }
         }
+
+        #endregion
     }
 }
