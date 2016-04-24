@@ -6777,9 +6777,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enablePositionNoise: 1
   _enableRotationNoise: 0
-  _positionFrequency: 0.15
+  _positionFrequency: 0.2
   _rotationFrequency: 0.2
-  _positionAmplitude: 0.4
+  _positionAmplitude: 0.1
   _rotationAmplitude: 10
   _positionScale: {x: 1, y: 1, z: 1}
   _rotationScale: {x: 1, y: 1, z: 0}
@@ -8697,7 +8697,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1133612682}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23075cbdf1ca5497f8db6a56b3bdc093, type: 3}
   m_Name: 
