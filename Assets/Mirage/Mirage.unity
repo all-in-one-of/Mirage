@@ -307,7 +307,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _eventType: 0
-  _triggerType: 1
+  _triggerType: 0
   _outputValue0: 0
   _outputValue1: 1
   _interpolator:
@@ -3188,7 +3188,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _eventType: 0
-  _triggerType: 1
+  _triggerType: 0
   _outputValue0: 0
   _outputValue1: 1
   _interpolator:
@@ -14007,7 +14007,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _eventType: 0
-  _triggerType: 1
+  _triggerType: 0
   _outputValue0: 0
   _outputValue1: 1
   _interpolator:
@@ -16975,7 +16975,7 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     startLifetime:
-      scalar: 0.8
+      scalar: 1.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
