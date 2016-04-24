@@ -1832,7 +1832,7 @@ MonoBehaviour:
   _target: {fileID: 486703260}
   _positionSpeed: 10
   _rotationSpeed: 0
-  _jumpDistance: 1.8
+  _jumpDistance: 0.5
   _jumpAngle: 0
 --- !u!114 &383626407
 MonoBehaviour:
@@ -3292,7 +3292,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 674781306}
   - 114: {fileID: 674781307}
-  - 114: {fileID: 674781308}
   - 114: {fileID: 674781309}
   m_Layer: 0
   m_Name: bang
@@ -3351,7 +3350,7 @@ MonoBehaviour:
   _triggerEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 674781308}
+      - m_Target: {fileID: 674781309}
         m_MethodName: Trigger
         m_Mode: 1
         m_Arguments:
@@ -3384,13 +3383,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 674781309}
-        m_MethodName: Trigger
-        m_Mode: 1
+      - m_Target: {fileID: 1514116712}
+        m_MethodName: Emit
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 100
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3411,35 +3410,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Klak.Osc.OscInput+ValueEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
---- !u!114 &674781308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 674781305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b4c9c81ea5f04750b39f17b5c36e344, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _timeMode: 1
-  _delay: 1
-  _target:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1514116712}
-        m_MethodName: Emit
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 100
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &674781309
 MonoBehaviour:
@@ -8727,7 +8697,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1133612682}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23075cbdf1ca5497f8db6a56b3bdc093, type: 3}
   m_Name: 
