@@ -8806,7 +8806,7 @@ MonoBehaviour:
   _rotationFrequency: 0.2
   _positionAmplitude: 1
   _rotationAmplitude: 10
-  _positionScale: {x: 4, y: 1.2, z: 0.5}
+  _positionScale: {x: 3, y: 1.2, z: 0.5}
   _rotationScale: {x: 1, y: 1, z: 0}
   _positionFractalLevel: 2
   _rotationFractalLevel: 3
@@ -20765,7 +20765,7 @@ MonoBehaviour:
   _rotationFrequency: 0.2
   _positionAmplitude: 1
   _rotationAmplitude: 10
-  _positionScale: {x: 6, y: 1.2, z: 0.5}
+  _positionScale: {x: 3, y: 1.2, z: 0.5}
   _rotationScale: {x: 1, y: 1, z: 0}
   _positionFractalLevel: 2
   _rotationFractalLevel: 3
