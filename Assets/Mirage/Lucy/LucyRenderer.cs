@@ -157,7 +157,7 @@ namespace Mirage
             }
             else
             {
-                _splitTimer = 1;
+                _splitTimer = 4;
             }
 
             if (_splitTimer > 0)

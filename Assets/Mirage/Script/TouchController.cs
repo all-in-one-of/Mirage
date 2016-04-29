@@ -130,6 +130,8 @@ namespace Mirage
 
         void Update()
         {
+        /* last minute change: do not use multi touch */
+        /*
             if (Input.touchCount > 0)
             {
                 // Multi touch mode
@@ -162,6 +164,7 @@ namespace Mirage
                 }
             }
             else if (Input.GetMouseButton(0))
+        */
             {
                 // Touch emulation mode:
                 // update the targets with the mouse position.
