@@ -1,4 +1,5 @@
-01234567890123456789012345678901234567890123456789012345678901234567890123456789
+Mirage (VRDG+H2 version)
+------------------------
 
 This is a branch for another version of Mirage that was used at VRDG+H2 on 30th
 April 2016. For details of the original project, please see [the master branch]
