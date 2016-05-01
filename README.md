@@ -23,6 +23,9 @@ devices and audio clips. To open the project with Live, create a empty
 directory named “Devices” and put Livegrabber and fgc.reenableautomation in
 it. Or you can simply use “search missing files” feature in Live.
 
+I used Livegrabber v3.3.3 and fgc.reenableautomation v1.1 with Ableton Live
+v9.6.1. 
+
 I can’t distribute the audio clips... that’s secret sauce of the project :yum:
 Put any track you like instead of them.
 
