@@ -1,35 +1,39 @@
 Mirage (VRDG+H2 version)
 ------------------------
 
-This is a branch for another version of Mirage that was used at VRDG+H2 on 30th
-April 2016. For details of the original project, please see [the master branch]
-[Master].
+This is a branched version of *Mirage*, which was used at “VRDG+H2” on 30th
+April 2016. For details of the original project, please refer to [the master
+branch][Master].
 
-This time the visuals are controlled with Ableton Live, which was also used for
-playing back the pre-recorded audio track.
+This time the visuals are controlled from [Ableton Live][Ableton], which was
+also used for playing back the pre-recorded audio track.
 
 ![Screenshot][Screenshot]
 
-A Max for Live device called [Livegrabber][Livegrabber] was used for
-establishing communication between Live and Unity. It sends OSC messages with
-notes and automation curves in the Live project. It also analyzes audio level
-of audio tracks and sends data of them.
+A [Max for Live][M4L] device called [Livegrabber][Livegrabber] was used to make
+communication between Live and Unity. It sends OSC messages from MIDI notes and
+automation curves in MIDI tracks. It also analyzes audio level of audio tracks
+and sends data from them.
 
-I also used [fgc.reenableautomation][FGC] to work around [an issue of Live]
-[Issue]. That's a really nasty bug, but you can shut it up with this device.
+Besides that a Max 4 Live device called [fgc.reenableautomation][FGC] was used
+to resolve [an issue in M4L][Issue]. It’s a nasty bug but can be shut up with
+this device anyway.
 
-The Live project is in [the Ableton directory][LiveProject] without M4L
-devices and audio clips. To open the project with Live, create a empty
-directory named “Devices” and put Livegrabber and fgc.reenableautomation in
-it. Or you can simply use “search missing files” feature in Live.
+The Live project is located in the [Ableton directory][LiveProject] but without
+these M4L devices. To add the devices, create an empty directory named “Devices”
+in the project directory, then put files from Livegrabber and
+fgc.reenableautomation into the “Devices” directory.
 
 I used Livegrabber v3.3.3 and fgc.reenableautomation v1.1 with Ableton Live
-v9.6.1. 
+v9.6.1. You may use later versions, but try to ensure to use same versions in
+case any issues arise.
 
-I can’t distribute the audio clips... that’s secret sauce of the project :yum:
-Put any track you like instead of them.
+Audio clips (soundtrack) are also missing from the Live project... that’s
+the secret sauce of the project :yum: Put any tracks you like instead of them.
 
 [Master]: https://github.com/keijiro/Mirage
+[Ableton]: https://www.ableton.com
+[M4L]: https://www.ableton.com/en/live/max-for-live/
 [Livegrabber]: http://showsync.info/tools/livegrabber/
 [FGC]: http://www.maxforlive.com/library/device/3351/fgc-reenableautomation
 [Issue]: https://cycling74.com/forums/topic/re-enable-automation-turning-on-randomly
