@@ -2403,9 +2403,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.16666667
+    y: 0.23333333
     width: 1
-    height: 0.6666667
+    height: 0.53333336
   near clip plane: 13
   far clip plane: 23
   field of view: 10.4
@@ -6103,7 +6103,7 @@ Transform:
   m_GameObject: {fileID: 651812283}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.368, z: 0}
-  m_LocalScale: {x: 7.296, y: 2.736, z: 1}
+  m_LocalScale: {x: 9.206, y: 2.736, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 310351456}
@@ -10665,7 +10665,7 @@ Transform:
   m_LocalRotation: {x: 0.011635268, y: 0, z: 0, w: 0.99993235}
   m_LocalPosition: {x: 0, y: 0.4, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1.3333, y: 0, z: 0}
   m_Children:
   - {fileID: 199947339}
   m_Father: {fileID: 310351456}
@@ -11081,7 +11081,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1022020908
 Transform:
   m_ObjectHideFlags: 0
