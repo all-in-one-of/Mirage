@@ -48,7 +48,7 @@ namespace Klak.Motion
 
         #endregion
 
-        #region Public Properties
+        #region Public Properties And Methods
 
         public bool enablePositionNoise {
             get { return _enablePositionNoise; }
@@ -104,7 +104,6 @@ namespace Klak.Motion
         {
             for (var i = 0; i < 6; i++)
                 _time[i] = Random.Range(-10000.0f, 0.0f);
-            Update();
         }
 
         #endregion
