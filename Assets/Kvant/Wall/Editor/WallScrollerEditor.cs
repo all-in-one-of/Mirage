@@ -1,4 +1,4 @@
-﻿//
+//
 // Custom editor for WallScroller
 //
 using UnityEngine;

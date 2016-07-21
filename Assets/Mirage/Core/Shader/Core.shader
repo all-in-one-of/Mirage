@@ -1,4 +1,4 @@
-﻿Shader "Hidden/Mirage/Core"
+Shader "Hidden/Mirage/Core"
 {
     Properties
     {

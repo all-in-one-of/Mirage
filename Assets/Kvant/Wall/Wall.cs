@@ -1,4 +1,4 @@
-﻿//
+//
 // Wall - object array animator
 //
 using UnityEngine;

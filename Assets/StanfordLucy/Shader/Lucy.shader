@@ -1,4 +1,4 @@
-﻿Shader "Custom/Lucy"
+Shader "Custom/Lucy"
 {
     Properties {
         _Color1("Base Color", Color) = (1, 1, 1, 1)

@@ -1,4 +1,4 @@
-﻿//
+//
 // Scroller script for Wall
 //
 using UnityEngine;

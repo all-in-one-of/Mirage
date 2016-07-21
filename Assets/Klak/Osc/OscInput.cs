@@ -1,4 +1,4 @@
-﻿//
+//
 // OscKlak - OSC (Open Sound Control) extension for Klak
 //
 // Copyright (C) 2016 Keijiro Takahashi

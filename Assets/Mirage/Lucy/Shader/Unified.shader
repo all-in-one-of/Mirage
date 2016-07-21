@@ -1,4 +1,4 @@
-﻿Shader "Hidden/Mirage/Lucy/Unified"
+Shader "Hidden/Mirage/Lucy/Unified"
 {
     Properties
     {

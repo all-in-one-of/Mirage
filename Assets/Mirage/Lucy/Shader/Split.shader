@@ -1,4 +1,4 @@
-﻿Shader "Hidden/Mirage/Lucy/SplitMesh"
+Shader "Hidden/Mirage/Lucy/SplitMesh"
 {
     Properties
     {

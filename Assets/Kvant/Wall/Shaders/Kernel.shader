@@ -1,4 +1,4 @@
-﻿//
+//
 // GPGPU kernels for Wall
 //
 // Position kernel outputs:

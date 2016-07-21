@@ -1,4 +1,4 @@
-﻿//
+//
 // Opaque surface shader for Wall
 //
 // Vertex format:

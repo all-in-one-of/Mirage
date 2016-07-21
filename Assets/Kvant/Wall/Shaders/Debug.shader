@@ -1,4 +1,4 @@
-﻿Shader "Hidden/Kvant/Wall/Debug"
+Shader "Hidden/Kvant/Wall/Debug"
 {
     Properties
     {
