@@ -2324,6 +2324,7 @@ GameObject:
   - 4: {fileID: 368142214}
   - 114: {fileID: 368142213}
   - 114: {fileID: 368142212}
+  - 114: {fileID: 368142215}
   m_Layer: 0
   m_Name: System
   m_TagString: Untagged
@@ -2376,6 +2377,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &368142215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 368142211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640ed8c87ab21456ba4a183e49d2b104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cameras:
+  - {fileID: 2087501218}
+  - {fileID: 1116142351}
+  - {fileID: 1480637591}
 --- !u!1 &383626404
 GameObject:
   m_ObjectHideFlags: 0
@@ -8763,13 +8779,13 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 0.5
-  m_Depth: 0
+  m_Depth: 4
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 2147483648
   m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 1
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 0
@@ -13083,13 +13099,13 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 0.5
-  m_Depth: 0
+  m_Depth: 3
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 2147483648
   m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 2
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 0
@@ -18722,7 +18738,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 0.5
-  m_Depth: 0
+  m_Depth: 5
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 2147483680
