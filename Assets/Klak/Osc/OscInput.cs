@@ -88,7 +88,8 @@ namespace Klak.Osc
         {
             _value.targetValue = inputValue;
 
-            lock (_eventQueue) _eventQueue.Enqueue(EventRecord.Bang);
+            if (inputValue > 0)
+                lock (_eventQueue) _eventQueue.Enqueue(EventRecord.Bang);
 
             if (CheckUpTrigger(inputValue))
                 lock (_eventQueue) _eventQueue.Enqueue(EventRecord.On);
