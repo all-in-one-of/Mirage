@@ -30,34 +30,23 @@ namespace Klak.Osc
     {
         #region Public Members
 
-        public static MessageHandler[] messageHandlers {
-            get {
-                if (_servers == null) StartServers();
-                return _messageHandlers;
-            }
+        public static MessageHandler messageHandler {
+            get { return ServerInstance.messageHandler; }
         }
 
         #endregion
 
         #region Private Members
 
-        static OscServer[] _servers;
-        static MessageHandler[] _messageHandlers;
+        static OscServer _server;
 
-        static void StartServers()
-        {
-            _servers = new OscServer[] {
-                new OscServer(7000),
-                new OscServer(8000),
-                new OscServer(9000)
-            };
-
-            _messageHandlers = new MessageHandler[_servers.Length];
-
-            for (var i = 0; i < _servers.Length; i++)
-            {
-                _messageHandlers[i] = _servers[i].messageHandler;
-                _servers[i].Start();
+        static OscServer ServerInstance {
+            get {
+                if (_server == null) {
+                    _server = new OscServer(9000);
+                    _server.Start();
+                }
+                return _server;
             }
         }
 
