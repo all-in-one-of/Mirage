@@ -131,7 +131,7 @@ namespace Mirage
 
         #region MonoBehaviour Functions
 
-        void OnEnable()
+        void Start()
         {
             var shader = Shader.Find("Hidden/Mirage/Core");
 
@@ -146,7 +146,7 @@ namespace Mirage
             _materialProps = new MaterialPropertyBlock();
         }
 
-        void OnDisable()
+        void OnDestroy()
         {
             if (_frontMaterial != null) DestroyImmediate(_frontMaterial);
             if (_backMaterial != null) DestroyImmediate(_backMaterial);
