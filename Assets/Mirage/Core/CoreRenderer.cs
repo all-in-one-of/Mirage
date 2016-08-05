@@ -131,7 +131,7 @@ namespace Mirage
 
         #region MonoBehaviour Functions
 
-        void Start()
+        void OnEnable()
         {
             var shader = Shader.Find("Hidden/Mirage/Core");
 
@@ -146,7 +146,7 @@ namespace Mirage
             _materialProps = new MaterialPropertyBlock();
         }
 
-        void OnDestroy()
+        void OnDisable()
         {
             if (_frontMaterial != null) DestroyImmediate(_frontMaterial);
             if (_backMaterial != null) DestroyImmediate(_backMaterial);
@@ -164,7 +164,10 @@ namespace Mirage
 
             _spikeOffset += spikeDir * (_spikeMotion * Time.deltaTime);
             _dissolveOffset += dissolveDir * (_dissolveMotion * Time.deltaTime);
+        }
 
+        void LateUpdate()
+        {
             // Material setup
             _materialProps.
                 Property("_SpikeOffset", _spikeOffset).
