@@ -11,6 +11,7 @@ public class HelixController : MonoBehaviour
     public float cutoffLevel { get; set; }
     public float cutoffModulation { get; set; }
     public float noiseAmplitude { get; set; }
+    public float noiseRoughness { get; set; }
     public float spikeAmplitude { get; set; }
     public float undulationAngle { get; set; }
 
@@ -88,6 +89,7 @@ public class HelixController : MonoBehaviour
         _props.SetFloat("_HelixFreq", helixFrequency);
         _props.SetFloat("_Cutoff", cutoffLevel);
         _props.SetFloat("_WaveAmp", cutoffModulation);
+        _props.SetFloat("_NoiseRough", noiseRoughness);
         _props.SetFloat("_NoiseAmp", noiseAmplitude);
         _props.SetFloat("_SpikeAmp", spikeAmplitude);
 

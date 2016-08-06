@@ -1,5 +1,5 @@
 #include "UnityCG.cginc"
-#include "SimplexNoise2D.cginc"
+#include "ClassicNoise2D.cginc"
 
 sampler2D _AlbedoMap;
 half3 _AlbedoColor;
@@ -23,6 +23,7 @@ half _BackSmoothness;
 float _NoiseAmp;
 float _NoiseSpeed;
 float _NoiseFreq;
+float _NoiseRough;
 
 float _SpikeProb;
 float _SpikeAmp;
@@ -46,7 +47,7 @@ struct Input
 
 float Random01(float3 v, float t)
 {
-    float2 uv = v.xy + float2(v.z * -2.1, t + _RandomSeed);
+    float2 uv = v.xy + float2(v.z * -2.1, t);
     return frac(sin(dot(uv, float2(12.9898, 78.233))) * 43758.5453);
 }
 
@@ -55,14 +56,18 @@ float3 ApplyModifier(float3 v)
     float time = _Time.y;
     float phi = atan2(v.z, v.x) / UNITY_PI;
 
-    float2 np = float2(phi, v.y * 6 + phi * 2) * _NoiseFreq;
-    np += _NoiseSpeed * time;
+    float2 np = float2(phi, v.y * 2) * _NoiseFreq;
+    np.y += _NoiseSpeed * time + _RandomSeed;
 
-    float n = snoise(np);
-    float sp = Random01(v, floor(time));
+    float2 nrep = float2(_NoiseFreq, 1000);
 
-    n *= 1 + (sp < _SpikeProb) * _SpikeAmp;
-    v.xz *= 1 + n * n * n * _NoiseAmp;
+    float n = pnoise(np, nrep);
+    n += pnoise(np * 5, nrep * 5) * _NoiseRough;
+
+    float sp = Random01(v, _RandomSeed);
+    sp = (sp < _SpikeProb) * _SpikeAmp * 4;
+
+    v.xz *= 1 + n * _NoiseAmp + abs(n) * sp;
 
     return v;
 }

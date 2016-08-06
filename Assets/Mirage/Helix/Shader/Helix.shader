@@ -23,6 +23,7 @@
         _NoiseAmp("Noise Amplitude", Float) = 0.6
         _NoiseSpeed("Noise Speed", Float) = 1.2
         _NoiseFreq("Noise Frequency", Float) = 1
+        _NoiseRough("Noise Roughness", Float) = 0
         [Space]
         _SpikeProb("Spike Probability", Float) = 0.005
         _SpikeAmp("Spike Amplitude", Float) = 1

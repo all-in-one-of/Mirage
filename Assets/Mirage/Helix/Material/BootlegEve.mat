@@ -168,15 +168,15 @@ Material:
       data:
         first:
           name: _NoiseSpeed
-        second: 1
+        second: 0.4
       data:
         first:
           name: _NoiseFreq
-        second: 1.3
+        second: 3
       data:
         first:
           name: _SpikeProb
-        second: 0.01
+        second: 0.014
       data:
         first:
           name: _SpikeAmp
@@ -196,7 +196,7 @@ Material:
       data:
         first:
           name: _WaveFreq
-        second: 2
+        second: 3
       data:
         first:
           name: _WaveAmp
@@ -237,6 +237,10 @@ Material:
         first:
           name: _ScaleSpeed
         second: 0.73
+      data:
+        first:
+          name: _NoiseRough
+        second: 0
     m_Colors:
       data:
         first:
