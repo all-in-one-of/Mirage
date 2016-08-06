@@ -16,9 +16,6 @@ namespace Mirage
             }
             else
             {
-                // Hide mouse cursor.
-                Cursor.visible = false;
-
                 #if MIRAGE_SINGLE
 
                 // Single mode
