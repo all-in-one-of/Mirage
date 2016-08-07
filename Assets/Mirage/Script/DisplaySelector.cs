@@ -8,6 +8,17 @@ namespace Mirage
 
         void Start()
         {
+            if (QualitySettings.vSyncCount < 1)
+            {
+                // Try to limit the frame rate when vsync is disabled.
+                // Not sure if it's actually effective though.
+                Application.targetFrameRate = 75;
+
+                // Change time step mode of Swarms.
+                foreach (var swarm in FindObjectsOfType<Kvant.Swarm>())
+                    swarm.fixTimeStep = true;
+            }
+
             if (Application.isEditor)
             {
                 _cameras[0].targetDisplay = 0;

@@ -215,12 +215,17 @@ namespace Kvant
             set { _receiveShadows = value; }
         }
 
+        [SerializeField]
+        bool _fixTimeStep = false;
+
+        public bool fixTimeStep {
+            get { return _fixTimeStep; }
+            set { _fixTimeStep = value; }
+        }
+
         #endregion
 
         #region Misc Settings
-
-        [SerializeField]
-        bool _fixTimeStep = false;
 
         [SerializeField]
         float _stepsPerSecond = 60;
@@ -263,6 +268,7 @@ namespace Kvant
         Mesh _mesh;
         bool _needsReset = true;
         Vector3 _noiseOffset;
+        float _deltaAcc;
 
         // Returns how many draw calls are needed to draw all lines.
         int DrawCount {
@@ -502,7 +508,9 @@ namespace Kvant
                 {
                     // fixed time step
                     deltaTime = 1.0f / _stepsPerSecond;
-                    steps = Mathf.RoundToInt(Time.deltaTime * _stepsPerSecond);
+                    _deltaAcc += Time.deltaTime;
+                    steps = Mathf.FloorToInt(_deltaAcc * _stepsPerSecond);
+                    _deltaAcc -= steps / _stepsPerSecond;
                 }
                 else
                 {
