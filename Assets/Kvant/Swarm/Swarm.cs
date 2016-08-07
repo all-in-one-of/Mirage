@@ -17,6 +17,14 @@ namespace Kvant
         [SerializeField]
         int _historyLength = 128;
 
+        public int historyLength {
+            get { return _historyLength; }
+            set {
+                _historyLength = value;
+                Restart();
+            }
+        }
+
         [SerializeField, Range(0, 1)]
         float _throttle = 1.0f;
 
@@ -515,7 +523,7 @@ namespace Kvant
                 else
                 {
                     // variable time step
-                    deltaTime = Time.smoothDeltaTime;
+                    deltaTime = Time.deltaTime;
                     steps = 1;
                 }
 

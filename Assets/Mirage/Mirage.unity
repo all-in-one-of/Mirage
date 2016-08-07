@@ -9330,6 +9330,7 @@ GameObject:
   - 114: {fileID: 368142213}
   - 114: {fileID: 368142212}
   - 114: {fileID: 368142215}
+  - 114: {fileID: 368142218}
   - 114: {fileID: 368142216}
   - 114: {fileID: 368142217}
   m_Layer: 0
@@ -9437,6 +9438,17 @@ MonoBehaviour:
   - {fileID: 107262379}
   _buttonsToClick:
   - {fileID: 12730831}
+--- !u!114 &368142218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 368142211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b6147815f8468b4dbacde3c05324937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &368567223
 GameObject:
   m_ObjectHideFlags: 0
@@ -24812,7 +24824,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -31802,7 +31814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wiringNodePosition: {x: 371, y: 843}
-  _floatValue: 1
+  _floatValue: 0
   _interpolator:
     _interpolationType: 2
     _interpolationSpeed: 10
@@ -50615,7 +50627,7 @@ MonoBehaviour:
   - {fileID: 1448664154}
   - {fileID: 419459426}
   - {fileID: 1360221550}
-  _saturation: 1
+  _saturation: 0.8
   _highlight: 2
   _speed: 8
 --- !u!1 &1814284999
