@@ -9435,6 +9435,8 @@ MonoBehaviour:
   - {fileID: 2041440969}
   - {fileID: 27345883}
   - {fileID: 107262379}
+  _buttonsToClick:
+  - {fileID: 12730831}
 --- !u!1 &368567223
 GameObject:
   m_ObjectHideFlags: 0
@@ -14710,7 +14712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wiringNodePosition: {x: 48, y: 447}
-  _floatValue: 0
+  _floatValue: 1
   _interpolator:
     _interpolationType: 2
     _interpolationSpeed: 10
@@ -24810,7 +24812,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -24938,7 +24940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wiringNodePosition: {x: 164, y: 554}
-  _floatValue: 0
+  _floatValue: 1
   _interpolator:
     _interpolationType: 0
     _interpolationSpeed: 10
@@ -31341,7 +31343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wiringNodePosition: {x: 47, y: 212}
-  _floatValue: 0
+  _floatValue: 1
   _interpolator:
     _interpolationType: 2
     _interpolationSpeed: 10
@@ -31800,7 +31802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wiringNodePosition: {x: 371, y: 843}
-  _floatValue: 0
+  _floatValue: 1
   _interpolator:
     _interpolationType: 2
     _interpolationSpeed: 10
@@ -39083,7 +39085,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -41243,7 +41245,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -47709,7 +47711,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e5da7555040604f9438130103bdee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wiringSelected: 0
+  _wiringSelected: 1
 --- !u!1 &1737403604
 GameObject:
   m_ObjectHideFlags: 0
@@ -56306,7 +56308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e5da7555040604f9438130103bdee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wiringSelected: 1
+  _wiringSelected: 0
 --- !u!1 &1992912198
 GameObject:
   m_ObjectHideFlags: 0
@@ -56658,7 +56660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wiringNodePosition: {x: 266, y: 371}
-  _floatValue: 0
+  _floatValue: 1
   _interpolator:
     _interpolationType: 0
     _interpolationSpeed: 10
@@ -58373,7 +58375,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -59060,7 +59062,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
