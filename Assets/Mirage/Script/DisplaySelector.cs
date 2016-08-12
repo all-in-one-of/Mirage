@@ -34,9 +34,9 @@ namespace Mirage
                 #else
 
                 // Triple mode
-                _cameras[0].targetDisplay = 0;
-                _cameras[1].targetDisplay = 1;
-                _cameras[2].targetDisplay = 2;
+                _cameras[0].targetDisplay = 2; // Monitor -> 3rd display
+                _cameras[1].targetDisplay = 0; // Front -> Primary
+                _cameras[2].targetDisplay = 1; // Back -> Secondary
                 TryActivateDisplay(0);
                 TryActivateDisplay(1);
                 TryActivateDisplay(2);
